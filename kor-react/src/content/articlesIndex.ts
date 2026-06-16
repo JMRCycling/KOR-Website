@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'how-often-bleed-disc-brakes',
+    title: 'How Often to Bleed Disc Brakes (MTB & Road)',
+    description:
+      'Bleed disc brakes every 6–12 months or when the lever feels spongy. Learn mineral oil vs. DOT fluid intervals, warning signs, and when to visit a shop.',
+    category: 'maintenance',
+    tags: ['disc brakes', 'brake bleed', 'brake maintenance', 'mineral oil', 'DOT fluid'],
+    datePublished: '2026-06-16',
+    dateModified: '2026-06-16',
+    heroImage: '/images/articles/how-often-bleed-disc-brakes.webp',
+    heroImageAlt: 'Mountain bike hydraulic disc brake caliper and rotor detail close-up on a dusty trail, natural light',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 7,
+    related: ['bike-maintenance-schedule', 'when-to-replace-brake-pads', 'when-to-replace-brake-rotors'],
+  },
+  {
     slug: 'when-to-replace-brake-rotors',
     title: 'When to Replace Bike Brake Rotors (Thickness Guide)',
     description:
