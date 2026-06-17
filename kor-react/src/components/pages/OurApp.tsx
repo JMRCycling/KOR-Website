@@ -40,6 +40,7 @@ const OurApp: React.FC = () => {
       <section className="app-screen-section">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
+            <h2 className="app-section-label">Your ride, at a glance</h2>
             <p className="paragraph">
               See which parts need attention next at a glance, so you can fix issues before they ruin a ride.
             </p>
@@ -57,6 +58,7 @@ const OurApp: React.FC = () => {
       <section className="app-screen-section">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
+            <h2 className="app-section-label">Full part history</h2>
             <p className="paragraph">
               View complete part history and update details in seconds, so you always know when each component was last serviced.
             </p>
@@ -74,8 +76,9 @@ const OurApp: React.FC = () => {
       <section className="app-screen-section">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
+            <h2 className="app-section-label">Built for your setup</h2>
             <p className="paragraph">
-              Track shock setup, customize parts, and set your default bike—keep all your ride data organized in one place.
+              Track shock setup, customize parts, and set your default bike — keep all your ride data organized in one place.
             </p>
           </div>
           <div className="center slide-in">
@@ -91,6 +94,7 @@ const OurApp: React.FC = () => {
       <section className="app-screen-section">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
+            <h2 className="app-section-label">Track only what you have</h2>
             <p className="paragraph">
               Show or hide parts based on what's actually on your bike, so your dashboard stays clutter-free and relevant.
             </p>
@@ -108,6 +112,7 @@ const OurApp: React.FC = () => {
       <section className="app-screen-section">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
+            <h2 className="app-section-label">Tuned to how you ride</h2>
             <p className="paragraph">
               Adjust wear percentages and lifespan estimates to match your riding style, so alerts fit how you actually use your bike.
             </p>
