@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import StructuredData from '../common/StructuredData';
 import { trackAppDownload } from '../common/GoogleAnalytics';
+import CountUp from '../common/CountUp';
 
 const Home: React.FC = () => {
   const baseUrl = process.env.REACT_APP_SITE_URL || 'https://jmrcycling.com';
@@ -98,7 +99,7 @@ const Home: React.FC = () => {
                   <div className="wear-bar-track">
                     <div className="wear-bar-fill wear-bar-fill--warn" style={{ width: '81%' }} />
                   </div>
-                  <span className="wear-pct">81%</span>
+                  <CountUp to={81} suffix="%" className="wear-pct" />
                 </article>
                 <article className="wear-card wear-card--good" role="listitem">
                   <div className="wear-card-header">
@@ -108,7 +109,7 @@ const Home: React.FC = () => {
                   <div className="wear-bar-track">
                     <div className="wear-bar-fill wear-bar-fill--good" style={{ width: '45%' }} />
                   </div>
-                  <span className="wear-pct">45%</span>
+                  <CountUp to={45} suffix="%" className="wear-pct" duration={1600} />
                 </article>
                 <article className="wear-card wear-card--good" role="listitem">
                   <div className="wear-card-header">
@@ -118,7 +119,7 @@ const Home: React.FC = () => {
                   <div className="wear-bar-track">
                     <div className="wear-bar-fill wear-bar-fill--good" style={{ width: '28%' }} />
                   </div>
-                  <span className="wear-pct">28%</span>
+                  <CountUp to={28} suffix="%" className="wear-pct" duration={1800} />
                 </article>
               </div>
               <p className="wear-demo-footnote">
