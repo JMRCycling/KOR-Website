@@ -2350,3 +2350,244 @@ a.payment-card2, a.payment-card3 {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   FAQ PAGE
+   ============================================================ */
+
+.faq-page-hero {
+  background-color: var(--primary-color);
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+}
+
+.faq-page-title {
+  font-family: var(--heading-font);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: #fff;
+  margin: 0 0 1rem;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+.faq-page-subtitle {
+  font-family: var(--paragraph-font);
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.faq-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-accordion-item {
+  border: 1px solid rgba(46, 64, 83, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.faq-accordion-item.open {
+  box-shadow: 0 4px 16px rgba(46, 64, 83, 0.12);
+}
+
+.faq-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 1rem;
+}
+
+.faq-trigger:hover {
+  background-color: rgba(46, 64, 83, 0.04);
+}
+
+.faq-trigger-text {
+  font-family: var(--paragraph-font);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  line-height: 1.4;
+}
+
+.faq-trigger-icon {
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--accent-color);
+  line-height: 1;
+}
+
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 1.5rem;
+}
+
+.faq-accordion-item.open .faq-panel {
+  max-height: 400px;
+  padding: 0 1.5rem 1.25rem;
+}
+
+.faq-panel-text {
+  font-family: var(--paragraph-font);
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+  margin: 0;
+  border-top: 1px solid rgba(46, 64, 83, 0.1);
+  padding-top: 1rem;
+}
+
+/* FAQ ask form */
+.faq-ask-section {
+  background-color: var(--primary-color);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.faq-ask-title {
+  font-family: var(--heading-font);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #fff;
+  margin: 0 0 0.5rem;
+}
+
+.faq-ask-subtitle {
+  font-family: var(--paragraph-font);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 2rem;
+}
+
+.faq-ask-form {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.faq-ask-form .form_line label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.faq-ask-form .form_line input,
+.faq-ask-form .form_line textarea {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-radius: 6px;
+}
+
+.faq-ask-form .form_line input::placeholder,
+.faq-ask-form .form_line textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.faq-ask-form .btn {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* ============================================================
+   OUR APP — section labels
+   ============================================================ */
+
+.app-section-label {
+  font-family: var(--heading-font);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--headline-color-on-dark);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   PERSONAL PLANS — hero title (no pill)
+   ============================================================ */
+
+.plans-hero-title {
+  font-family: var(--heading-font);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.7);
+  margin: 0 0 1.5rem;
+}
+
+/* ============================================================
+   STATS ROW
+   ============================================================ */
+
+.stats-row {
+  position: relative;
+  background-color: var(--primary-color);
+  padding: 3.5rem 2rem;
+  overflow: hidden;
+}
+
+.stats-row-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--heading-font);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  color: #fff;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.stat-label {
+  font-family: var(--paragraph-font);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .stats-row-inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .stat-divider {
+    width: 3rem;
+    height: 1px;
+  }
+}
