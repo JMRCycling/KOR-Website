@@ -27,7 +27,7 @@ const Home: React.FC = () => {
               <h1 id="hero-title" className="title_box">KOR (Keep On Rolling)</h1>
               <div className="cta-section">
                 <p className="cta-heading">Get Started Today - Free Download!</p>
-                <p className="paragraph">Show up for every ride with a bike that’s ready to roll.</p>
+                <p className="paragraph">Show up for every ride with a bike that's ready to roll.</p>
                 <div className="app-store-buttons">
                   <a
                     href="https://play.google.com/store/apps/details?id=com.robtuft.newKOR"
@@ -57,79 +57,73 @@ const Home: React.FC = () => {
                   </a>
                 </div>
                 <div className="secondary-cta">
-                  <p className="cta-subtext">Don't have a bike shop? No problem!</p>
                   <Link className="personal-cta-button" to="/personal-plans">
-                    KOR’s personal plans keep your maintenance dialed in wherever you 
-                    ride, so you get pro-level tracking without needing a dedicated 
-                    mechanic. → 
+                    No bike shop? Try personal plans →
                   </Link>
                 </div>
                 <p className="cta-trust-signal">
-                  Free to download · Secure Strava integration
+                  Free to download &middot; Secure Strava integration
                 </p>
               </div>
 
               <div className="mobile_textbox">
                 <h2 className="hero-subtitle">
-                    Spend less time worrying about maintenance and more time enjoying the 
-                    ride.
+                  Spend less time worrying about maintenance and more time enjoying the ride.
                 </h2>
                 <p className="paragraph">
-                  Keep On Rolling is a bike maintenance app that tracks your component
-                  wear from your Strava rides and alerts you before parts fail, so you
-                  never miss a ride to a broken bike again.
+                  KOR tracks your bike component wear from your Strava rides and alerts
+                  you before parts fail, so you never miss a ride to a broken bike again.
                 </p>
-                <div className="key-benefits">
-                  <div className="benefit-point">
-                    <strong>Smart Tracking:</strong> Automatically monitors component wear
-                  </div>
-                  <div className="benefit-point">
-                    <strong>Strava Integration:</strong> Uses your ride data
-                  </div>
-                  <div className="benefit-point">
-                    <strong>Proactive Alerts:</strong> Know before parts fail
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="features-section" aria-labelledby="features-title">
+      <section className="features-section wear-demo-section" aria-labelledby="features-title">
         <div className="parallax_parent">
           <div className="parallax2_home">
             <div style={{ padding: '5%' }}>
-              <h2 id="features-title">Why Choose KOR?</h2>
-              <div className="point-content" role="list">
-                <article className="point-card" role="listitem">
-                  <h3 className="title">Dedicated Support</h3>
-                  <p className="paragraph-on-dark">
-                    Get personal help from our founders. We're passionate
-                    cyclists who understand your needs and are here to ensure
-                    you have the best experience with KOR.
-                  </p>
-                  <Link className="point-link" to="/contact">
-                    Contact Us
-                  </Link>
+              <h2 id="features-title" className="wear-demo-heading">Know before it fails.</h2>
+              <p className="wear-demo-subheading">
+                KOR reads your Strava ride data and calculates real component wear so you
+                can see exactly when to service before something breaks on the trail.
+              </p>
+              <div className="wear-demo-grid" role="list">
+                <article className="wear-card wear-card--warn" role="listitem">
+                  <div className="wear-card-header">
+                    <span className="wear-component-name">Chain</span>
+                    <span className="wear-badge wear-badge--warn">Replace Soon</span>
+                  </div>
+                  <div className="wear-bar-track">
+                    <div className="wear-bar-fill wear-bar-fill--warn" style={{ width: '81%' }} />
+                  </div>
+                  <span className="wear-pct">81%</span>
                 </article>
-                <article className="point-card" role="listitem">
-                  <h3 className="title">Simple & Intuitive</h3>
-                  <p className="paragraph-on-dark">
-                    Simple, intuitive design built by riders means no complicated 
-                    setup—just ride and KOR handles the tracking.
-                  </p>
+                <article className="wear-card wear-card--good" role="listitem">
+                  <div className="wear-card-header">
+                    <span className="wear-component-name">Brake Pads</span>
+                    <span className="wear-badge wear-badge--good">Good</span>
+                  </div>
+                  <div className="wear-bar-track">
+                    <div className="wear-bar-fill wear-bar-fill--good" style={{ width: '45%' }} />
+                  </div>
+                  <span className="wear-pct">45%</span>
                 </article>
-                <article className="point-card" role="listitem">
-                  <h3 className="title">Stay Ride-Ready</h3>
-                  <p className="paragraph-on-dark">
-                    Peak riding season shouldn’t be ruined by preventable mechanical 
-                    problems. Advanced algorithms predict when components need attention,
-                    so you can ride with confidence knowing KOR is watching your 
-                    components for you.
-                  </p>
+                <article className="wear-card wear-card--good" role="listitem">
+                  <div className="wear-card-header">
+                    <span className="wear-component-name">Cassette</span>
+                    <span className="wear-badge wear-badge--good">Good</span>
+                  </div>
+                  <div className="wear-bar-track">
+                    <div className="wear-bar-fill wear-bar-fill--good" style={{ width: '28%' }} />
+                  </div>
+                  <span className="wear-pct">28%</span>
                 </article>
               </div>
+              <p className="wear-demo-footnote">
+                All tracking happens automatically — no manual logging, no guesswork.
+              </p>
             </div>
           </div>
         </div>
