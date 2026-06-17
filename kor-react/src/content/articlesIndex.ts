@@ -16,6 +16,23 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'when-to-replace-bike-tires',
+    title: 'When to Replace Bike Tires: Mileage & 6 Wear Signs',
+    description:
+      'Bike tires last 1,000–3,000 miles on the road, less for MTB. Six wear signs — squared tread, casing threads, sidewall cracks — tell you when to replace.',
+    category: 'maintenance',
+    tags: ['bike tires', 'tire wear', 'maintenance', 'MTB', 'road bike'],
+    datePublished: '2026-06-17',
+    dateModified: '2026-06-17',
+    heroImage: '/images/articles/when-to-replace-bike-tires.webp',
+    heroImageAlt:
+      'Mountain bike tire on rocky trail showing knobby tread close-up, outdoor natural lighting, ultra-realistic 16:9',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 8,
+    related: ['bike-maintenance-schedule', 'tubeless-sealant-how-often', 'pre-ride-bike-check'],
+  },
+  {
     slug: 'how-often-bleed-disc-brakes',
     title: 'How Often to Bleed Disc Brakes (MTB & Road)',
     description:
