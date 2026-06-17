@@ -1,42 +1,69 @@
 import React, { useState } from 'react';
 import StructuredData from '../common/StructuredData';
 
+const faqs = [
+  {
+    question: 'I just bought a used bike — how can I track it accurately?',
+    answer:
+      'The app has a "Part Settings" page where you can manually set the wear percentage for used parts. We recommend having a bike shop estimate the condition of your components for the most accurate tracking.',
+  },
+  {
+    question: 'Can I use this app without a shop?',
+    answer:
+      'Absolutely! You can use our free version or purchase a personal account plan. We do recommend getting a shop code from a participating bike shop — it unlocks additional features and enhanced support.',
+  },
+  {
+    question: 'I lost my personal account code before entering it in the app. What now?',
+    answer:
+      'No problem. Contact us via email with your account information and we\'ll help you retrieve your personal account code.',
+  },
+  {
+    question: 'What if I don\'t have every part — no dropper, no rear shock, etc.?',
+    answer:
+      'KOR is flexible. Use the bike settings page to customize which components you want to track based on your specific setup. You can easily add or remove suspension, dropper posts, tubeless sealant, and more.',
+  },
+  {
+    question: 'How does the QR code system work?',
+    answer:
+      'Bike shops can generate a QR code from their KOR dashboard. When a customer scans it, they\'re taken straight to the app store with the shop code pre-filled — zero friction onboarding.',
+  },
+];
+
 const FAQ: React.FC = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    question: ''
+    question: '',
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
   const baseUrl = process.env.REACT_APP_SITE_URL || 'https://jmrcycling.com';
 
+  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitMessage('');
-    
+
     try {
-      // Use Formspree to handle form submission
       const formspreeId = process.env.REACT_APP_FORMSPREE_ID || 'myyvklzv';
       const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           message: formData.question,
           _replyto: formData.email,
-          _subject: 'KOR FAQ Question'
+          _subject: 'KOR FAQ Question',
         }),
       });
-      
+
       if (response.ok) {
-        setSubmitMessage('Question submitted successfully! We\'ll respond within 24 hours.');
+        setSubmitMessage("Question submitted! We'll respond within 24 hours.");
         setFormData({ name: '', email: '', question: '' });
       } else {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -49,11 +76,10 @@ const FAQ: React.FC = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -64,84 +90,58 @@ const FAQ: React.FC = () => {
         pageDescription="Answers to common questions about KOR, personal plans, shop accounts, and getting started."
         url={`${baseUrl}/faq`}
       />
-      <h1 style={{ color: 'black' }}>Frequently Asked Questions</h1>
-      <div className="FAQ">
-        <h2>Q:</h2>
-        <h3 className="question">
-          I just bought a used bike, how can I track that bike accurately?
-        </h3>
-        <h2>A:</h2>
-        <h3 className="answer">
-          The app has a "Part Settings" settings page where you can manually set
-          the wear percentage for used parts. We recommend having a bike shop
-          estimate the condition of your components for the most accurate
-          tracking.
-        </h3>
-        
-        <h2>Q:</h2>
-        <h3 className="question">Can I use this app without a shop?</h3>
-        <h2>A:</h2>
-        <h3 className="answer">
-          Absolutely! You can purchase a personal account plan or use our free
-          limited version. However, we highly recommend getting a shop code from
-          a participating bike shop as it unlocks additional features and
-          enhanced support.
-        </h3>
-        
-        <h2>Q:</h2>
-        <h3 className="question">
-          I signed up for a personal account and lost my code before entering it
-          in the app. How can I get the code?
-        </h3>
-        <h2>A:</h2>
-        <h3 className="answer">
-          No problem! Contact us via email with your account information, and
-          we'll help you retrieve your personal account code.
-        </h3>
-        
-        <h2>Q:</h2>
-        <h3 className="question">
-          What if I do not have all of the parts on my bike, like front fork,
-          rear shock, sealant, or a dropper seatpost?
-        </h3>
-        <h2>A:</h2>
-        <h3 className="answer">
-          KOR is flexible! Use the bike settings page to customize which
-          components you want to track based on your specific bike setup. You
-          can easily add or remove parts like suspension, dropper posts, and
-          tubeless sealant.
-        </h3>
-        
-        <h2>Q:</h2>
-        <h3 className="question">How do I use the QR code system?</h3>
-        <h2>A:</h2>
-        <h3 className="answer">
-          Our QR code system makes it easy for bike shops to onboard new
-          customers. Simply have your customers scan the QR code, and they will
-          be automatically redirected to the app store with your shop code
-          pre-filled for instant login.
-        </h3>
-      </div>
-      
-      <h1><span style={{ color: 'black' }}>If you have any questions</span></h1>
-      <div className="FAQ">
+
+      <section className="faq-page-hero">
+        <h1 className="faq-page-title">Frequently Asked Questions</h1>
+        <p className="faq-page-subtitle">
+          Quick answers to the most common questions about KOR.
+        </p>
+      </section>
+
+      <section className="faq-section">
+        <div className="faq-accordion" role="list">
+          {faqs.map((item, i) => (
+            <div
+              key={i}
+              className={`faq-accordion-item ${openIndex === i ? 'open' : ''}`}
+              role="listitem"
+            >
+              <button
+                className="faq-trigger"
+                onClick={() => toggle(i)}
+                aria-expanded={openIndex === i}
+              >
+                <span className="faq-trigger-text">{item.question}</span>
+                <span className="faq-trigger-icon" aria-hidden="true">
+                  {openIndex === i ? '−' : '+'}
+                </span>
+              </button>
+              <div className="faq-panel">
+                <p className="faq-panel-text">{item.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="faq-ask-section">
+        <h2 className="faq-ask-title">Still have a question?</h2>
+        <p className="faq-ask-subtitle">
+          Send it our way and we'll get back to you within 24 hours.
+        </p>
+
         {submitMessage && (
-          <div className={`form-message ${submitMessage.includes('Error') ? 'error' : 'success'}`} style={{ 
-            marginBottom: '1rem', 
-            padding: '0.75rem', 
-            borderRadius: '4px', 
-            backgroundColor: submitMessage.includes('Error') ? '#ffe6e6' : '#e6f7e6',
-            color: submitMessage.includes('Error') ? '#d63031' : '#00b894',
-            border: `1px solid ${submitMessage.includes('Error') ? '#d63031' : '#00b894'}`
-          }}>
+          <div
+            className={`form-message ${
+              submitMessage.includes('Error') ? 'error' : 'success'
+            }`}
+          >
             {submitMessage}
           </div>
         )}
+
         <form
-          action="https://formspree.io/f/myyvklzv"
-          method="post"
-          name="EmailForm"
-          className="login_form"
+          className="faq-ask-form"
           onSubmit={handleSubmit}
         >
           <div className="form_line">
@@ -150,7 +150,7 @@ const FAQ: React.FC = () => {
               type="text"
               id="name"
               name="name"
-              placeholder="first name/last name"
+              placeholder="First name / Last name"
               value={formData.name}
               onChange={handleChange}
               required
@@ -173,19 +173,18 @@ const FAQ: React.FC = () => {
             <textarea
               id="question"
               name="question"
-              placeholder="Please describe your question or concern in detail..."
+              placeholder="Describe your question or concern..."
               rows={4}
               value={formData.question}
               onChange={handleChange}
               required
             />
           </div>
-
           <button className="btn" type="submit" disabled={isSubmitting}>
             {isSubmitting ? 'Sending...' : 'Send Question'}
           </button>
         </form>
-      </div>
+      </section>
     </main>
   );
 };
