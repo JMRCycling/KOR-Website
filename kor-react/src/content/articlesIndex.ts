@@ -16,6 +16,23 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'tubeless-sealant-how-often',
+    title: 'How Often to Add Tubeless Sealant (Hours & Months)',
+    description:
+      'Refresh tubeless sealant every 2–6 months or 40–60 ride hours. Learn the dipstick check, when to top up vs. fully refresh, and signs sealant has dried out.',
+    category: 'maintenance',
+    tags: ['tubeless sealant', 'tubeless tires', 'maintenance', 'MTB', 'tire maintenance'],
+    datePublished: '2026-06-18',
+    dateModified: '2026-06-18',
+    heroImage: '/images/articles/tubeless-sealant-how-often.webp',
+    heroImageAlt:
+      'Mountain bike tire on rocky trail showing knobby tread close-up, outdoor natural lighting',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 7,
+    related: ['bike-maintenance-schedule', 'when-to-replace-bike-tires'],
+  },
+  {
     slug: 'when-to-replace-bike-tires',
     title: 'When to Replace Bike Tires: Mileage & 6 Wear Signs',
     description:
