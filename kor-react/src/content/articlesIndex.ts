@@ -16,6 +16,23 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'dropper-post-maintenance',
+    title: 'Dropper Post Maintenance: Service Intervals & Care',
+    description:
+      'Service your dropper post every 100–200 ride hours. Learn the sag and slow-return warning signs, daily care tips, and when a shop visit saves the post.',
+    category: 'maintenance',
+    tags: ['dropper post', 'dropper post maintenance', 'mountain bike', 'MTB', 'bike maintenance'],
+    datePublished: '2026-06-20',
+    dateModified: '2026-06-20',
+    heroImage: '/images/articles/dropper-post-maintenance.webp',
+    heroImageAlt:
+      'Mountain biker descending a technical trail with dropper post visible, natural outdoor lighting, action shot',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 7,
+    related: ['bike-maintenance-schedule', 'suspension-service-intervals'],
+  },
+  {
     slug: 'suspension-service-intervals',
     title: 'Fork & Shock Service Intervals: The Hour-Based Guide',
     description:

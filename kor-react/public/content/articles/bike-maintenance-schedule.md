@@ -116,7 +116,7 @@ KOR tracks sealant in ride hours because that's how it actually ages — not by 
 
 ### Dropper Post
 
-Dropper posts typically need service every 100–200 ride hours. Daily care extends that window: wipe the stanchion clean after every muddy ride and avoid leaving the post in the dropped position for long periods, which can migrate oil past the seals.
+Dropper posts typically need service every 100–200 ride hours. Daily care extends that window: wipe the stanchion clean after every muddy ride and avoid leaving the post in the dropped position for long periods, which can migrate oil past the seals. See the full [Dropper Post Maintenance](/articles/dropper-post-maintenance) guide for symptoms, service steps, and when to use a shop.
 
 Signs of overdue service: the post sags under saddle load, returns slowly to full height, or has developed side play at the collar.
 
