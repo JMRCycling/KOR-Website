@@ -16,6 +16,23 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'suspension-service-intervals',
+    title: 'Fork & Shock Service Intervals: The Hour-Based Guide',
+    description:
+      'Service your MTB fork every 50 hours, full damper rebuild at 100–200 hours. Learn the symptoms, Fox vs. RockShox intervals, and why delay costs more.',
+    category: 'maintenance',
+    tags: ['MTB suspension', 'fork service', 'shock service', 'suspension maintenance', 'mountain bike'],
+    datePublished: '2026-06-19',
+    dateModified: '2026-06-19',
+    heroImage: '/images/articles/suspension-service-intervals.webp',
+    heroImageAlt:
+      'Mountain bike fork suspension detail close-up on a trail, natural outdoor lighting, ultra-realistic 16:9',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 8,
+    related: ['bike-maintenance-schedule', 'dropper-post-maintenance'],
+  },
+  {
     slug: 'tubeless-sealant-how-often',
     title: 'How Often to Add Tubeless Sealant (Hours & Months)',
     description:
