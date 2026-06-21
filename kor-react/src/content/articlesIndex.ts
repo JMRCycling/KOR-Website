@@ -16,6 +16,23 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'bottom-bracket-creaking',
+    title: 'Bottom Bracket Creaking? Diagnosis & Replacement Guide',
+    description:
+      'A creaking BB often isn\'t the BB. Diagnose the 5 most common creak sources, check bearing wear, and know when your 3,000–10,000-mile bottom bracket is due.',
+    category: 'maintenance',
+    tags: ['bottom bracket', 'bottom bracket creaking', 'bike maintenance', 'press-fit', 'drivetrain'],
+    datePublished: '2026-06-21',
+    dateModified: '2026-06-21',
+    heroImage: '/images/articles/bottom-bracket-creaking.webp',
+    heroImageAlt:
+      'Bike mechanic working on a bicycle drivetrain in a clean professional workshop with tools organized on the wall',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 7,
+    related: ['bike-maintenance-schedule', 'when-to-replace-cassette'],
+  },
+  {
     slug: 'dropper-post-maintenance',
     title: 'Dropper Post Maintenance: Service Intervals & Care',
     description:
