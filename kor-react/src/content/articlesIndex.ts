@@ -16,6 +16,30 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'how-long-do-bike-parts-last',
+    title: 'How Long Do Bike Parts Last? Lifespan of Every Component',
+    description:
+      'Chain, cassette, brake pads, tires, suspension, and more — real mileage ranges for every major bike component and the warning signs that beat any calendar.',
+    category: 'maintenance',
+    tags: ['bike parts lifespan', 'component replacement', 'bike maintenance', 'chain wear', 'bike longevity'],
+    datePublished: '2026-06-22',
+    dateModified: '2026-06-22',
+    heroImage: '/images/articles/how-long-do-bike-parts-last.webp',
+    heroImageAlt:
+      'Collection of bicycle components laid out on a workshop surface — chain, cassette, brake pads, tires, and suspension parts',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 11,
+    related: [
+      'bike-maintenance-schedule',
+      'when-to-replace-bike-chain',
+      'when-to-replace-cassette',
+      'when-to-replace-brake-pads',
+      'when-to-replace-bike-tires',
+      'suspension-service-intervals',
+    ],
+  },
+  {
     slug: 'bottom-bracket-creaking',
     title: 'Bottom Bracket Creaking? Diagnosis & Replacement Guide',
     description:
