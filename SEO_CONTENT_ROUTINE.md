@@ -15,15 +15,15 @@ AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
 PR_CADENCE: per-article
 CURRENT_PHASE: 2
-CURRENT_ARTICLE: A11
-ARTICLES_COMPLETED_THIS_PHASE: 8
+CURRENT_ARTICLE: A12
+ARTICLES_COMPLETED_THIS_PHASE: 9
 PHASE_STATUS: in_progress
-NEXT_ACTION: create-pr
+NEXT_ACTION: build-article
 ```
 
 > **PR_CADENCE: per-article** — After every article build, set `NEXT_ACTION: create-pr` regardless of batch size. The `BATCH_SIZES` check is skipped. Each PR covers exactly one article. Branch naming: `feature/seo-article-[slug]`.
 
-**What the agent does next:** Create PR for article A11 (bottom-bracket-creaking) on branch `feature/seo-article-bottom-bracket-creaking`.
+**What the agent does next:** Build article A12 (how-long-do-bike-parts-last) on branch `feature/seo-article-how-long-do-bike-parts-last`. A11 PR (#28) was already merged; status advanced.
 
 ---
 
