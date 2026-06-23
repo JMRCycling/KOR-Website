@@ -1349,6 +1349,51 @@ button.mobile-link:hover {
     min-height: 40vh;
   }
 }
+
+/* ── Section-level parallax backgrounds ───────────────────────────────
+   Used on app-screen-sections so the phone mockup floats over scenery.
+   Overlay is baked into the gradient so text stays legible.
+   ===================================================================== */
+.app-screen-section--parallax-alpine,
+.app-screen-section--parallax-forest {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+}
+
+.app-screen-section--parallax-alpine {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.52)),
+    url("../images/app_bg_1_alpine.webp");
+  background-position: center 40%;
+}
+
+.app-screen-section--parallax-forest {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.52)),
+    url("../images/app_bg_2_forest.webp");
+  background-position: center 30%;
+}
+
+/* Text on parallax sections must be white */
+.app-screen-section--parallax-alpine .app-section-label,
+.app-screen-section--parallax-alpine .our_app_textbox h2,
+.app-screen-section--parallax-forest .app-section-label,
+.app-screen-section--parallax-forest .our_app_textbox h2 {
+  color: #fff;
+}
+
+.app-screen-section--parallax-alpine .our_app_textbox .paragraph,
+.app-screen-section--parallax-forest .our_app_textbox .paragraph {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 900px) {
+  .app-screen-section--parallax-alpine,
+  .app-screen-section--parallax-forest {
+    background-attachment: scroll;
+  }
+}
 h1, h2 {
   text-align: center;
   font-family: var(--heading-font);

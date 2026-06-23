@@ -39,8 +39,8 @@ const OurApp: React.FC = () => {
         </div>
       </section>
 
-      {/* Section 2 — image flips left at 768px+ */}
-      <section className="app-screen-section app-screen-section--reverse">
+      {/* Section 2 — alpine parallax bg, image flips left at 768px+ */}
+      <section className="app-screen-section app-screen-section--reverse app-screen-section--parallax-alpine">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h2 className="app-section-label">Your ride, at a glance</h2>
@@ -58,11 +58,6 @@ const OurApp: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Parallax interlude 1 — alpine golden hour */}
-      <div className="parallax_parent">
-        <div className="parallax_app_1" role="img" aria-label="Mountain biker descending alpine singletrack at golden hour" />
-      </div>
 
       {/* Section 3 — image right */}
       <section className="app-screen-section">
@@ -104,13 +99,8 @@ const OurApp: React.FC = () => {
         </div>
       </section>
 
-      {/* Parallax interlude 2 — Pacific Northwest forest */}
-      <div className="parallax_parent">
-        <div className="parallax_app_2" role="img" aria-label="Mountain biker riding misty old-growth forest singletrack" />
-      </div>
-
-      {/* Section 5 — image right */}
-      <section className="app-screen-section">
+      {/* Section 5 — forest parallax bg, image right */}
+      <section className="app-screen-section app-screen-section--parallax-forest">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h2 className="app-section-label">Track only what you have</h2>
