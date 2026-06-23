@@ -14,8 +14,8 @@ const OurApp: React.FC = () => {
       />
       <ScrollAnimations />
 
-      {/* Section 1 — hero intro, image right */}
-      <section className="app-screen-section">
+      {/* Section 1 — alpine parallax bg, image right */}
+      <section className="app-screen-section app-screen-section--parallax-alpine">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h1>The Keep On Rolling App</h1>
@@ -59,8 +59,8 @@ const OurApp: React.FC = () => {
         </div>
       </section>
 
-      {/* Section 3 — image right */}
-      <section className="app-screen-section">
+      {/* Section 3 — forest parallax bg, image right */}
+      <section className="app-screen-section app-screen-section--parallax-forest">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h2 className="app-section-label">Full part history</h2>
@@ -79,8 +79,8 @@ const OurApp: React.FC = () => {
         </div>
       </section>
 
-      {/* Section 4 — image flips left at 768px+ */}
-      <section className="app-screen-section app-screen-section--reverse">
+      {/* Section 4 — forest parallax bg, image flips left at 768px+ */}
+      <section className="app-screen-section app-screen-section--reverse app-screen-section--parallax-forest">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h2 className="app-section-label">Built for your setup</h2>
@@ -99,8 +99,8 @@ const OurApp: React.FC = () => {
         </div>
       </section>
 
-      {/* Section 5 — forest parallax bg, image right */}
-      <section className="app-screen-section app-screen-section--parallax-forest">
+      {/* Section 5 — canyon parallax bg, image right */}
+      <section className="app-screen-section app-screen-section--parallax-canyon">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h2 className="app-section-label">Track only what you have</h2>
@@ -119,8 +119,8 @@ const OurApp: React.FC = () => {
         </div>
       </section>
 
-      {/* Section 6 — image flips left at 768px+ */}
-      <section className="app-screen-section app-screen-section--reverse">
+      {/* Section 6 — canyon parallax bg, image flips left at 768px+ */}
+      <section className="app-screen-section app-screen-section--reverse app-screen-section--parallax-canyon">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h2 className="app-section-label">Tuned to how you ride</h2>
@@ -138,11 +138,6 @@ const OurApp: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Parallax interlude 3 — Utah canyon sunset */}
-      <div className="parallax_parent">
-        <div className="parallax_app_3" role="img" aria-label="Mountain biker on canyon ridgeline at sunset" />
-      </div>
 
       {/* Call to Action */}
       <section className="cta-banner">

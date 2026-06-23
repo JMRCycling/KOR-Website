@@ -1375,22 +1375,33 @@ button.mobile-link:hover {
   background-position: center 30%;
 }
 
-/* Text on parallax sections must be white */
+.app-screen-section--parallax-canyon {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48)),
+    url("../images/app_bg_3_canyon.webp");
+  background-position: center 50%;
+}
+
+/* Text on all parallax sections must be white */
 .app-screen-section--parallax-alpine .app-section-label,
+.app-screen-section--parallax-alpine .our_app_textbox h1,
 .app-screen-section--parallax-alpine .our_app_textbox h2,
 .app-screen-section--parallax-forest .app-section-label,
-.app-screen-section--parallax-forest .our_app_textbox h2 {
+.app-screen-section--parallax-forest .our_app_textbox h2,
+.app-screen-section--parallax-canyon .app-section-label,
+.app-screen-section--parallax-canyon .our_app_textbox h2 {
   color: #fff;
 }
 
 .app-screen-section--parallax-alpine .our_app_textbox .paragraph,
-.app-screen-section--parallax-forest .our_app_textbox .paragraph {
+.app-screen-section--parallax-forest .our_app_textbox .paragraph,
+.app-screen-section--parallax-canyon .our_app_textbox .paragraph {
   color: rgba(255, 255, 255, 0.88);
 }
 
 @media (max-width: 900px) {
   .app-screen-section--parallax-alpine,
-  .app-screen-section--parallax-forest {
+  .app-screen-section--parallax-forest,
+  .app-screen-section--parallax-canyon {
     background-attachment: scroll;
   }
 }
