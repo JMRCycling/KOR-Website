@@ -16,6 +16,32 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'how-to-plan-a-bike-ride',
+    title: 'How to Plan a Bike Ride: Route, Gear & Bike Prep',
+    description:
+      'Plan any bike ride the right way: match distance to fitness, pick a route, fuel correctly, pack smart, and run a pre-ride check — with checklists to copy.',
+    category: 'ride-planning',
+    tags: ['bike ride planning', 'cycling route planning', 'cycling kit', 'pre-ride check', 'fueling for cycling'],
+    datePublished: '2026-06-23',
+    dateModified: '2026-06-23',
+    heroImage: '/images/articles/how-to-plan-a-bike-ride.webp',
+    heroImageAlt:
+      'Two cyclists on a scenic mountain road with wide valley landscape and clear blue sky, outdoor natural lighting',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 11,
+    related: [
+      'pre-ride-bike-check',
+      'what-to-bring-on-a-bike-ride',
+      'cycling-route-planning-apps',
+      'prepare-for-a-long-bike-ride',
+      'group-ride-tips',
+      'cycling-in-the-rain',
+      'bikepacking-for-beginners',
+      'bike-maintenance-schedule',
+    ],
+  },
+  {
     slug: 'how-long-do-bike-parts-last',
     title: 'How Long Do Bike Parts Last? Lifespan of Every Component',
     description:
