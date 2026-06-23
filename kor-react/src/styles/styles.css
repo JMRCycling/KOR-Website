@@ -140,13 +140,12 @@
   font-size: 0.9em;
 }
 
-/* CTA Banner Styles */
+/* CTA Banner Styles — mobile-first (375px base) */
 .cta-banner {
   background: var(--primary-color);
-  background-size: cover;
-  padding: 3em 2em;
+  padding: 3rem 1.25rem;
   text-align: center;
-  color: white;
+  color: #fff;
 }
 
 /* Modern Signin Page Styles */
@@ -557,23 +556,32 @@
   margin: 0 auto;
 }
 
+/* Small eyebrow line above the main CTA headline */
+.cta-banner-eyebrow {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
 .cta-banner-title {
-  font-size: 2.8em;
+  font-size: clamp(1.8rem, 5vw, 3rem);
   font-family: var(--heading-font);
-  margin-bottom: 0.5em;
+  margin-bottom: 0.75rem;
 }
 
 .cta-banner-text {
-  font-size: 1.3em;
-  margin-bottom: 1.5em;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
 }
 
+/* Stacked on 375px, side-by-side from 768px */
 .cta-banner-buttons {
   display: flex;
-  justify-content: center;
-  gap: 1em;
-  flex-wrap: wrap;
-  margin-bottom: 1.5em;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .cta-banner-secondary a {
@@ -587,8 +595,9 @@
   color: white;
 }
 
+/* Visible on navy — was #555 which disappeared */
 .cta-divider {
-  color: #555;
+  color: rgba(255, 255, 255, 0.3);
   margin: 0 0.5em;
 }
 
@@ -763,45 +772,77 @@ select:focus {
   z-index: 1;
 }
 
-/* Specific styling for app screens */
+/* ============================================================
+   OUR APP PAGE — Mobile-first layout (375 / 768 / 1024 / 1440)
+   ============================================================ */
+
+/* Section wrapper — 375px base */
 .app-screen-section {
-  min-height: 80vh;
-  /* background-color: var(--secondary-color); */
-  margin: 0;
-  padding: 4rem 0;
+  padding: 3rem 1.25rem;
+  background-color: #fff;
 }
 
-/* Responsive grid layout for app content */
+/* Even-numbered sections get a near-white tint for visual alternation */
+.app-screen-section--reverse {
+  background-color: #f7f8fa;
+}
+
+/* Single-column grid on mobile; expands to two at 768px */
 .app-content-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
 }
 
-/* Media queries for responsiveness */
+/* Image column wrapper — keeps screenshot visually centered in its cell */
+.our-app-image-col {
+  display: flex;
+  justify-content: center;
+}
+
+/* Intro paragraph (first section) — slightly bolder, more breathing room below */
+.our-app-intro-text {
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+/* iOS fix: parallax background-attachment:fixed causes jank on mobile */
 @media screen and (max-width: 900px) {
   .parallax-section {
     background-attachment: scroll;
     min-height: 60vh;
   }
-  
-  .app-content-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .app-screen-section {
-    min-height: auto;
-    padding: 2rem 0;
-  }
-  
+
   .parallax-content {
     padding: 1rem;
   }
+}
+
+/* ── 768px ────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .app-screen-section        { padding: 4rem 2.5rem; }
+  .app-content-grid          { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .cta-banner                { padding: 4rem 2.5rem; }
+  .cta-banner-buttons        { flex-direction: row; justify-content: center; }
+  /* Flip image to the left on --reverse sections, creating visual rhythm */
+  .app-screen-section--reverse .our-app-image-col { order: -1; }
+}
+
+/* ── 1024px ───────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .app-screen-section        { padding: 5rem 3rem; }
+  .app-content-grid          { gap: 4rem; }
+  .cta-banner                { padding: 5rem 3rem; }
+}
+
+/* ── 1440px ───────────────────────────────────────── */
+@media (min-width: 1440px) {
+  .app-screen-section        { padding: 6rem 4rem; }
+  .cta-banner                { padding: 6rem 4rem; }
+  .cta-banner-content        { max-width: 900px; }
 }
 
 /* Slide-in animation */
@@ -1737,31 +1778,37 @@ a.payment-card2, a.payment-card3 {
 
 }
 
+/* Text column — no background box; reads cleanly against section bg */
 .our_app_textbox {
-  background-color: var(--secondary-color);
-  border-radius: 20px;
-  padding: 1.5rem;
-  margin: 1rem 0;
+  padding: 0;
 }
 
 .our_app_textbox .paragraph {
-  color: var(--headline-color-on-dark);
-  margin: 1rem 0;
+  color: #333;
+  margin: 0;
 }
 
 .our_app_textbox h1 {
-  color: var(--headline-color-on-dark);
+  font-family: var(--heading-font);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--headline-color-on-white);
   margin-bottom: 1rem;
 }
-.our_app_grid {
-  display: grid;
-  grid-template-columns: .75fr .25fr;
-}
 
+/* App screenshot — aspect-ratio governs; fixed heights caused overflow bugs */
+/* drop-shadow follows the transparent alpha channel; box-shadow would be rectangular */
 .our_app_example {
-  height: 40rem;
-
+  width: 100%;
+  max-width: 260px;      /* 375px: phone screenshots are tall and narrow */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
 }
+
+@media (min-width: 768px)  { .our_app_example { max-width: 300px; } }
+@media (min-width: 1024px) { .our_app_example { max-width: 340px; } }
+@media (min-width: 1440px) { .our_app_example { max-width: 380px; } }
 
 
 
@@ -1901,51 +1948,6 @@ a.payment-card2, a.payment-card3 {
   .store_buttons {
     width: 35%;
   }
-  .our_app_textbox {
-    background-color: var(--secondary-color);
-    margin: 10%;
-    border-radius: 20px;
-  }
-  .our_app_grid {
-    display: block;
-    /* grid-template-columns: .75fr .25fr; */
-  }
-  
-  .our_app_example {
-    height: 60rem;
-  }
-  
-  /* CTA Mobile Styles */
-  .store_buttons_large {
-    max-width: 180px;
-  }
-  
-  .cta-banner {
-    padding: 2em 1em;
-  }
-  
-  .cta-banner-title {
-    font-size: 2.2em;
-  }
-  
-  .cta-banner-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .app-store-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .cta-section {
-    padding: 1em;
-  }
-  
-  .cta-heading {
-    font-size: 1.8em;
-  }
-  
   /* Form Mobile Styles */
   .contact-form-container {
     margin: 1em;
@@ -1969,7 +1971,7 @@ a.payment-card2, a.payment-card3 {
     display: block;
   }
   
-  h1, .hero-subtitle, .cta-banner-title, .form-title {
+  h1, .hero-subtitle, .form-title {
     font-size: 2em;
   }
   
@@ -2512,7 +2514,7 @@ a.payment-card2, a.payment-card3 {
 .app-section-label {
   font-family: var(--heading-font);
   font-size: clamp(1.4rem, 2.5vw, 2rem);
-  color: var(--headline-color-on-dark);
+  color: var(--headline-color-on-white);
   margin: 0 0 0.75rem;
   letter-spacing: 0.01em;
 }
