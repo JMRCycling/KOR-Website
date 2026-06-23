@@ -13,11 +13,13 @@ const OurApp: React.FC = () => {
         url={`${baseUrl}/our-app`}
       />
       <ScrollAnimations />
+
+      {/* Section 1 — hero intro, image right */}
       <section className="app-screen-section">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h1>The Keep On Rolling App</h1>
-            <p className="paragraph" style={{ fontWeight: 500, marginBottom: '1.5rem' }}>
+            <p className="paragraph our-app-intro-text">
               KOR prevents surprise failures, keeps your bike ride-ready, and removes the guesswork from maintenance—so you can focus on riding, not wrenching.
             </p>
             <p className="paragraph">
@@ -27,17 +29,18 @@ const OurApp: React.FC = () => {
               calculate the percentage of wear on your bicycle.
             </p>
           </div>
-          <div className="center slide-in">
+          <div className="our-app-image-col slide-in">
             <img
               className="our_app_example"
-              src="/images/WelcomeScreenshot.png"
+              src="/images/Welcome.png"
               alt="App Home Screen"
             />
           </div>
         </div>
       </section>
 
-      <section className="app-screen-section">
+      {/* Section 2 — image flips left at 768px+ */}
+      <section className="app-screen-section app-screen-section--reverse">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h2 className="app-section-label">Your ride, at a glance</h2>
@@ -45,16 +48,18 @@ const OurApp: React.FC = () => {
               See which parts need attention next at a glance, so you can fix issues before they ruin a ride.
             </p>
           </div>
-          <div className="center slide-in">
+          <div className="our-app-image-col slide-in">
             <img
-              src="/images/BikeDashboard.png"
+              src="/images/Dashboard.png"
               className="our_app_example"
               alt="App Dashboard"
+              loading="lazy"
             />
           </div>
         </div>
       </section>
 
+      {/* Section 3 — image right */}
       <section className="app-screen-section">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
@@ -63,17 +68,19 @@ const OurApp: React.FC = () => {
               View complete part history and update details in seconds, so you always know when each component was last serviced.
             </p>
           </div>
-          <div className="center slide-in">
+          <div className="our-app-image-col slide-in">
             <img
               className="our_app_example"
               src="/images/PartPopup.png"
               alt="App Part Screen"
+              loading="lazy"
             />
           </div>
         </div>
       </section>
 
-      <section className="app-screen-section">
+      {/* Section 4 — image flips left at 768px+ */}
+      <section className="app-screen-section app-screen-section--reverse">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h2 className="app-section-label">Built for your setup</h2>
@@ -81,16 +88,18 @@ const OurApp: React.FC = () => {
               Track shock setup, customize parts, and set your default bike — keep all your ride data organized in one place.
             </p>
           </div>
-          <div className="center slide-in">
+          <div className="our-app-image-col slide-in">
             <img
               className="our_app_example"
-              src="/images/BikeSettings.png"
+              src="/images/BikeReg.png"
               alt="Bike Settings Screen"
+              loading="lazy"
             />
           </div>
         </div>
       </section>
 
+      {/* Section 5 — image right */}
       <section className="app-screen-section">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
@@ -99,17 +108,19 @@ const OurApp: React.FC = () => {
               Show or hide parts based on what's actually on your bike, so your dashboard stays clutter-free and relevant.
             </p>
           </div>
-          <div className="center slide-in">
+          <div className="our-app-image-col slide-in">
             <img
               className="our_app_example"
-              src="/images/PartVisibility.png"
+              src="/images/PartVis.png"
               alt="App Part Visibility"
+              loading="lazy"
             />
           </div>
         </div>
       </section>
 
-      <section className="app-screen-section">
+      {/* Section 6 — image flips left at 768px+ */}
+      <section className="app-screen-section app-screen-section--reverse">
         <div className="app-content-grid">
           <div className="our_app_textbox slide-in">
             <h2 className="app-section-label">Tuned to how you ride</h2>
@@ -117,26 +128,27 @@ const OurApp: React.FC = () => {
               Adjust wear percentages and lifespan estimates to match your riding style, so alerts fit how you actually use your bike.
             </p>
           </div>
-          <div className="center slide-in">
+          <div className="our-app-image-col slide-in">
             <img
               className="our_app_example"
-              src="/images/PartSettings.png"
+              src="/images/Tools.png"
               alt="Part Settings Screen"
+              loading="lazy"
             />
           </div>
         </div>
       </section>
 
-      {/* Call to Action Section */}
+      {/* Call to Action */}
       <section className="cta-banner">
         <div className="cta-banner-content">
-          <p className="cta-banner-text" style={{ marginBottom: '0.5rem', fontSize: '1rem' }}>
+          <p className="cta-banner-eyebrow">
             Join riders already using KOR to keep their bikes dialed in all season.
           </p>
           <h2 className="cta-banner-title">
             Ready to Never Miss Maintenance Again?
           </h2>
-          <p className="cta-banner-text" style={{ marginBottom: '1.5rem' }}>
+          <p className="cta-banner-text">
             Free to download—only upgrade if it's working for you.
           </p>
           <div className="cta-banner-buttons">
