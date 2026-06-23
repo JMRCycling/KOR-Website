@@ -59,6 +59,11 @@ const OurApp: React.FC = () => {
         </div>
       </section>
 
+      {/* Parallax interlude 1 — alpine golden hour */}
+      <div className="parallax_parent">
+        <div className="parallax_app_1" role="img" aria-label="Mountain biker descending alpine singletrack at golden hour" />
+      </div>
+
       {/* Section 3 — image right */}
       <section className="app-screen-section">
         <div className="app-content-grid">
@@ -99,6 +104,11 @@ const OurApp: React.FC = () => {
         </div>
       </section>
 
+      {/* Parallax interlude 2 — Pacific Northwest forest */}
+      <div className="parallax_parent">
+        <div className="parallax_app_2" role="img" aria-label="Mountain biker riding misty old-growth forest singletrack" />
+      </div>
+
       {/* Section 5 — image right */}
       <section className="app-screen-section">
         <div className="app-content-grid">
@@ -138,6 +148,11 @@ const OurApp: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Parallax interlude 3 — Utah canyon sunset */}
+      <div className="parallax_parent">
+        <div className="parallax_app_3" role="img" aria-label="Mountain biker on canyon ridgeline at sunset" />
+      </div>
 
       {/* Call to Action */}
       <section className="cta-banner">

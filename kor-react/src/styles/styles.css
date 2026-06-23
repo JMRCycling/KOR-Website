@@ -1288,17 +1288,66 @@ button.mobile-link:hover {
 }
 
 .parallax2_our_story {
-  /* The image used */
   background-image: url("../images/story_secondary_bg.webp");
-
-  /* Set a specific height */
-  /* min-height: 700px; */
-
-  /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* ============================================================
+   OUR APP — parallax interlude sections
+   ============================================================ */
+
+/* Shared base for all three interludes */
+.parallax_app_1,
+.parallax_app_2,
+.parallax_app_3 {
+  min-height: 55vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Subtle dark overlay baked in via gradient so text (if added later) stays readable */
+  position: relative;
+}
+
+.parallax_app_1::after,
+.parallax_app_2::after,
+.parallax_app_3::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* 1 — Alpine golden hour (between sections 2 & 3) */
+.parallax_app_1 {
+  background-image: url("../images/app_bg_1_alpine.webp");
+  background-position: center 40%;
+}
+
+/* 2 — Pacific Northwest forest (between sections 4 & 5) */
+.parallax_app_2 {
+  background-image: url("../images/app_bg_2_forest.webp");
+  background-position: center 30%;
+}
+
+/* 3 — Utah canyon sunset (before CTA) */
+.parallax_app_3 {
+  background-image: url("../images/app_bg_3_canyon.webp");
+  background-position: center 50%;
+  min-height: 60vh;
+}
+
+/* iOS: background-attachment:fixed causes jank — fall back to scroll */
+@media (max-width: 900px) {
+  .parallax_app_1,
+  .parallax_app_2,
+  .parallax_app_3 {
+    background-attachment: scroll;
+    min-height: 40vh;
+  }
 }
 h1, h2 {
   text-align: center;
