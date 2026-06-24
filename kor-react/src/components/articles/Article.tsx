@@ -100,7 +100,7 @@ const Article: React.FC = () => {
         {/* CTA Banner */}
         <section className="cta-banner article-cta">
           <div className="cta-banner-content">
-            <h2 className="cta-banner-title">Stop guessing when parts need service.</h2>
+            <h2 className="cta-banner-title">Never let maintenance keep you from riding again!</h2>
             <p className="cta-banner-text">
               KOR connects to Strava and tracks wear on your chain, brake pads, tires, suspension
               and more — then alerts you before they fail.

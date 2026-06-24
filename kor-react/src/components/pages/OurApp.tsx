@@ -21,7 +21,7 @@ const OurApp: React.FC = () => {
             <div className="our_app_textbox slide-in">
               <h1>The Keep On Rolling App</h1>
               <p className="paragraph our-app-intro-text">
-                KOR prevents surprise failures, keeps your bike ride-ready, and removes the guesswork from maintenance—so you can focus on riding, not wrenching.
+                KOR prevents surprise failures, keeps your bike ride-ready, and removes the guesswork from maintenance—so you can focus on riding.
               </p>
               <p className="paragraph">
                 This application integrates with a third-party application,
@@ -149,7 +149,7 @@ const OurApp: React.FC = () => {
             Join riders already using KOR to keep their bikes dialed in all season.
           </p>
           <h2 className="cta-banner-title">
-            Ready to Never Miss Maintenance Again?
+            Never let maintenance keep you from riding again!
           </h2>
           <p className="cta-banner-text">
             Free to download—only upgrade if it's working for you.

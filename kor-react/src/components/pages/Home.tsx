@@ -74,7 +74,7 @@ const Home: React.FC = () => {
 
               <div className="mobile_textbox">
                 <h2 className="hero-subtitle">
-                  Spend less time worrying about maintenance and more time enjoying the ride.
+                  Never let maintenance keep you from riding again!
                 </h2>
                 <p className="paragraph">
                   KOR tracks your bike component wear from your Strava rides and alerts

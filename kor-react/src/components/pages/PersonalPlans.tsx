@@ -274,7 +274,7 @@ const PersonalPlans: React.FC = () => {
               style={{ marginTop: '2rem', textAlign: 'center' }}
             >
               <h2 style={{ color: 'black', marginBottom: '1rem' }}>
-                Ready to Never Miss Maintenance Again?
+                Never let maintenance keep you from riding again!
               </h2>
               <div className='app-store-buttons'>
                 <a
