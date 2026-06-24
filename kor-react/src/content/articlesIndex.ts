@@ -16,6 +16,23 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'pre-ride-bike-check',
+    title: 'The 5-Minute Pre-Ride Bike Check (M-Check Guide)',
+    description:
+      'Run a 5-minute M-check before every ride: step-by-step from front axle to rear brake, with tire pressure by discipline and what each finding means.',
+    category: 'ride-planning',
+    tags: ['pre ride bike check', 'M-check', 'pre-ride inspection', 'bike safety check', 'cycling safety'],
+    datePublished: '2026-06-24',
+    dateModified: '2026-06-24',
+    heroImage: '/images/articles/pre-ride-bike-check.webp',
+    heroImageAlt:
+      'Cyclist in helmet inspecting bicycle brake and wheel before a ride, ready to go, outdoor natural lighting',
+    author: 'KOR Cycling Team',
+    schemaType: 'HowTo',
+    readingTime: 7,
+    related: ['how-to-plan-a-bike-ride', 'bike-maintenance-schedule', 'when-to-replace-bike-tires'],
+  },
+  {
     slug: 'how-to-plan-a-bike-ride',
     title: 'How to Plan a Bike Ride: Route, Gear & Bike Prep',
     description:
