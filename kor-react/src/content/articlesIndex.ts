@@ -16,6 +16,23 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'what-to-bring-on-a-bike-ride',
+    title: 'What to Bring on a Bike Ride: Packing Lists by Distance',
+    description:
+      'Exactly what to pack for rides under 1 hour, 1–3 hours, and all-day: repair kit essentials, food and water math, and gear differences by discipline.',
+    category: 'ride-planning',
+    tags: ['what to bring on a bike ride', 'cycling packing list', 'bike ride essentials', 'cycling gear', 'repair kit'],
+    datePublished: '2026-06-25',
+    dateModified: '2026-06-25',
+    heroImage: '/images/articles/what-to-bring-on-a-bike-ride.webp',
+    heroImageAlt:
+      'Cycling gear flat-lay on a surface: pump, multitool, tube, energy bars, water bottle, and phone, natural lighting',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 7,
+    related: ['how-to-plan-a-bike-ride', 'pre-ride-bike-check', 'prepare-for-a-long-bike-ride'],
+  },
+  {
     slug: 'pre-ride-bike-check',
     title: 'The 5-Minute Pre-Ride Bike Check (M-Check Guide)',
     description:
