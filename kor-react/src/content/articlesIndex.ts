@@ -16,6 +16,23 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'cycling-route-planning-apps',
+    title: 'Best Cycling Route Planners: Strava, Komoot, RWGPS & More',
+    description:
+      'Strava Routes, Komoot, and Ride with GPS compared: features, pricing, surface-type data, and which app fits your riding so you can pick one and use it.',
+    category: 'ride-planning',
+    tags: ['cycling route planner', 'Strava Routes', 'Komoot', 'Ride with GPS', 'route planning'],
+    datePublished: '2026-06-26',
+    dateModified: '2026-06-26',
+    heroImage: '/images/articles/cycling-route-planning-apps.webp',
+    heroImageAlt:
+      'Cyclist checking a GPS navigation device mounted on handlebars on a scenic mountain trail, natural outdoor lighting',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 8,
+    related: ['how-to-plan-a-bike-ride', 'strava-tips-for-cyclists'],
+  },
+  {
     slug: 'what-to-bring-on-a-bike-ride',
     title: 'What to Bring on a Bike Ride: Packing Lists by Distance',
     description:
