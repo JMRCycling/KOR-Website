@@ -16,6 +16,23 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'prepare-for-a-long-bike-ride',
+    title: 'How to Prepare for a Long Bike Ride (Training to Tune-Up)',
+    description:
+      'Build up distance safely, nail your fueling and pacing, and get your bike ready weeks ahead — a complete prep guide for your longest rides yet.',
+    category: 'ride-planning',
+    tags: ['how to prepare for a long bike ride', 'cycling long ride prep', 'fueling for cycling', 'cycling training', 'bike prep'],
+    datePublished: '2026-06-27',
+    dateModified: '2026-06-27',
+    heroImage: '/images/articles/prepare-for-a-long-bike-ride.webp',
+    heroImageAlt:
+      'Two cyclists riding on a wide open mountain road with dramatic landscape and clear sky, outdoor natural lighting',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 8,
+    related: ['how-to-plan-a-bike-ride', 'pre-ride-bike-check', 'what-to-bring-on-a-bike-ride', 'bike-maintenance-schedule'],
+  },
+  {
     slug: 'cycling-route-planning-apps',
     title: 'Best Cycling Route Planners: Strava, Komoot, RWGPS & More',
     description:
