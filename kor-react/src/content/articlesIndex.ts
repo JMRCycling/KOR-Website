@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'group-ride-tips',
+    title: 'Group Ride Tips: Etiquette, Signals & How Not to Get Dropped',
+    description:
+      'New to group riding? Learn ride categories, paceline basics, hand signals, and the unwritten rules that keep everyone safe and rolling together.',
+    category: 'ride-planning',
+    tags: ['group riding', 'cycling etiquette', 'paceline', 'cycling tips', 'beginner cycling'],
+    datePublished: '2026-06-28',
+    dateModified: '2026-06-28',
+    heroImage: '/images/articles/group-ride-tips.webp',
+    heroImageAlt: 'Group of cyclists riding in a tight paceline on a sunny road, wearing colorful cycling kit',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 7,
+    related: ['how-to-plan-a-bike-ride', 'pre-ride-bike-check', 'what-to-bring-on-a-bike-ride'],
+  },
+  {
     slug: 'prepare-for-a-long-bike-ride',
     title: 'How to Prepare for a Long Bike Ride (Training to Tune-Up)',
     description:
