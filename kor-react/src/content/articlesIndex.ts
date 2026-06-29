@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'cycling-in-the-rain',
+    title: 'Cycling in the Rain: Riding Tips & Post-Ride Bike Care',
+    description:
+      'Wet-road braking, cornering, visibility, and the 10-minute post-rain routine that keeps chain wear from tripling. Ride safely and protect your bike.',
+    category: 'ride-planning',
+    tags: ['cycling in the rain', 'wet weather cycling', 'rain riding tips', 'bike maintenance', 'wet lube'],
+    datePublished: '2026-06-29',
+    dateModified: '2026-06-29',
+    heroImage: '/images/articles/cycling-in-the-rain.webp',
+    heroImageAlt: 'Cyclist riding on a wet glistening road in the rain, water droplets visible on the bike and road surface',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 7,
+    related: ['how-to-plan-a-bike-ride', 'when-to-replace-bike-chain', 'when-to-replace-brake-pads', 'tubeless-sealant-how-often'],
+  },
+  {
     slug: 'group-ride-tips',
     title: 'Group Ride Tips: Etiquette, Signals & How Not to Get Dropped',
     description:
