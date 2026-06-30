@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'bikepacking-for-beginners',
+    title: 'Bikepacking for Beginners: Plan Your First Overnighter',
+    description:
+      'Start bikepacking with the S24O method: gear, bags, route tips, and a pre-trip service checklist so your first overnighter goes as planned.',
+    category: 'ride-planning',
+    tags: ['bikepacking for beginners', 'bikepacking', 'bike camping', 'overnighter', 'S24O'],
+    datePublished: '2026-06-30',
+    dateModified: '2026-06-30',
+    heroImage: '/images/articles/bikepacking-for-beginners.webp',
+    heroImageAlt: 'Bikepacker riding a loaded mountain bike on a dirt trail at sunrise with full bag setup and scenic landscape',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 8,
+    related: ['how-to-plan-a-bike-ride', 'what-to-bring-on-a-bike-ride', 'cycling-route-planning-apps', 'bike-maintenance-schedule'],
+  },
+  {
     slug: 'cycling-in-the-rain',
     title: 'Cycling in the Rain: Riding Tips & Post-Ride Bike Care',
     description:
