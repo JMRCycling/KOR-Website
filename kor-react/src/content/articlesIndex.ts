@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'bike-maintenance-for-beginners',
+    title: 'Bike Maintenance for Beginners: The 8 Skills That Matter',
+    description:
+      'Learn the 8 bike maintenance skills every rider needs, a starter tool kit under $100, and the service cadence that keeps your bike running smoothly.',
+    category: 'cycling-basics',
+    tags: ['bike maintenance for beginners', 'beginner bike maintenance', 'bike care basics', 'bike tools', 'M-check'],
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-01',
+    heroImage: '/images/articles/bike-maintenance-for-beginners.webp',
+    heroImageAlt: 'Cyclist performing basic maintenance on a clean bicycle outdoors with tools laid out nearby',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 8,
+    related: ['bike-maintenance-schedule', 'how-to-measure-chain-wear', 'pre-ride-bike-check'],
+  },
+  {
     slug: 'bikepacking-for-beginners',
     title: 'Bikepacking for Beginners: Plan Your First Overnighter',
     description:
