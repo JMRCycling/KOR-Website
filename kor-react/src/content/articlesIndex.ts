@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'how-to-buy-a-used-bike',
+    title: 'How to Buy a Used Bike: Inspection Checklist & Red Flags',
+    description:
+      "How to buy a used bike without regret: pricing research, a full inspection checklist, test-ride checks, and how to negotiate on wear you find yourself.",
+    category: 'cycling-basics',
+    tags: ['how to buy a used bike', 'used bike checklist', 'used bike inspection', 'buying a used bicycle', 'bike red flags'],
+    datePublished: '2026-07-02',
+    dateModified: '2026-07-02',
+    heroImage: '/images/articles/how-to-buy-a-used-bike.webp',
+    heroImageAlt: "Person inspecting a used bicycle's drivetrain and frame at a bike shop before purchase",
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 9,
+    related: ['how-to-measure-chain-wear', 'how-long-do-bike-parts-last', 'bike-maintenance-for-beginners'],
+  },
+  {
     slug: 'bike-maintenance-for-beginners',
     title: 'Bike Maintenance for Beginners: The 8 Skills That Matter',
     description:
