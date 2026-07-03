@@ -15,15 +15,15 @@ AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
 PR_CADENCE: per-article
 CURRENT_PHASE: 4
-CURRENT_ARTICLE: C3
-ARTICLES_COMPLETED_THIS_PHASE: 2
+CURRENT_ARTICLE: C2
+ARTICLES_COMPLETED_THIS_PHASE: 3
 PHASE_STATUS: in_progress
 NEXT_ACTION: create-pr
 ```
 
 > **PR_CADENCE: per-article** — After every article build, set `NEXT_ACTION: create-pr` regardless of batch size. The `BATCH_SIZES` check is skipped. Each PR covers exactly one article. Branch naming: `feature/seo-article-[slug]`.
 
-**What the agent does next:** C1 (how-to-buy-a-used-bike) built on branch `feature/seo-article-how-to-buy-a-used-bike`. Next: create PR for this article, then advance to C3 (bike-tune-up-cost).
+**What the agent does next:** C3 (bike-tune-up-cost) built on branch `feature/seo-article-bike-tune-up-cost` (PR #42 for C1 confirmed merged to main before this run started). Next: create PR for this article, then advance to C2 (strava-tips-for-cyclists).
 
 ---
 
@@ -138,7 +138,7 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 - [x] C8 (on-ramp)
 - [x] C1
-- [ ] C3
+- [x] C3
 - [ ] C2
 - [ ] C4
 - [ ] C5
