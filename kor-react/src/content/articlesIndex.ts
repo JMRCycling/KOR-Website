@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'bike-tune-up-cost',
+    title: "Bike Tune-Up Cost: What Shops Charge & What's Included",
+    description:
+      "Bike tune-up cost by tier: basic ($50–$100), standard ($100–$180), and overhaul ($200+). What's included, what parts cost extra, and which tier you need.",
+    category: 'cycling-basics',
+    tags: ['bike tune up cost', 'bike tune up price', 'bicycle tune up', 'bike shop pricing', 'bike service cost'],
+    datePublished: '2026-07-03',
+    dateModified: '2026-07-03',
+    heroImage: '/images/articles/bike-tune-up-cost.webp',
+    heroImageAlt: 'Bike mechanic working on a bicycle drivetrain at a workbench in a professional shop',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 8,
+    related: ['bike-maintenance-schedule', 'how-long-do-bike-parts-last', 'how-to-buy-a-used-bike'],
+  },
+  {
     slug: 'how-to-buy-a-used-bike',
     title: 'How to Buy a Used Bike: Inspection Checklist & Red Flags',
     description:
