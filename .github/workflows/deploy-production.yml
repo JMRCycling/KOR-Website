@@ -37,6 +37,7 @@ jobs:
           REACT_APP_FORMSPREE_ID: ${{ vars.REACT_APP_FORMSPREE_ID }}
           REACT_APP_POSTHOG_KEY: ${{ vars.REACT_APP_POSTHOG_KEY }}
           REACT_APP_POSTHOG_HOST: ${{ vars.REACT_APP_POSTHOG_HOST }}
+          REACT_APP_API_AUTH_TOKEN: ${{ secrets.REACT_APP_API_AUTH_TOKEN }}
         run: npm run build
 
       - name: Verify build output
