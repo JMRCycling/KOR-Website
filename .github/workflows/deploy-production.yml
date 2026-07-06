@@ -29,6 +29,14 @@ jobs:
         working-directory: kor-react
         env:
           NODE_ENV: production
+          REACT_APP_ENVIRONMENT: production
+          REACT_APP_SITE_URL: ${{ vars.REACT_APP_SITE_URL }}
+          REACT_APP_AUTH0_DOMAIN: ${{ vars.REACT_APP_AUTH0_DOMAIN }}
+          REACT_APP_AUTH0_CLIENT_ID: ${{ vars.REACT_APP_AUTH0_CLIENT_ID }}
+          REACT_APP_CHARGEBEE_SITE: ${{ vars.REACT_APP_CHARGEBEE_SITE }}
+          REACT_APP_FORMSPREE_ID: ${{ vars.REACT_APP_FORMSPREE_ID }}
+          REACT_APP_POSTHOG_KEY: ${{ vars.REACT_APP_POSTHOG_KEY }}
+          REACT_APP_POSTHOG_HOST: ${{ vars.REACT_APP_POSTHOG_HOST }}
         run: npm run build
 
       - name: Verify build output
