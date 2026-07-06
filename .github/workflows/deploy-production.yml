@@ -53,6 +53,7 @@ jobs:
       - name: Upload source maps to PostHog
         if: ${{ env.POSTHOG_CLI_API_KEY != '' }}
         working-directory: kor-react
+        continue-on-error: true
         env:
           POSTHOG_CLI_API_KEY: ${{ secrets.POSTHOG_CLI_API_KEY }}
           POSTHOG_CLI_PROJECT_ID: ${{ secrets.POSTHOG_CLI_PROJECT_ID }}
