@@ -42,6 +42,19 @@ jobs:
             exit 1
           fi
 
+      - name: Upload source maps to PostHog
+        if: ${{ secrets.POSTHOG_CLI_API_KEY != '' }}
+        working-directory: kor-react
+        env:
+          POSTHOG_CLI_API_KEY: ${{ secrets.POSTHOG_CLI_API_KEY }}
+          POSTHOG_CLI_PROJECT_ID: ${{ secrets.POSTHOG_CLI_PROJECT_ID }}
+        run: |
+          npx --yes @posthog/cli@0.8.1 sourcemap process \
+            --directory build \
+            --release-name kor-website \
+            --release-version "${{ github.sha }}" \
+            --delete-after
+
       - name: Set up SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
