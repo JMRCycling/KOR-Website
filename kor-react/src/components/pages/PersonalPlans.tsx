@@ -69,7 +69,7 @@ const PersonalPlans: React.FC = () => {
       <div className='parallax_parent'>
         <div className='parallax_sign_up'>
           <div style={{ padding: '5%' }}>
-            <h1 className='title_box'>Personal Account Plans</h1>
+            <h1 className='plans-hero-title'>Personal Account Plans</h1>
             <div className='mobile_textbox'>
               <p className='paragraph'>
                 Perfect for individual cyclists who want to track their bike
@@ -274,7 +274,7 @@ const PersonalPlans: React.FC = () => {
               style={{ marginTop: '2rem', textAlign: 'center' }}
             >
               <h2 style={{ color: 'black', marginBottom: '1rem' }}>
-                Ready to Never Miss Maintenance Again?
+                Never let maintenance keep you from riding again!
               </h2>
               <div className='app-store-buttons'>
                 <a

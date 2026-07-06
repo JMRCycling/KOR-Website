@@ -81,6 +81,8 @@ Resin pads typically run 500–1,000 miles in normal conditions; metallic or sin
 
 Visual check: look through the caliper from behind the wheel. If the pad material is thin or you're hearing grinding (not just squeal — grinding), stop riding until you inspect.
 
+Read more: [When to Replace Bike Brake Pads](/articles/when-to-replace-brake-pads)
+
 ### Tires
 
 Road tires typically last 1,000–2,500 miles; more durable touring compounds can reach 3,000. MTB tires wear by knob erosion and casing damage rather than a simple mileage counter — a tire with flat-topped, squared-off center knobs has reached end of life for technical terrain, even if the sidewalls look fine.
@@ -114,7 +116,7 @@ KOR tracks sealant in ride hours because that's how it actually ages — not by 
 
 ### Dropper Post
 
-Dropper posts typically need service every 100–200 ride hours. Daily care extends that window: wipe the stanchion clean after every muddy ride and avoid leaving the post in the dropped position for long periods, which can migrate oil past the seals.
+Dropper posts typically need service every 100–200 ride hours. Daily care extends that window: wipe the stanchion clean after every muddy ride and avoid leaving the post in the dropped position for long periods, which can migrate oil past the seals. See the full [Dropper Post Maintenance](/articles/dropper-post-maintenance) guide for symptoms, service steps, and when to use a shop.
 
 Signs of overdue service: the post sags under saddle load, returns slowly to full height, or has developed side play at the collar.
 
@@ -159,7 +161,7 @@ Check periodically for play (grab the crankarm and push/pull it laterally) and r
 
 - Inspect cables and housing for fraying and sluggish movement
 - Check derailleur hanger — a bent hanger is the most common cause of poor shifting
-- Inspect brake rotors for contamination and measure thickness
+- Inspect brake rotors for contamination and [measure thickness](/articles/when-to-replace-brake-rotors)
 - Check cassette visually for shark-tooth cog profile
 - Inspect fork seals and add fresh suspension fluid if seeping
 

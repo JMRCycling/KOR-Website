@@ -13,14 +13,17 @@
 ROUTINE_VERSION: 2026-06-10
 AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
-CURRENT_PHASE: 2
-CURRENT_ARTICLE: A4
-ARTICLES_COMPLETED_THIS_PHASE: 0
+PR_CADENCE: per-article
+CURRENT_PHASE: 4
+CURRENT_ARTICLE: C4
+ARTICLES_COMPLETED_THIS_PHASE: 4
 PHASE_STATUS: in_progress
-NEXT_ACTION: build-article
+NEXT_ACTION: create-pr
 ```
 
-**What the agent does next:** Build article A4 (when-to-replace-brake-pads). Phase 2a batch (A0–A3) complete and PR created. Phase 2b starts: A4–A8 (5 articles). After A8, create PR feature/seo-phase-2b-brakes-tires.
+> **PR_CADENCE: per-article** — After every article build, set `NEXT_ACTION: create-pr` regardless of batch size. The `BATCH_SIZES` check is skipped. Each PR covers exactly one article. Branch naming: `feature/seo-article-[slug]`.
+
+**What the agent does next:** C2 (strava-tips-for-cyclists) built on branch `feature/seo-article-strava-tips-for-cyclists` (PR #43 for C3 confirmed merged to main before this run started). Next: create PR for this article, then advance to C4 (new-bike-checklist).
 
 ---
 
@@ -79,11 +82,11 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 #### Phase 2b: A4, A5, A6, A7, A8 (Brakes & Tires)
 
-- [ ] A4
-- [ ] A5
-- [ ] A6
-- [ ] A7
-- [ ] A8
+- [x] A4
+- [x] A5
+- [x] A6
+- [x] A7
+- [x] A8
 
 **Batch Complete → PR:** `feature/seo-phase-2b-brakes-tires`
 
@@ -91,10 +94,10 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 #### Phase 2c: A9, A10, A11, A12 (Suspension, BB, Hub)
 
-- [ ] A9
-- [ ] A10
-- [ ] A11
-- [ ] A12
+- [x] A9
+- [x] A10
+- [x] A11
+- [x] A12
 
 **Batch Complete → PR:** `feature/seo-phase-2c-suspension-bb` (final 2a merge: update CURRENT_PHASE to 3, CURRENT_ARTICLE to B0)
 
@@ -109,14 +112,14 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 #### Phase 3: B0–B7
 
-- [ ] B0 (pillar)
-- [ ] B1
-- [ ] B2
-- [ ] B3
-- [ ] B4
-- [ ] B5
-- [ ] B6
-- [ ] B7
+- [x] B0 (pillar)
+- [x] B1
+- [x] B2
+- [x] B3
+- [x] B4
+- [x] B5
+- [x] B6
+- [x] B7
 
 **Phase Complete → PR:** `feature/seo-phase-3-ride-planning` (final merge: update CURRENT_PHASE to 4, CURRENT_ARTICLE to C8)
 
@@ -133,10 +136,10 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 #### Phase 4: C8, C1, C3, C2, C4, C5, C6, C7
 
-- [ ] C8 (on-ramp)
-- [ ] C1
-- [ ] C3
-- [ ] C2
+- [x] C8 (on-ramp)
+- [x] C1
+- [x] C3
+- [x] C2
 - [ ] C4
 - [ ] C5
 - [ ] C6

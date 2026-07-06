@@ -14,31 +14,33 @@ const OurStory: React.FC = () => {
       <div className="parallax_parent">
         <div className="parallax_our_story">
           <div style={{ padding: '5%' }}>
-            <div className="mobile_textbox" style={{ opacity: 0.75 }}>
+            <div className="mobile_textbox">
               <h1>Our Story</h1>
-              <h3 className="paragraph">
+              <p className="paragraph">
                 We began with an idea to address the inconvenience of waiting
                 weeks for bike parts due to supply chain issues. Jessica Wyman
                 initially conceived this idea and later collaborated with Mason
                 Tuft and Robert Tuft to develop an app to solve this problem. We
-                started working on this project back in June 2020, and it has
+                started working on this project back in June 2020 — and it has
                 been a long journey, but we are thrilled to present our app to
-                you now!
-              </h3>
+                you now.
+              </p>
             </div>
           </div>
         </div>
       </div>
       <div className="parallax_parent">
         <div className="parallax2_our_story">
-          <div style={{ padding: '20%' }}>
-            <div className="mobile_textbox" style={{ opacity: 0.75 }}>
+          <div style={{ padding: '5%' }}>
+            <div className="mobile_textbox">
               <h1>Our Audience</h1>
-              <h3 className="paragraph">
-                We had this App originally tailored to high school mountain bike
-                racers. We have recently adapted to other types of riders from
-                hobbyists to pro racers!
-              </h3>
+              <p className="paragraph">
+                KOR started as a tool for high school mountain bike racers who
+                needed to stay on top of their components without a dedicated
+                mechanic. Since then we've grown to serve everyone from weekend
+                hobbyists to competitive racers — anyone who wants to spend more
+                time riding and less time guessing when to wrench.
+              </p>
             </div>
           </div>
         </div>
