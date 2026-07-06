@@ -7,6 +7,9 @@ export const initPostHog = () => {
   if (typeof window !== 'undefined' && shouldInitialize) {
     posthog.init(process.env.REACT_APP_POSTHOG_KEY || '', {
       api_host: process.env.REACT_APP_POSTHOG_HOST || 'https://us.i.posthog.com',
+      // api_host is now our reverse proxy (k.jmrcycling.com), which only handles
+      // ingestion — the dashboard/toolbar UI is still served from PostHog itself.
+      ui_host: 'https://us.posthog.com',
       person_profiles: 'identified_only',
       // Explicitly enable session recording
       disable_session_recording: false,
