@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { } from '@auth0/auth0-react';
 import LegacyAuthGuard from '../auth/LegacyAuthGuard';
 import { useLegacyParams, logLegacyParams } from '../../hooks/useLegacyParams';
+import posthog from '../../lib/posthog';
 
 interface FormData {
   name: string;
@@ -184,6 +185,10 @@ const PersonalSignIn: React.FC = () => {
       return;
     }
 
+    posthog.capture('personal_signup_submitted', {
+      has_plan_type: !!params.plan_type,
+      plan_type: params.plan_type || null
+    });
     setIsLoading(true);
 
     try {
@@ -246,12 +251,26 @@ const PersonalSignIn: React.FC = () => {
       sessionStorage.setItem('user_id', auth0UserId);
       console.log('💾 [PersonalSignIn] Session data stored');
 
+      posthog.identify(auth0UserId, {
+        email: formData.email,
+        name: formData.name,
+        plan_type: loginResult.plan_type[0].plan_type,
+        account_type: 'personal'
+      });
+      posthog.capture('personal_signup_completed', {
+        plan_type: loginResult.plan_type[0].plan_type
+      });
+
       // 5) Legacy redirect to QR onboard page
       const shopCode = loginResult.plan_type[0].shop_code;
       const onboardUrl = `${baseUrl}/qr/onboard/${shopCode}`;
       console.log('🎯 [PersonalSignIn] Redirecting to onboard URL', { onboardUrl });
       window.location.replace(onboardUrl);
     } catch (err: any) {
+      posthog.capture('personal_signup_error', {
+        error_message: err?.message || 'unknown'
+      });
+      posthog.captureException(err as Error);
       console.error('❌ [PersonalSignIn] Signup flow error', { message: err?.message, stack: err?.stack });
       const message =
         typeof err?.message === 'string' && err.message

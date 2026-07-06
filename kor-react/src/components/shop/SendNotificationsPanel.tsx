@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import posthog from '../../lib/posthog';
 
 interface SendState {
   sending: boolean;
@@ -52,9 +53,14 @@ const SendNotificationsPanel: React.FC = () => {
         throw new Error(text || `HTTP ${response.status}`);
       }
 
+      posthog.capture('notification_sent', {
+        shop_name,
+        message_length: message.trim().length
+      });
       setState({ sending: false, error: null, success: 'Your message has been sent to your customers.' });
       setMessage('');
     } catch (err) {
+      posthog.captureException(err as Error);
       const msg = err instanceof Error ? err.message : 'Unknown error';
       setState({ sending: false, error: msg, success: null });
     }

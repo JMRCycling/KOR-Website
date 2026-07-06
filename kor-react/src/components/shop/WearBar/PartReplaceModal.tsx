@@ -3,6 +3,7 @@ import { X, CheckCircle } from 'lucide-react';
 import { replacePart, addMileage } from '../services/partReplaceApi';
 import { getApiConfig } from '../services/shopMaintenanceApi';
 import { formatReplacedDate, isChainLike, ADD_MILES_AMOUNT, ADD_HOURS_AMOUNT } from './wearUtils';
+import posthog from '../../../lib/posthog';
 import {
   overlayStyle,
   contentStyle,
@@ -139,6 +140,14 @@ const PartReplaceModal: React.FC<PartReplaceModalProps> = ({
           brokenWorn: pendingAction.brokenWorn,
           extraBody,
         });
+        posthog.capture('part_replaced', {
+          part_type: part.partType,
+          part_label: part.label,
+          bike_name: part.bikeName,
+          wear_percent: part.wearPercent,
+          reason: pendingAction.brokenWorn,
+          unit: part.unit
+        });
         handleSuccess('replaced');
       } else {
         await addMileage({
@@ -150,9 +159,17 @@ const PartReplaceModal: React.FC<PartReplaceModalProps> = ({
           usedBodyKey: part.usedBodyKey,
           unit: part.unit,
         });
+        posthog.capture('mileage_added', {
+          part_type: part.partType,
+          part_label: part.label,
+          bike_name: part.bikeName,
+          unit: part.unit,
+          amount_added: part.unit === 'hours' ? ADD_HOURS_AMOUNT : ADD_MILES_AMOUNT
+        });
         handleSuccess('mileage_added');
       }
     } catch (err) {
+      posthog.captureException(err as Error);
       handleError(err);
     }
   };
