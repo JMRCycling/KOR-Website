@@ -325,7 +325,9 @@ const FamilyPlanSignUp: React.FC = () => {
         family_name: formData.family_name,
         account_type: 'family'
       });
-      posthog.capture('family_signup_completed');
+      posthog.capture('family_signup_completed', {
+        plan_type: 'family'
+      });
 
       // 4) Redirect to Auth0 login; user will log in using the password just created
       const redirectUri = window.location.origin + '/shop/login';

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useMemo, useState, useCallback } from 'react';
+import posthog from '../lib/posthog';
 
 export type ShopStatus = 'active' | 'paused' | 'inactive' | 'cancelled' | string;
 
@@ -52,6 +53,15 @@ export function ShopAccessProvider({ children }: { children: React.ReactNode }) 
           setPlan(data.plan_type ?? null);
           setName(data.shop_name ?? null);
           setCode(data.shop_code ?? null);
+          // Restores identity for returning sessions — Auth0's user.sub/email aren't
+          // reliably available here (silent auth often fails), so shop_code is the
+          // only stable id we have on a page load that skipped ShopLogin.
+          if (data.shop_code) {
+            posthog.identify(data.shop_code, {
+              shop_name: data.shop_name ?? null,
+              plan_type: data.plan_type ?? null
+            });
+          }
         } else {
           // Unknown response -> do not gate
           setStatus('active');
