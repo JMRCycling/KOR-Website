@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'strava-tips-for-cyclists',
+    title: '12 Strava Tips for Cyclists (Beyond Kudos & Segments)',
+    description:
+      "12 Strava tips for cyclists: privacy zone setup, segment hunting, heatmap routing, gear tracking limits, training log basics, and finding clubs that fit.",
+    category: 'cycling-basics',
+    tags: ['strava tips', 'strava for cyclists', 'strava segments', 'strava privacy zones', 'strava gear tracking'],
+    datePublished: '2026-07-06',
+    dateModified: '2026-07-06',
+    heroImage: '/images/articles/strava-tips-for-cyclists.webp',
+    heroImageAlt: 'Cyclist checking the Strava app on a phone after finishing an outdoor ride',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 8,
+    related: ['cycling-route-planning-apps', 'bike-maintenance-schedule', 'how-to-plan-a-bike-ride'],
+  },
+  {
     slug: 'bike-tune-up-cost',
     title: "Bike Tune-Up Cost: What Shops Charge & What's Included",
     description:
