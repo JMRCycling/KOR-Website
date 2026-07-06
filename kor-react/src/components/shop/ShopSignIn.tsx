@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import LegacyAuthGuard from '../auth/LegacyAuthGuard';
 import { useLegacyParams, buildLegacyUrl, logLegacyParams } from '../../hooks/useLegacyParams';
+import posthog from '../../lib/posthog';
 
 interface FormData {
   shop_name: string;
@@ -202,6 +203,10 @@ const ShopSignIn: React.FC = () => {
       return;
     }
 
+    posthog.capture('shop_signup_submitted', {
+      has_plan_type: !!params.plan_type,
+      plan_type: params.plan_type || null
+    });
     setIsLoading(true);
 
     try {
@@ -229,6 +234,16 @@ const ShopSignIn: React.FC = () => {
       await createShopAccount(auth0UserId);
       console.log('🏪 [ShopSignIn] Shop account created on server');
 
+      posthog.identify(auth0UserId, {
+        email: formData.email,
+        shop_name: formData.shop_name,
+        plan_type: params.plan_type || null,
+        account_type: 'shop'
+      });
+      posthog.capture('shop_signup_completed', {
+        plan_type: params.plan_type || null
+      });
+
       // 4) Redirect to Auth0 login; user will log in using the password just created
       const redirectUri = window.location.origin + '/shop/login';
       console.log('🔐 [ShopSignIn] Redirecting to Auth0 login', { redirectUri });
@@ -239,6 +254,10 @@ const ShopSignIn: React.FC = () => {
         }
       });
     } catch (err: any) {
+      posthog.capture('shop_signup_error', {
+        error_message: err?.message || 'unknown'
+      });
+      posthog.captureException(err as Error);
       console.error('❌ [ShopSignIn] Signup flow error', { message: err?.message, stack: err?.stack });
       const message =
         typeof err?.message === 'string' && err.message

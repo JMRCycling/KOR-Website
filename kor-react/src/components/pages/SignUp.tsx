@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import StructuredData from '../common/StructuredData';
+import posthog from '../../lib/posthog';
 
 const SignUp: React.FC = () => {
   const [demoFormData, setDemoFormData] = useState({
@@ -39,6 +40,11 @@ const SignUp: React.FC = () => {
       });
 
       if (response.ok) {
+        posthog.capture('demo_request_submitted', {
+          shop_name: demoFormData.shopName,
+          contact_name: demoFormData.contactName,
+          has_message: !!demoFormData.message.trim()
+        });
         setSubmitMessage(
           "Demo request submitted successfully! We'll contact you within 48 hours."
         );
@@ -53,6 +59,7 @@ const SignUp: React.FC = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (error) {
+      posthog.captureException(error as Error);
       console.error('Form submission error:', error);
       setSubmitMessage(
         'Error submitting request. Please try again or email us directly.'

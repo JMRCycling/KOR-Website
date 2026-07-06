@@ -2,6 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
 import { useLegacyParams, buildLegacyUrl } from '../../hooks/useLegacyParams';
+import posthog from '../../lib/posthog';
 
 const ShopLogin: React.FC = () => {
   const { loginWithRedirect, isAuthenticated, isLoading, error, user } =
@@ -64,6 +65,17 @@ const ShopLogin: React.FC = () => {
       sessionStorage.setItem('plan_type', result.plan_type[0].plan_type);
       sessionStorage.setItem('shop_token', result.plan_type[0].shop_token);
 
+      posthog.identify(user.sub || user.email || 'unknown', {
+        email: user.email,
+        shop_name: result.plan_type[0].shop_name,
+        shop_code: result.plan_type[0].shop_code,
+        plan_type: result.plan_type[0].plan_type
+      });
+      posthog.capture('shop_login_completed', {
+        shop_name: result.plan_type[0].shop_name,
+        plan_type: result.plan_type[0].plan_type
+      });
+
       // Store the viewer's identity at login time, while Auth0 is still active.
       // On subsequent page loads Auth0 silent auth often fails (e.g. localhost / 3rd-party cookies),
       // so we can't rely on auth0User being populated later.
@@ -116,6 +128,7 @@ const ShopLogin: React.FC = () => {
   ]);
 
   const handleLogin = async () => {
+    posthog.capture('shop_login_initiated');
     console.log('🚀 [ShopLogin] Login initiated:', {
       currentUrl: window.location.href,
       currentParams: params,

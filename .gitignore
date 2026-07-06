@@ -37,3 +37,6 @@ deploy-*.log
 nginx.conf.sample
 login.txt
 .gstack/
+
+# Instagram automation (local-only, not part of the website)
+instagram_automation/

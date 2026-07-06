@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import StructuredData from '../common/StructuredData';
+import posthog from '../../lib/posthog';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -39,6 +40,10 @@ const Contact: React.FC = () => {
       });
       
       if (response.ok) {
+        posthog.capture('contact_message_submitted', {
+          subject: formData.subject || 'none',
+          message_length: formData.message.length
+        });
         setSubmitMessage('Message sent successfully! We\'ll get back to you within 24 hours.');
         setFormData({ name: '', email: '', subject: '', message: '' });
         setCharacterCount(0);
@@ -46,6 +51,7 @@ const Contact: React.FC = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (error) {
+      posthog.captureException(error as Error);
       console.error('Form submission error:', error);
       setSubmitMessage('Error sending message. Please check your connection and try again, or email us directly.');
     } finally {

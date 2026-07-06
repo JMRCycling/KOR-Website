@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import posthog from '../../lib/posthog';
 import {
   useLegacyParams,
   buildLegacyUrl,
@@ -284,6 +285,9 @@ const FamilyPlanSignUp: React.FC = () => {
       return;
     }
 
+    posthog.capture('family_signup_submitted', {
+      has_sub_id: !!params.sub_id
+    });
     setIsLoading(true);
 
     try {
@@ -316,6 +320,13 @@ const FamilyPlanSignUp: React.FC = () => {
       await createFamilyAccount(auth0UserId);
       console.log('👨‍👩‍👧‍👦 [FamilyPlanSignUp] Family account created on server');
 
+      posthog.identify(auth0UserId !== 'existing-user' ? auth0UserId : formData.email, {
+        email: formData.email,
+        family_name: formData.family_name,
+        account_type: 'family'
+      });
+      posthog.capture('family_signup_completed');
+
       // 4) Redirect to Auth0 login; user will log in using the password just created
       const redirectUri = window.location.origin + '/shop/login';
       console.log('🔐 [FamilyPlanSignUp] Redirecting to Auth0 login', {
@@ -328,6 +339,10 @@ const FamilyPlanSignUp: React.FC = () => {
         }
       });
     } catch (err: any) {
+      posthog.capture('family_signup_error', {
+        error_message: err?.message || 'unknown'
+      });
+      posthog.captureException(err as Error);
       console.error('❌ [FamilyPlanSignUp] Signup flow error', {
         message: err?.message,
         stack: err?.stack
