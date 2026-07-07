@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'new-bike-checklist',
+    title: 'New Bike Checklist: 10 Things to Do After You Buy',
+    description:
+      'Just bought a bike? Dial in fit, prioritize accessories, register your serial number, and set up wear tracking before your first real ride.',
+    category: 'cycling-basics',
+    tags: ['new bike checklist', 'new bike setup', 'bike fit basics', 'new bike accessories', 'first bike maintenance'],
+    datePublished: '2026-07-07',
+    dateModified: '2026-07-07',
+    heroImage: '/images/articles/new-bike-checklist.webp',
+    heroImageAlt: 'Brand new bicycle on display in a bike shop, ready for a first fit and setup',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 7,
+    related: ['pre-ride-bike-check', 'what-to-bring-on-a-bike-ride', 'bike-maintenance-schedule'],
+  },
+  {
     slug: 'strava-tips-for-cyclists',
     title: '12 Strava Tips for Cyclists (Beyond Kudos & Segments)',
     description:
