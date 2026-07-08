@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'winter-bike-storage',
+    title: 'How to Store a Bike for Winter (Without Ruining Parts)',
+    description:
+      'Storing a bike for winter? Wash, lube, and set tire pressure the right way — plus battery, humidity, and sealant tips so nothing\'s ruined by spring.',
+    category: 'cycling-basics',
+    tags: ['winter bike storage', 'store bike for winter', 'bike storage tips', 'spring bike prep', 'off-season bike care'],
+    datePublished: '2026-07-08',
+    dateModified: '2026-07-08',
+    heroImage: '/images/articles/winter-bike-storage.webp',
+    heroImageAlt: 'Bicycle stored cleanly in a garage during winter, hung on a wall rack',
+    author: 'KOR Cycling Team',
+    schemaType: 'HowTo',
+    readingTime: 8,
+    related: ['bike-maintenance-schedule', 'when-to-replace-bike-tires', 'tubeless-sealant-how-often'],
+  },
+  {
     slug: 'new-bike-checklist',
     title: 'New Bike Checklist: 10 Things to Do After You Buy',
     description:
