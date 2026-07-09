@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'mtb-vs-road-maintenance',
+    title: 'MTB vs Road Bike Maintenance: What Changes & What Doesn\'t',
+    description:
+      'Mountain and road bikes share a maintenance core, but suspension, droppers, sealant, and mileage change the schedule. See what\'s different and what isn\'t.',
+    category: 'maintenance',
+    tags: ['mtb vs road bike maintenance', 'mountain bike maintenance', 'road bike maintenance', 'bike maintenance schedule', 'bike maintenance comparison'],
+    datePublished: '2026-07-09',
+    dateModified: '2026-07-09',
+    heroImage: '/images/articles/mtb-vs-road-maintenance.webp',
+    heroImageAlt: 'Mountain bike and road bike parked side by side outdoors, showing contrasting tire and suspension setups',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 8,
+    related: ['bike-maintenance-schedule', 'suspension-service-intervals', 'dropper-post-maintenance', 'tubeless-sealant-how-often'],
+  },
+  {
     slug: 'winter-bike-storage',
     title: 'How to Store a Bike for Winter (Without Ruining Parts)',
     description:
