@@ -18,12 +18,12 @@ CURRENT_PHASE: 4
 CURRENT_ARTICLE: C7
 ARTICLES_COMPLETED_THIS_PHASE: 7
 PHASE_STATUS: in_progress
-NEXT_ACTION: create-pr
+NEXT_ACTION: build-article
 ```
 
 > **PR_CADENCE: per-article** — After every article build, set `NEXT_ACTION: create-pr` regardless of batch size. The `BATCH_SIZES` check is skipped. Each PR covers exactly one article. Branch naming: `feature/seo-article-[slug]`.
 
-**What the agent does next:** C5 (winter-bike-storage) shipped and merged via PR #54. C6 (mtb-vs-road-maintenance) built on branch `feature/seo-article-mtb-vs-road-maintenance`. Next: create PR for this article, then advance to C7 (sram-axs-battery-life).
+**What the agent does next:** C6 (mtb-vs-road-maintenance) built and PR #55 (`feature/seo-article-mtb-vs-road-maintenance`) opened against main — awaiting user review/merge. Next: build C7 (sram-axs-battery-life) once PR #55 is merged.
 
 ---
 
