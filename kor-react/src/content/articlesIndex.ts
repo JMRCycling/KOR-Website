@@ -16,6 +16,22 @@ export interface ArticleMeta {
 
 export const articles: ArticleMeta[] = [
   {
+    slug: 'sram-axs-battery-life',
+    title: 'SRAM AXS Battery Life: How Long It Lasts & Care Tips',
+    description:
+      'SRAM AXS batteries run about 20 hours of ride time per charge, with shifter coin cells lasting roughly two years. Here\'s how to read the signs and never get stranded.',
+    category: 'maintenance',
+    tags: ['sram axs battery life', 'axs battery', 'electronic shifting maintenance', 'bike maintenance schedule', 'axs derailleur battery'],
+    datePublished: '2026-07-10',
+    dateModified: '2026-07-10',
+    heroImage: '/images/articles/sram-axs-battery-life.webp',
+    heroImageAlt: 'Close-up of a SRAM AXS electronic derailleur and battery mounted on a bicycle drivetrain',
+    author: 'KOR Cycling Team',
+    schemaType: 'Article',
+    readingTime: 7,
+    related: ['bike-maintenance-schedule', 'pre-ride-bike-check'],
+  },
+  {
     slug: 'mtb-vs-road-maintenance',
     title: 'MTB vs Road Bike Maintenance: What Changes & What Doesn\'t',
     description:
