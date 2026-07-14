@@ -17,13 +17,13 @@ PR_CADENCE: per-article
 CURRENT_PHASE: 5
 CURRENT_ARTICLE: none
 ARTICLES_COMPLETED_THIS_PHASE: 0
-PHASE_STATUS: complete_measurement
-NEXT_ACTION: final-measurement
+PHASE_STATUS: complete
+NEXT_ACTION: none
 ```
 
 > **PR_CADENCE: per-article** — After every article build, set `NEXT_ACTION: create-pr` regardless of batch size. The `BATCH_SIZES` check is skipped. Each PR covers exactly one article. Branch naming: `feature/seo-article-[slug]`.
 
-**What the agent does next:** C7 (sram-axs-battery-life) built. PR #56 (`feature/seo-article-sram-axs-battery-life`) opened against main — awaiting user review/merge. Phase 4 complete (all 8 articles: C8, C1, C3, C2, C4, C5, C6, C7). Now advancing to Phase 5 (post-launch measurement) per the Post-Launch section below.
+**What the agent does next:** Nothing — SEO content build is complete. Phase 5 (post-launch measurement) code verification finished: GA4 confirmed tracking all route changes via `GoogleAnalytics.tsx`; PostHog was found only capturing a pageview on initial load (missed SPA route changes) and was fixed via `capture_pageview: 'history_change'` in `src/lib/posthog.ts`, PR `feature/seo-post-launch-setup`. Google Search Console sitemap submission, indexing monitoring, and keyword rank tracking remain manual, human-side follow-ups (see Post-Launch section) — no further agent action pending.
 
 ---
 
@@ -153,10 +153,10 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 **Reference:** `seo-content-plan.md`, Section 7
 
-- [ ] GA: Confirm article pageviews tracked
-- [ ] PostHog: Confirm events firing
-- [ ] Google Search Console: Submit updated `public/sitemap.xml`, monitor indexing
-- [ ] Keyword rankings: Track pillar articles + A1, A4, A7, B1, C8
-- [ ] If indexing lags >4–6 weeks: propose pre-rendering (react-snap) in separate PR
+- [x] GA: Confirm article pageviews tracked — `GoogleAnalytics.tsx` renders inside `<Router>` globally and fires `pageview()` on every `useLocation` change, so `/articles` and `/articles/:slug` are covered like any other route.
+- [x] PostHog: Confirm events firing — gap found: `posthog.init()` used the default `capture_pageview: true`, which only captures a pageview on the initial hard load, not on react-router client-side navigation. Fixed by setting `capture_pageview: 'history_change'` in `src/lib/posthog.ts` (PR `feature/seo-post-launch-setup`).
+- [ ] Google Search Console: Submit updated `public/sitemap.xml`, monitor indexing — **manual, human action required** (agent has no GSC access)
+- [ ] Keyword rankings: Track pillar articles + A1, A4, A7, B1, C8 — **manual, human action required** (agent has no rank-tracking tool access)
+- [ ] If indexing lags >4–6 weeks: propose pre-rendering (react-snap) in separate PR — deferred until indexing data is available
 
 **All Complete:** Update CURRENT STATUS to `PHASE_STATUS: complete`
