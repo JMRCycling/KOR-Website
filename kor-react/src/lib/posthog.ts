@@ -11,6 +11,10 @@ export const initPostHog = () => {
       // ingestion — the dashboard/toolbar UI is still served from PostHog itself.
       ui_host: 'https://us.posthog.com',
       person_profiles: 'identified_only',
+      // Without this, PostHog only captures a pageview on the initial hard load —
+      // client-side route changes (e.g. Articles index -> article, or article -> article)
+      // via react-router never fire a new pageview.
+      capture_pageview: 'history_change',
       // Explicitly enable session recording
       disable_session_recording: false,
       // Enable debug mode in development
