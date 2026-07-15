@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ScrollAnimations from '../common/ScrollAnimations';
+import ScrollImageSequence from '../common/ScrollImageSequence';
 import StructuredData from '../common/StructuredData';
+
+const HERO_CAPTION_REVEAL_FRAME = 265;
 
 const OurApp: React.FC = () => {
   const baseUrl = process.env.REACT_APP_SITE_URL || 'https://jmrcycling.com';
+  const [heroFrame, setHeroFrame] = useState(0);
+  const isHeroCaptionVisible = heroFrame >= HERO_CAPTION_REVEAL_FRAME;
   return (
     <>
       <StructuredData
@@ -16,9 +21,25 @@ const OurApp: React.FC = () => {
 
       {/* Sections 1–2 — alpine golden hour parallax */}
       <div className="parallax-group parallax-group--alpine">
-        <section className="app-screen-section">
-          <div className="app-content-grid">
-            <div className="our_app_textbox slide-in">
+        <section className="app-screen-section app-hero-overlay-section">
+          <ScrollImageSequence
+            framePathTemplate="/images/app-welcome-sequence/frame_{index}.webp"
+            frameCount={338}
+            scrollLength={1.3}
+            fit="cover"
+            lookaheadMargin="600px 0px"
+            fallbackImageSrc="/images/Welcome.png"
+            fallbackAlt="App Home Screen"
+            topOffsetSelector="header"
+            runwayClassName="app-hero-sequence-runway"
+            stickyClassName="app-hero-sequence-sticky"
+            canvasWrapperClassName="app-hero-sequence-canvas-wrapper"
+            canvasClassName="app-hero-sequence-canvas"
+            onFrameChange={setHeroFrame}
+          >
+            <div
+              className={`our_app_textbox app-hero-overlay-text${isHeroCaptionVisible ? ' is-visible' : ''}`}
+            >
               <h1>The Keep On Rolling App</h1>
               <p className="paragraph our-app-intro-text">
                 KOR prevents surprise failures, keeps your bike ride-ready, and removes the guesswork from maintenance—so you can focus on riding.
@@ -30,14 +51,7 @@ const OurApp: React.FC = () => {
                 calculate the percentage of wear on your bicycle.
               </p>
             </div>
-            <div className="our-app-image-col slide-in">
-              <img
-                className="our_app_example"
-                src="/images/Welcome.png"
-                alt="App Home Screen"
-              />
-            </div>
-          </div>
+          </ScrollImageSequence>
         </section>
 
         <section className="app-screen-section app-screen-section--reverse">
