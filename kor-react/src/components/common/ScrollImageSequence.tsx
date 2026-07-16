@@ -10,6 +10,20 @@ interface ScrollImageSequenceProps {
   scrollLength?: number;
   /** 'contain' (default) letterboxes to avoid cropping transparent-padded content; 'cover' crop-fills. */
   fit?: 'contain' | 'cover';
+  /** Horizontal anchor, 0–1, same convention as CSS `object-position`/`background-position`: 0 =
+   * left-aligned (crops/reveals from the right), 0.5 = centered (default), 1 = right-aligned. Use
+   * to shift the subject left/right — e.g. to clear space for overlay text. */
+  focalX?: number;
+  /** Vertical anchor, 0–1, same convention: 0 = top-aligned, 0.5 = centered (default), 1 =
+   * bottom-aligned (crops from the top, keeps the bottom flush — e.g. to ground a subject at the
+   * bottom of the viewport instead of leaving it centered with an awkward gap below). */
+  focalY?: number;
+  /** Extra overscan multiplied onto the fit scale (default 1 = no zoom). Only useful together with
+   * `focalX`: a `contain` frame can be flush against one edge with zero slack left to shift into at
+   * some viewport aspects — a small zoom (e.g. 1.15) manufactures shiftable slack. Safe only when
+   * the source has generous transparent padding around the subject on the side being cropped into;
+   * verify against your specific frames before raising this. */
+  zoom?: number;
   /** IntersectionObserver rootMargin used to start preloading before the section is in view. */
   lookaheadMargin?: string;
   /** Concurrent in-flight frame requests during preload. */
@@ -54,6 +68,9 @@ const ScrollImageSequence: React.FC<ScrollImageSequenceProps> = ({
   frameDigits = 4,
   scrollLength = 2,
   fit = 'contain',
+  focalX = 0.5,
+  focalY = 0.5,
+  zoom = 1,
   lookaheadMargin = '600px 0px',
   preloadConcurrency = 6,
   fallbackImageSrc,
@@ -151,14 +168,17 @@ const ScrollImageSequence: React.FC<ScrollImageSequenceProps> = ({
       const cw = canvas.width;
       const ch = canvas.height;
       ctx.clearRect(0, 0, cw, ch);
-      const scale =
+      const baseScale =
         fit === 'cover'
           ? Math.max(cw / img.naturalWidth, ch / img.naturalHeight)
           : Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
+      const scale = baseScale * zoom;
       const drawW = img.naturalWidth * scale;
       const drawH = img.naturalHeight * scale;
-      const dx = (cw - drawW) / 2;
-      const dy = (ch - drawH) / 2;
+      // Standard object-position/background-position formula: 0 = top/left-aligned, 1 =
+      // bottom/right-aligned, 0.5 = centered — self-clamping since focalX/focalY are 0-1.
+      const dx = (cw - drawW) * focalX;
+      const dy = (ch - drawH) * focalY;
       ctx.drawImage(img, dx, dy, drawW, drawH);
     };
 
@@ -247,7 +267,7 @@ const ScrollImageSequence: React.FC<ScrollImageSequenceProps> = ({
       window.removeEventListener('resize', onResize);
       visibilityObserver.disconnect();
     };
-  }, [isStaticFallback, framePathTemplate, frameCount, frameDigits, fit, lookaheadMargin, preloadConcurrency]);
+  }, [isStaticFallback, framePathTemplate, frameCount, frameDigits, fit, focalX, focalY, zoom, lookaheadMargin, preloadConcurrency]);
 
   if (isStaticFallback) {
     return (

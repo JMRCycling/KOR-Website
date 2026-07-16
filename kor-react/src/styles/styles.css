@@ -912,9 +912,34 @@ select:focus {
 
 /* Full-bleed hero section — zero padding at every breakpoint (placed after
    the responsive .app-screen-section padding rules above so it wins the
-   cascade at every width; both selectors share specificity 0,1,0). */
+   cascade at every width; both selectors share specificity 0,1,0). Shared by
+   both full-bleed scroll-sequence sections on this page. */
 .app-hero-overlay-section {
   padding: 0;
+}
+
+/* Second scroll-sequence section ("Your ride, at a glance" / dashboard reveal).
+   Same overlay-text treatment as the hero's .app-hero-overlay-text, but
+   vertically centered on the right (not bottom-left) and always visible — no
+   frame-gated reveal here, and the sequence's focalX shifts the phone left
+   specifically so it never sits under this box (see OurApp.tsx / SCROLL-ANIMATIONS.md). */
+.our_app_textbox.app-dashboard-overlay-text {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: 3rem 1.25rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 901px) {
+  .our_app_textbox.app-dashboard-overlay-text {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 380px;
+    padding: 0;
+  }
 }
 
 /* Slide-in animation */

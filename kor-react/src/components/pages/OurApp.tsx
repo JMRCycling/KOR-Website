@@ -54,23 +54,30 @@ const OurApp: React.FC = () => {
           </ScrollImageSequence>
         </section>
 
-        <section className="app-screen-section app-screen-section--reverse">
-          <div className="app-content-grid">
-            <div className="our_app_textbox slide-in">
+        <section className="app-screen-section app-screen-section--reverse app-hero-overlay-section">
+          <ScrollImageSequence
+            framePathTemplate="/images/dashboard-sequence/frame_{index}.webp"
+            frameCount={121}
+            scrollLength={1.3}
+            fit="contain"
+            focalX={1}
+            focalY={0.7}
+            zoom={1.12}
+            lookaheadMargin="600px 0px"
+            fallbackImageSrc="/images/Dashboard.png"
+            fallbackAlt="App Dashboard"
+            runwayClassName="app-dashboard-sequence-runway"
+            stickyClassName="app-dashboard-sequence-sticky"
+            canvasWrapperClassName="app-hero-sequence-canvas-wrapper"
+            canvasClassName="app-hero-sequence-canvas"
+          >
+            <div className="our_app_textbox app-dashboard-overlay-text">
               <h2 className="app-section-label">Your ride, at a glance</h2>
               <p className="paragraph">
                 See which parts need attention next at a glance, so you can fix issues before they ruin a ride.
               </p>
             </div>
-            <div className="our-app-image-col slide-in">
-              <img
-                src="/images/Dashboard.png"
-                className="our_app_example"
-                alt="App Dashboard"
-                loading="lazy"
-              />
-            </div>
-          </div>
+          </ScrollImageSequence>
         </section>
       </div>
 
