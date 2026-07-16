@@ -290,6 +290,7 @@ The native app uses a distinct color set. This is documented for awareness — t
 | 2026-06-11 | Warm off-white `#f5f2ed` for light surfaces | "Workshop paper" feel — human-made, not SaaS. Deliberately not pure white. |
 | 2026-06-11 | Mobile app colors documented separately | App uses different greens (sage, bright green) and a cyan nav — noted as a future unification opportunity, not changed in this pass |
 | 2026-06-11 | No AI-generated app mockups in design assets | Real app screenshots are the source of truth for mobile UI; synthetic renders that don't match the actual app create false reference |
+| 2026-07-15 | Scroll-scrubbed image-sequence hero exempted from "No scroll-driven theater" | Our App page's first hero section uses a canvas-rendered, IntersectionObserver-gated frame sequence pinned via CSS `position: sticky` to play the app's welcome screen settling into view as the user scrolls, replacing a static screenshot. Deliberate, scoped exception — one hero section, not a site-wide pattern — with a static-image fallback under `prefers-reduced-motion` and on mobile (<900px), matching the existing `.parallax-group` breakpoint. See `SCROLL-ANIMATIONS.md`. |
 ```css
 :root {
   --font-heading: 'League Gothic', sans-serif;

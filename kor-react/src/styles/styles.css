@@ -803,6 +803,71 @@ select:focus {
   justify-content: center;
 }
 
+/* Section 1 hero — scroll-scrubbed image sequence overlaid on the
+   parallax background, text floating on top (matches the Home hero
+   "photo front and center, title floats on top" pattern in DESIGN.md).
+   Below 901px this component renders a plain fallback <img> instead —
+   it stacks normally, same as every other screenshot on this page.
+   Above that, the canvas becomes a full-bleed absolute background so
+   the phone mockup scales with the whole section rather than a narrow
+   grid column (source frames are 1920x1080 with the phone occupying
+   only ~28% of frame width, so a small boxed canvas reads too small). */
+.app-hero-sequence-canvas-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.app-hero-sequence-canvas {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+}
+
+/* .our_app_textbox.app-hero-overlay-text (not just .app-hero-overlay-text)
+   so this padding wins over the later, equal-specificity `.our_app_textbox
+   { padding: 0 }` rule regardless of source order. */
+.our_app_textbox.app-hero-overlay-text {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: 3rem 1.25rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+@media (min-width: 901px) {
+  .app-hero-sequence-canvas-wrapper {
+    position: absolute;
+    inset: 0;
+  }
+  .app-hero-sequence-canvas {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    aspect-ratio: auto;
+  }
+  /* Above 901px this becomes a frame-gated caption in the bottom-left corner
+     (see OurApp.tsx — ScrollImageSequence's onFrameChange toggles `.is-visible`
+     once the scroll-driven frame reaches HERO_CAPTION_REVEAL_FRAME) rather than
+     the always-visible top-aligned block it is on mobile. */
+  .our_app_textbox.app-hero-overlay-text {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    padding: 0;
+    opacity: 0;
+    transform: translateY(16px);
+    pointer-events: none;
+  }
+  .our_app_textbox.app-hero-overlay-text.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
 /* Intro paragraph (first section) — slightly bolder, more breathing room below */
 .our-app-intro-text {
   font-weight: 500;
@@ -845,6 +910,13 @@ select:focus {
   .cta-banner-content        { max-width: 900px; }
 }
 
+/* Full-bleed hero section — zero padding at every breakpoint (placed after
+   the responsive .app-screen-section padding rules above so it wins the
+   cascade at every width; both selectors share specificity 0,1,0). */
+.app-hero-overlay-section {
+  padding: 0;
+}
+
 /* Slide-in animation */
 .slide-in {
   opacity: 1; /* Default visible for fallback */
@@ -875,6 +947,60 @@ select:focus {
 .slide-in:nth-child(1) { transition-delay: 0s; }
 .slide-in:nth-child(2) { transition-delay: 0.2s; }
 .slide-in:nth-child(3) { transition-delay: 0.4s; }
+
+/* ============================================================
+   SCROLL IMAGE SEQUENCE — generic base styles
+   src/components/common/ScrollImageSequence.tsx
+   Only rendered on the pinned/desktop branch — mobile (<900px)
+   and prefers-reduced-motion render a plain <img> instead (see
+   the component's isStaticFallback check), so no CSS fallback
+   override is needed here.
+   ============================================================ */
+.scroll-image-sequence-runway {
+  position: relative;
+}
+
+.scroll-image-sequence-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scroll-image-sequence-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fallback <img> (mobile / prefers-reduced-motion branch) — always renders at its
+   own natural aspect ratio, regardless of what aspect-ratio/height the consumer's
+   canvasClassName sets (that's sized for the canvas's source frames, e.g. 16:9
+   landscape — the fallback is typically a different, purpose-shot static asset,
+   e.g. a portrait phone screenshot, and forcing it into the canvas's box distorts
+   it). Placed after canvasClassName's rules in the cascade so it wins regardless
+   of source order elsewhere.
+   Also fades and slides in on mount, matching the site's existing .slide-in visual
+   parameters, but as a self-contained CSS animation rather than the shared
+   IntersectionObserver-driven .slide-in mechanism (that mechanism was found
+   unreliable in this component's layout — see SCROLL-ANIMATIONS.md). Skipped
+   entirely under reduced-motion, since that's one of the two reasons this branch
+   can render. */
+.scroll-image-sequence-fallback {
+  height: auto;
+  aspect-ratio: auto;
+}
+
+@keyframes scroll-image-sequence-fallback-in {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-image-sequence-fallback {
+    animation: scroll-image-sequence-fallback-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+}
 
 
 .paragraph-on-dark {
@@ -1588,6 +1714,10 @@ a.payment-card2, a.payment-card3 {
     top: 0;
     left: 0;
     overflow: hidden;
+    /* Stacks above page content below it (e.g. ScrollImageSequence instances using
+       topOffsetSelector="header" deliberately extend behind the header via negative
+       margin) so the brief initial overlap renders correctly, header on top. */
+    z-index: 5;
 }
 
 .footer {

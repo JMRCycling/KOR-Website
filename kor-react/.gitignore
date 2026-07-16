@@ -24,3 +24,9 @@ yarn-error.log*
 .env
 .env.production
 .env.staging
+
+# Raw scroll-sequence source frames (316MB, local-only — see DESIGN.md decisions log).
+# Kept out of public/ entirely (not just gitignored) so CRA's dev-server file
+# watcher doesn't have to watch 420 large files that are never served.
+# Compressed, committed output lives in public/images/app-welcome-sequence/.
+/raw-assets/
