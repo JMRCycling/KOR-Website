@@ -4,11 +4,14 @@ import ScrollImageSequence from '../common/ScrollImageSequence';
 import StructuredData from '../common/StructuredData';
 
 const HERO_CAPTION_REVEAL_FRAME = 265;
+const PART_HISTORY_CAPTION_REVEAL_FRAME = 80;
 
 const OurApp: React.FC = () => {
   const baseUrl = process.env.REACT_APP_SITE_URL || 'https://jmrcycling.com';
   const [heroFrame, setHeroFrame] = useState(0);
   const isHeroCaptionVisible = heroFrame >= HERO_CAPTION_REVEAL_FRAME;
+  const [partHistoryFrame, setPartHistoryFrame] = useState(0);
+  const isPartHistoryCaptionVisible = partHistoryFrame >= PART_HISTORY_CAPTION_REVEAL_FRAME;
   return (
     <>
       <StructuredData
@@ -83,23 +86,30 @@ const OurApp: React.FC = () => {
 
       {/* Sections 3–4 — Pacific Northwest forest parallax */}
       <div className="parallax-group parallax-group--forest">
-        <section className="app-screen-section">
-          <div className="app-content-grid">
-            <div className="our_app_textbox slide-in">
+        <section className="app-screen-section app-hero-overlay-section">
+          <ScrollImageSequence
+            framePathTemplate="/images/part-history-sequence/frame_{index}.webp"
+            frameCount={121}
+            scrollLength={2}
+            fit="contain"
+            lookaheadMargin="600px 0px"
+            fallbackImageSrc="/images/PartPopup.png"
+            fallbackAlt="App Part Screen"
+            runwayClassName="app-part-history-sequence-runway"
+            stickyClassName="app-part-history-sequence-sticky"
+            canvasWrapperClassName="app-hero-sequence-canvas-wrapper"
+            canvasClassName="app-hero-sequence-canvas"
+            onFrameChange={setPartHistoryFrame}
+          >
+            <div
+              className={`our_app_textbox app-part-history-overlay-text${isPartHistoryCaptionVisible ? ' is-visible' : ''}`}
+            >
               <h2 className="app-section-label">Full part history</h2>
               <p className="paragraph">
                 View complete part history and update details in seconds, so you always know when each component was last serviced.
               </p>
             </div>
-            <div className="our-app-image-col slide-in">
-              <img
-                className="our_app_example"
-                src="/images/PartPopup.png"
-                alt="App Part Screen"
-                loading="lazy"
-              />
-            </div>
-          </div>
+          </ScrollImageSequence>
         </section>
 
         <section className="app-screen-section app-screen-section--reverse">

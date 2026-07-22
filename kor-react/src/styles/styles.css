@@ -942,6 +942,40 @@ select:focus {
   }
 }
 
+/* Third scroll-sequence section ("Full part history" / part popup reveal).
+   Same overlay-text treatment as the dashboard section, mirrored to the left
+   to keep the page's alternating left/right visual rhythm — this section
+   isn't a --reverse variant, so its caption sits opposite the dashboard's.
+   Frame-gated reveal (like the hero's caption) rather than always-visible —
+   toggled by OurApp.tsx from onFrameChange once the sequence reaches
+   PART_HISTORY_CAPTION_REVEAL_FRAME. */
+.our_app_textbox.app-part-history-overlay-text {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: 3rem 1.25rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+@media (min-width: 901px) {
+  .our_app_textbox.app-part-history-overlay-text {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(calc(-50% + 16px));
+    max-width: 380px;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .our_app_textbox.app-part-history-overlay-text.is-visible {
+    opacity: 1;
+    transform: translateY(-50%);
+    pointer-events: auto;
+  }
+}
+
 /* Slide-in animation */
 .slide-in {
   opacity: 1; /* Default visible for fallback */
