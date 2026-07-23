@@ -40,3 +40,6 @@ login.txt
 
 # Instagram automation (local-only, not part of the website)
 instagram_automation/
+
+# macOS/Finder duplicate-copy artifacts (e.g. "frame_0041 2.webp", "script 2.py")
+* 2.*
