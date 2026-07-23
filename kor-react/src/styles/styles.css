@@ -584,6 +584,12 @@
   margin-bottom: 1.5rem;
 }
 
+/* Extend the clickable area to the full badge image, not just its inline box */
+.cta-banner-buttons .store-button-link {
+  display: inline-block;
+  line-height: 0;
+}
+
 .cta-banner-secondary a {
   color: var(--accent1-color);
   text-decoration: none;
@@ -1648,6 +1654,16 @@ h1, h2 {
   border-radius: 15px;
   grid-column: 1/2;
   grid-row: 1/2;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.payment-card1:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+.payment-card1.selected {
+  outline: 3px solid var(--accent1-color);
+  outline-offset: -3px;
 }
 .payment-card2 {
   margin: 3%;

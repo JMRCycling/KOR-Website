@@ -267,7 +267,13 @@ export const getShopHead = async (config: FetchConfig): Promise<ShopHeadData | n
 export const getApiConfig = (): FetchConfig => {
   const baseUrl =
     process.env.REACT_APP_API_BASE_URL || 'https://jmrcycling.com:3001';
-  const authToken = process.env.REACT_APP_API_AUTH_TOKEN || '';
+  // Same fallback token used by every other call site (ShopUsersAndBikes,
+  // SubscriptionDetails, chargebeeClient) — this one fell back to '' instead,
+  // so any request routed through this config (getShopUsers, i.e. the family
+  // members panel) sent an empty auth param and got a 403 wherever the env
+  // var wasn't set at build time.
+  const authToken =
+    process.env.REACT_APP_API_AUTH_TOKEN || '1893784827439273928203838';
   const shopToken =
     typeof window !== 'undefined'
       ? sessionStorage.getItem('shop_token') || ''

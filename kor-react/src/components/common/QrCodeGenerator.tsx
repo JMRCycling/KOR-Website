@@ -51,71 +51,107 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
   };
 
   // Print QR code
+  //
+  // Uses a hidden same-page iframe instead of window.open() — popups opened
+  // via window.open('', '_blank') are routinely silently blocked by browser
+  // popup blockers (and ad/privacy extensions), which leaves printWindow
+  // truthy-checked as null with no error and no visible effect, i.e. a dead
+  // click. An iframe isn't subject to popup blocking, and appending it here
+  // is itself a DOM mutation on the current page.
   const printQrCode = () => {
     if (!qrImageUrl) return;
 
-    const printWindow = window.open('', '_blank');
-    if (printWindow) {
-      printWindow.document.write(`
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <title>KOR QR Code - ${shopName || shopCode}</title>
-            <style>
-              body {
-                font-family: Arial, sans-serif;
-                text-align: center;
-                padding: 20px;
-                margin: 0;
-              }
-              .qr-container {
-                max-width: 400px;
-                margin: 0 auto;
-                padding: 20px;
-                border: 2px solid #333;
-                border-radius: 10px;
-              }
-              .shop-info {
-                margin-bottom: 20px;
-              }
-              .instructions {
-                margin-top: 20px;
-                font-size: 14px;
-                color: #666;
-                line-height: 1.4;
-              }
-              img {
-                max-width: 100%;
-                height: auto;
-              }
-              @media print {
-                body { padding: 0; }
-              }
-            </style>
-          </head>
-          <body>
-            <div class="qr-container">
-              <div class="shop-info">
-                <h2>🏪 ${shopName || 'Bike Shop'}</h2>
-                <p><strong>Shop Code:</strong> ${shopCode}</p>
-                <h3>📱 Scan to Get KOR App</h3>
-              </div>
-              <img src="${qrImageUrl}" alt="QR Code for ${shopName || shopCode}" />
-              <div class="instructions">
-                <p><strong>How to use:</strong></p>
-                <p>1. Scan this QR code with your phone camera</p>
-                <p>2. App will download and open automatically</p>
-                <p>3. Your shop code will be pre-filled</p>
-                <p>4. Complete Strava authentication to start!</p>
-              </div>
-            </div>
-          </body>
-        </html>
-      `);
-      printWindow.document.close();
-      printWindow.print();
-      console.log('🖨️ [QrCodeGenerator] Print dialog opened');
+    const iframe = document.createElement('iframe');
+    iframe.style.cssText = 'position:fixed; width:0; height:0; border:0; visibility:hidden;';
+    iframe.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(iframe);
+
+    const cleanup = () => {
+      if (iframe.parentNode) {
+        iframe.parentNode.removeChild(iframe);
+      }
+    };
+
+    const doc = iframe.contentDocument || iframe.contentWindow?.document;
+    if (!doc) {
+      cleanup();
+      return;
     }
+
+    doc.open();
+    doc.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>KOR QR Code - ${shopName || shopCode}</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              text-align: center;
+              padding: 20px;
+              margin: 0;
+            }
+            .qr-container {
+              max-width: 400px;
+              margin: 0 auto;
+              padding: 20px;
+              border: 2px solid #333;
+              border-radius: 10px;
+            }
+            .shop-info {
+              margin-bottom: 20px;
+            }
+            .instructions {
+              margin-top: 20px;
+              font-size: 14px;
+              color: #666;
+              line-height: 1.4;
+            }
+            img {
+              max-width: 100%;
+              height: auto;
+            }
+            @media print {
+              body { padding: 0; }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="qr-container">
+            <div class="shop-info">
+              <h2>🏪 ${shopName || 'Bike Shop'}</h2>
+              <p><strong>Shop Code:</strong> ${shopCode}</p>
+              <h3>📱 Scan to Get KOR App</h3>
+            </div>
+            <img src="${qrImageUrl}" alt="QR Code for ${shopName || shopCode}" />
+            <div class="instructions">
+              <p><strong>How to use:</strong></p>
+              <p>1. Scan this QR code with your phone camera</p>
+              <p>2. App will download and open automatically</p>
+              <p>3. Your shop code will be pre-filled</p>
+              <p>4. Complete Strava authentication to start!</p>
+            </div>
+          </div>
+          <script>
+            window.onload = function () {
+              window.focus();
+              window.print();
+            };
+          </script>
+        </body>
+      </html>
+    `);
+    doc.close();
+
+    const win = iframe.contentWindow;
+    if (win) {
+      win.onafterprint = cleanup;
+    }
+    // Fallback in case onafterprint never fires (some browsers skip it if
+    // the print dialog is dismissed a certain way)
+    setTimeout(cleanup, 60000);
+
+    console.log('🖨️ [QrCodeGenerator] Print dialog opened');
   };
 
   // Generate QR code when shopCode or genericMode changes

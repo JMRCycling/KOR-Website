@@ -89,6 +89,15 @@ const PersonalPlans: React.FC = () => {
               {/* Free Plan */}
               <div
                 className={`payment-card1 ${selectedPlan === 'free' ? 'selected' : ''}`}
+                role='button'
+                tabIndex={0}
+                onClick={() => handlePlanSelect('free')}
+                onKeyDown={e => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handlePlanSelect('free');
+                  }
+                }}
               >
                 <h1>Free</h1>
                 <h2 className='title'>$0/month</h2>
