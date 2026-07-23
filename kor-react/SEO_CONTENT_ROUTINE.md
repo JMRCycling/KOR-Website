@@ -13,14 +13,17 @@
 ROUTINE_VERSION: 2026-06-10
 AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
-CURRENT_PHASE: 2
-CURRENT_ARTICLE: A0
+PR_CADENCE: per-article
+CURRENT_PHASE: 5
+CURRENT_ARTICLE: none
 ARTICLES_COMPLETED_THIS_PHASE: 0
-PHASE_STATUS: in_progress
-NEXT_ACTION: build-article
+PHASE_STATUS: complete
+NEXT_ACTION: none
 ```
 
-**What the agent does next:** Build article A0 (bike-maintenance-schedule, Phase 2 pillar). PR #7 (feat: SEO Phase 1 — Article Infrastructure) must be merged to main before or alongside this work.
+> **PR_CADENCE: per-article** — After every article build, set `NEXT_ACTION: create-pr` regardless of batch size. The `BATCH_SIZES` check is skipped. Each PR covers exactly one article. Branch naming: `feature/seo-article-[slug]`.
+
+**What the agent does next:** Nothing — SEO content build is complete. All 29 articles (A0–A12, B0–B7, C1–C8) are built and merged, GA4/PostHog tracking verified, sitemap updated. Google Search Console submission and keyword rank tracking remain manual, human-side follow-ups (see Post-Launch section) — no further agent action pending. (This file previously fell out of sync with the root `SEO_CONTENT_ROUTINE.md` after Phase 1 — see root file's git history for the full phase-by-phase record.)
 
 ---
 
@@ -68,10 +71,10 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 #### Phase 2a: A0, A1, A2, A3 (Drivetrain Core)
 
-- [ ] A0 (pillar)
-- [ ] A1
-- [ ] A2
-- [ ] A3
+- [x] A0 (pillar)
+- [x] A1
+- [x] A2
+- [x] A3
 
 **Batch Complete → PR:** `feature/seo-phase-2a-drivetrain`
 
@@ -79,11 +82,11 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 #### Phase 2b: A4, A5, A6, A7, A8 (Brakes & Tires)
 
-- [ ] A4
-- [ ] A5
-- [ ] A6
-- [ ] A7
-- [ ] A8
+- [x] A4
+- [x] A5
+- [x] A6
+- [x] A7
+- [x] A8
 
 **Batch Complete → PR:** `feature/seo-phase-2b-brakes-tires`
 
@@ -91,10 +94,10 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 #### Phase 2c: A9, A10, A11, A12 (Suspension, BB, Hub)
 
-- [ ] A9
-- [ ] A10
-- [ ] A11
-- [ ] A12
+- [x] A9
+- [x] A10
+- [x] A11
+- [x] A12
 
 **Batch Complete → PR:** `feature/seo-phase-2c-suspension-bb` (final 2a merge: update CURRENT_PHASE to 3, CURRENT_ARTICLE to B0)
 
@@ -109,14 +112,14 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 #### Phase 3: B0–B7
 
-- [ ] B0 (pillar)
-- [ ] B1
-- [ ] B2
-- [ ] B3
-- [ ] B4
-- [ ] B5
-- [ ] B6
-- [ ] B7
+- [x] B0 (pillar)
+- [x] B1
+- [x] B2
+- [x] B3
+- [x] B4
+- [x] B5
+- [x] B6
+- [x] B7
 
 **Phase Complete → PR:** `feature/seo-phase-3-ride-planning` (final merge: update CURRENT_PHASE to 4, CURRENT_ARTICLE to C8)
 
@@ -133,14 +136,14 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 #### Phase 4: C8, C1, C3, C2, C4, C5, C6, C7
 
-- [ ] C8 (on-ramp)
-- [ ] C1
-- [ ] C3
-- [ ] C2
-- [ ] C4
-- [ ] C5
-- [ ] C6
-- [ ] C7
+- [x] C8 (on-ramp)
+- [x] C1
+- [x] C3
+- [x] C2
+- [x] C4
+- [x] C5
+- [x] C6
+- [x] C7
 
 **Phase Complete → PR:** `feature/seo-phase-4-cycling-basics` (final merge: update CURRENT_PHASE to 5, CURRENT_ARTICLE to none, PHASE_STATUS to complete_measurement)
 
@@ -150,10 +153,10 @@ Agent uses this to determine which article to build next. Briefs are in `seo-con
 
 **Reference:** `seo-content-plan.md`, Section 7
 
-- [ ] GA: Confirm article pageviews tracked
-- [ ] PostHog: Confirm events firing
-- [ ] Google Search Console: Submit updated `public/sitemap.xml`, monitor indexing
-- [ ] Keyword rankings: Track pillar articles + A1, A4, A7, B1, C8
-- [ ] If indexing lags >4–6 weeks: propose pre-rendering (react-snap) in separate PR
+- [x] GA: Confirm article pageviews tracked — `GoogleAnalytics.tsx` renders inside `<Router>` globally and fires `pageview()` on every `useLocation` change.
+- [x] PostHog: Confirm events firing — fixed missing SPA route-change tracking via `capture_pageview: 'history_change'` in `src/lib/posthog.ts` (PR `feature/seo-post-launch-setup`).
+- [ ] Google Search Console: Submit updated `public/sitemap.xml`, monitor indexing — **manual, human action required**
+- [ ] Keyword rankings: Track pillar articles + A1, A4, A7, B1, C8 — **manual, human action required**
+- [ ] If indexing lags >4–6 weeks: propose pre-rendering (react-snap) in separate PR — deferred until indexing data is available
 
 **All Complete:** Update CURRENT STATUS to `PHASE_STATUS: complete`
