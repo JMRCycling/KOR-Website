@@ -5,6 +5,8 @@
 **Working Directory:** `kor-react/` only  
 **Source of Truth:** `seo-content-plan.md` (sections 1–7)  
 
+> **Status:** This routine's build is complete (see `CURRENT STATUS` below). Ongoing SEO work now runs through [`SEO_OPTIMIZATION_ROUTINE.md`](./SEO_OPTIMIZATION_ROUTINE.md) — continuous technical-SEO, freshness, internal-linking, performance, and content-gap cycles. This file stays as the historical record of the initial 29-article build and is still the reference for article-build mechanics (brief lookup, slug map, image pipeline) if a content-gap proposal from the new routine gets greenlit into a real article.
+
 ---
 
 ## CURRENT STATUS (Agent checks here)
