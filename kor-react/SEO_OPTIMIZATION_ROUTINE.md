@@ -15,8 +15,8 @@ ROUTINE_VERSION: 2026-07-24
 AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
 PR_CADENCE: per-task
-CURRENT_TRACK: technical-seo
-CURRENT_TASK_ID: TASK-001
+CURRENT_TRACK: content-freshness
+CURRENT_TASK_ID: TASK-004
 TASK_STATUS: not_started
 NEXT_ACTION: fix-item
 LAST_CYCLE_DATE: 2026-07-24
@@ -118,7 +118,7 @@ One row per discovered item. `status`: `open` → `in_progress` → `in_review` 
 
 | task_id  | track           | summary                                                                                          | status | opened     |
 |----------|-----------------|---------------------------------------------------------------------------------------------------|--------|------------|
-| TASK-001 | technical-seo   | `ArticleSeo.tsx` emits generic Article JSON-LD for all 3 `HowTo` articles (`winter-bike-storage`, `pre-ride-bike-check`, `how-to-measure-chain-wear`) — no `step` array, not eligible for HowTo rich results | open   | 2026-07-24 |
+| TASK-001 | technical-seo   | `ArticleSeo.tsx` emitted generic Article JSON-LD for all 3 `HowTo` articles (`winter-bike-storage`, `pre-ride-bike-check`, `how-to-measure-chain-wear`) — no `step` array, not eligible for HowTo rich results. Human sign-off received on the schema decision: added an optional `howToSteps: HowToStep[]` (+ optional `totalTime`) field to `ArticleMeta`, populated it for all 3 HowTo articles from their existing published prose (no new facts), and updated `ArticleSeo.tsx` to emit a real `step` array (and `totalTime` where explicitly stated) when `schemaType: 'HowTo'` and `howToSteps` is present. `npm run build` passes. | in_review | 2026-07-24 |
 | TASK-002 | performance     | `bike-maintenance-schedule.webp` is 272 KB, the largest hero image — recompress                   | open   | 2026-07-24 |
 | TASK-003 | internal-linking| Run the orphan/under-linked audit across all 29 `related[]` arrays (not yet run) — populate results as new rows | open   | 2026-07-24 |
 | TASK-004 | content-freshness| Any article with `dateModified` > 120 days before today needs a freshness pass (not yet run since none currently qualify — recheck each cycle) | open   | 2026-07-24 |
