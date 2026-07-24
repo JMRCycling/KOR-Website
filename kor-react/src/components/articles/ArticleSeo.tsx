@@ -10,7 +10,7 @@ const ArticleSeo: React.FC<ArticleSeoProps> = ({ article }) => {
   const baseUrl = process.env.REACT_APP_SITE_URL || 'https://jmrcycling.com';
   const canonicalUrl = `${baseUrl}/articles/${article.slug}`;
 
-  const articleSchema = {
+  const articleSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': article.schemaType === 'HowTo' ? 'HowTo' : article.schemaType === 'FAQPage' ? 'FAQPage' : 'Article',
     headline: article.title,
@@ -35,6 +35,17 @@ const ArticleSeo: React.FC<ArticleSeoProps> = ({ article }) => {
       '@id': canonicalUrl,
     },
   };
+
+  if (article.schemaType === 'HowTo' && article.howToSteps?.length) {
+    if (article.totalTime) {
+      articleSchema.totalTime = article.totalTime;
+    }
+    articleSchema.step = article.howToSteps.map((step) => ({
+      '@type': 'HowToStep',
+      name: step.name,
+      text: step.text,
+    }));
+  }
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',

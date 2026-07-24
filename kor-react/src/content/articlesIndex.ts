@@ -1,3 +1,8 @@
+export interface HowToStep {
+  name: string;
+  text: string;
+}
+
 export interface ArticleMeta {
   slug: string;
   title: string;
@@ -12,6 +17,10 @@ export interface ArticleMeta {
   schemaType: 'Article' | 'HowTo' | 'FAQPage';
   readingTime: number;
   related: string[];
+  /** Ordered procedure steps for schemaType: 'HowTo' articles, used to emit a real HowTo `step` array. */
+  howToSteps?: HowToStep[];
+  /** ISO 8601 duration (e.g. 'PT5M') — only set when the article states an explicit total time for the procedure. */
+  totalTime?: string;
 }
 
 export const articles: ArticleMeta[] = [
@@ -62,6 +71,32 @@ export const articles: ArticleMeta[] = [
     schemaType: 'HowTo',
     readingTime: 8,
     related: ['bike-maintenance-schedule', 'when-to-replace-bike-tires', 'tubeless-sealant-how-often'],
+    howToSteps: [
+      {
+        name: 'Wash and Lube Before It Sits',
+        text: 'Give the bike a full wash, dry it completely, and relube the chain before it goes into storage — a dry, lubed chain sitting still is fine, but a dirty, damp one rusts and pits over months indoors.',
+      },
+      {
+        name: 'Set Tire Pressure — and Get the Bike Off the Tires If You Can',
+        text: 'Top off tire pressure to near the max rating before storage to resist flat-spotting. Better still, get weight off the tires entirely by hanging the bike or using a stand that lifts both wheels; if floor storage is the only option, roll it forward every few weeks.',
+      },
+      {
+        name: 'Plan for Sealant to Dry Out',
+        text: "If running tubeless, don't top off sealant mid-winter — it will dry into a rubbery skin over a full season parked. Plan a full sealant refresh at the start of the season instead, before the first ride.",
+      },
+      {
+        name: 'Pull or Trickle-Charge Batteries',
+        text: 'Remove lights and store around 50% charge, pull AXS batteries off derailleurs and shifters and store at partial charge, and follow the manufacturer storage charge level for e-bike packs — never store a lithium pack fully empty or fully full for months.',
+      },
+      {
+        name: "Mind Where It's Actually Stored",
+        text: 'Store in a heated, low-humidity space if possible. An unheated shed or detached garage swings with outdoor weather and often runs damp — the environment that rusts chains and pits bearings even on a bike that went in clean.',
+      },
+      {
+        name: 'Run a Spring-Readiness Check Before the First Ride',
+        text: 'Squeeze both brakes for firm bite, check tire pressure and sidewalls for dry rot, spin the cranks and wheels listening for roughness, confirm lights and electronic shifting hold a charge, refresh tubeless sealant, and give the chain a fresh lube pass before riding again.',
+      },
+    ],
   },
   {
     slug: 'new-bike-checklist',
@@ -258,6 +293,29 @@ export const articles: ArticleMeta[] = [
     schemaType: 'HowTo',
     readingTime: 7,
     related: ['how-to-plan-a-bike-ride', 'bike-maintenance-schedule', 'when-to-replace-bike-tires'],
+    totalTime: 'PT5M',
+    howToSteps: [
+      {
+        name: 'Zone 1: Front Wheel and Axle',
+        text: 'Lift the front end and spin the wheel, watching for wobble, flat spots, or grinding. Check tire firmness, confirm the quick-release or thru-axle is properly secured, and inspect the rotor or rim surface for cracks or damage.',
+      },
+      {
+        name: 'Zone 2: Bars, Stem, and Headset',
+        text: 'Grip the front wheel between your knees and try to twist the bars — they should not move. Hold the front brake and rock the bike to check for headset knock, and confirm the brake levers are positioned within easy reach.',
+      },
+      {
+        name: 'Zone 3: Drivetrain and Bottom Bracket',
+        text: 'Backpedal through all gears checking for clean, quiet shifts. Run fingers along the chain to feel for grit or rust, wiggle the crank arm to check for bottom bracket play, and confirm both pedals are tight.',
+      },
+      {
+        name: 'Zone 4: Saddle and Seatpost',
+        text: 'Grip the saddle and try to twist and rock it — it should stay put. If equipped, click the dropper post up and down to confirm it moves freely and locks solidly, and check the seatpost height against your marker line.',
+      },
+      {
+        name: 'Zone 5: Rear Wheel, Axle, and Brakes',
+        text: 'Repeat the wheel-spin and axle checks from Zone 1 on the rear, inspect the cassette for chipped or hooked teeth, and check the derailleur hanger for straightness. Walk the bike forward and squeeze each brake hard — the wheel should lock immediately.',
+      },
+    ],
   },
   {
     slug: 'how-to-plan-a-bike-ride',
@@ -474,6 +532,32 @@ export const articles: ArticleMeta[] = [
     schemaType: 'HowTo',
     readingTime: 6,
     related: ['bike-maintenance-schedule', 'when-to-replace-bike-chain', 'when-to-replace-cassette'],
+    howToSteps: [
+      {
+        name: 'Clean the chain',
+        text: 'Wipe off surface grime with a rag or brush. Heavy buildup on the links can give a false reading by adding material between the checker probes and the link pins.',
+      },
+      {
+        name: 'Locate the check position',
+        text: 'Place the chain in the largest chainring and let it hang on the bottom or side — anywhere the chain is under no tension and hangs straight.',
+      },
+      {
+        name: 'Hook the first probe',
+        text: 'Insert the fixed end of the checker into a roller gap between two links. This anchors the tool against a pin.',
+      },
+      {
+        name: 'Apply the wear probe',
+        text: 'Lower the second probe — the 0.5 side for 11/12-speed, or the 0.75 side for 10-speed and below — toward the chain.',
+      },
+      {
+        name: 'Read the result',
+        text: 'If the probe drops into a roller gap under its own weight, the chain has reached that wear level and should be replaced. If it rests on top of the link, the chain is within spec — recheck in 200-300 miles.',
+      },
+      {
+        name: 'Check multiple spots',
+        text: "Check three to five different sections of the chain, especially if you've seen skipping or suspect a kinked link. If any section reads worn, the whole chain needs replacement.",
+      },
+    ],
   },
   {
     slug: 'when-to-replace-bike-chain',
