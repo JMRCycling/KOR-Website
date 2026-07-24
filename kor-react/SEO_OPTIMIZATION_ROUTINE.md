@@ -16,7 +16,7 @@ AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
 PR_CADENCE: per-task
 CURRENT_TRACK: internal-linking
-CURRENT_TASK_ID: TASK-003
+CURRENT_TASK_ID: TASK-006
 TASK_STATUS: not_started
 NEXT_ACTION: fix-item
 LAST_CYCLE_DATE: 2026-07-24
@@ -120,9 +120,20 @@ One row per discovered item. `status`: `open` → `in_progress` → `in_review` 
 |----------|-----------------|---------------------------------------------------------------------------------------------------|--------|------------|
 | TASK-001 | technical-seo   | `ArticleSeo.tsx` emitted generic Article JSON-LD for all 3 `HowTo` articles (`winter-bike-storage`, `pre-ride-bike-check`, `how-to-measure-chain-wear`) — no `step` array, not eligible for HowTo rich results. Human sign-off received on the schema decision: added an optional `howToSteps: HowToStep[]` (+ optional `totalTime`) field to `ArticleMeta`, populated it for all 3 HowTo articles from their existing published prose (no new facts), and updated `ArticleSeo.tsx` to emit a real `step` array (and `totalTime` where explicitly stated) when `schemaType: 'HowTo'` and `howToSteps` is present. `npm run build` passes. | done | 2026-07-24 |
 | TASK-002 | performance     | `bike-maintenance-schedule.webp` is 272 KB, the largest hero image — recompress                   | open   | 2026-07-24 |
-| TASK-003 | internal-linking| Run the orphan/under-linked audit across all 29 `related[]` arrays (not yet run) — populate results as new rows | open   | 2026-07-24 |
+| TASK-003 | internal-linking| Ran the orphan/under-linked audit across all 29 `related[]` arrays. Reverse map built; 0 broken slug references found. 11 slugs came back under the fewer-than-2-inbound-links threshold (pillars excluded) — logged individually as TASK-006 through TASK-016 rather than bundled into one fix, per the routine's split-large-fixes rule. | done   | 2026-07-24 |
 | TASK-004 | content-freshness| Any article with `dateModified` > 120 days before today needs a freshness pass. Rechecked 2026-07-24: oldest `dateModified` across all 29 articles is `2026-06-11` (43 days old) — none exceed the 120-day threshold. Nothing to fix; no code changed. | done | 2026-07-24 |
 | TASK-005 | content-gap     | Run a keyword-gap pass against Section 4 to propose 3–5 new candidate briefs                       | open   | 2026-07-24 |
+| TASK-006 | internal-linking| Orphan: `sram-axs-battery-life` has 0 incoming `related[]` references from other articles — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
+| TASK-007 | internal-linking| Orphan: `mtb-vs-road-maintenance` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
+| TASK-008 | internal-linking| Orphan: `winter-bike-storage` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
+| TASK-009 | internal-linking| Orphan: `new-bike-checklist` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
+| TASK-010 | internal-linking| Under-linked: `strava-tips-for-cyclists` has only 1 incoming `related[]` reference (from `cycling-route-planning-apps`) — add 1 more contextually relevant inbound link | open | 2026-07-24 |
+| TASK-011 | internal-linking| Orphan: `bike-tune-up-cost` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
+| TASK-012 | internal-linking| Under-linked: `how-to-buy-a-used-bike` has only 1 incoming `related[]` reference (from `bike-tune-up-cost`) — add 1 more contextually relevant inbound link | open | 2026-07-24 |
+| TASK-013 | internal-linking| Under-linked: `bikepacking-for-beginners` has only 1 incoming `related[]` reference (from pillar `how-to-plan-a-bike-ride`) — add 1 more contextually relevant inbound link | open | 2026-07-24 |
+| TASK-014 | internal-linking| Under-linked: `cycling-in-the-rain` has only 1 incoming `related[]` reference (from pillar `how-to-plan-a-bike-ride`) — add 1 more contextually relevant inbound link | open | 2026-07-24 |
+| TASK-015 | internal-linking| Under-linked: `group-ride-tips` has only 1 incoming `related[]` reference (from pillar `how-to-plan-a-bike-ride`) — add 1 more contextually relevant inbound link | open | 2026-07-24 |
+| TASK-016 | internal-linking| Orphan: `bottom-bracket-creaking` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
 
 ---
 
