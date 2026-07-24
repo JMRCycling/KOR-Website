@@ -15,8 +15,8 @@ ROUTINE_VERSION: 2026-07-24
 AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
 PR_CADENCE: per-task
-CURRENT_TRACK: technical-seo
-CURRENT_TASK_ID: TASK-001
+CURRENT_TRACK: content-freshness
+CURRENT_TASK_ID: TASK-004
 TASK_STATUS: not_started
 NEXT_ACTION: fix-item
 LAST_CYCLE_DATE: 2026-07-24
@@ -118,7 +118,7 @@ One row per discovered item. `status`: `open` → `in_progress` → `in_review` 
 
 | task_id  | track           | summary                                                                                          | status | opened     |
 |----------|-----------------|---------------------------------------------------------------------------------------------------|--------|------------|
-| TASK-001 | technical-seo   | `ArticleSeo.tsx` emits generic Article JSON-LD for all 3 `HowTo` articles (`winter-bike-storage`, `pre-ride-bike-check`, `how-to-measure-chain-wear`) — no `step` array, not eligible for HowTo rich results | open   | 2026-07-24 |
+| TASK-001 | technical-seo   | `ArticleSeo.tsx` emits generic Article JSON-LD for all 3 `HowTo` articles (`winter-bike-storage`, `pre-ride-bike-check`, `how-to-measure-chain-wear`) — no `step` array, not eligible for HowTo rich results. **BLOCKED:** fixing this requires adding a new `steps`-type field to the `ArticleMeta` interface and deciding how to segment each article's prose into atomic `HowToStep` entries (e.g. winter-bike-storage's 6 numbered sections vs. pre-ride-bike-check's 5 multi-check "zones" vs. chain-wear's two parallel step-numbered methods) — a schema/product decision called out by name in this file's Error Handling section as one to escalate, not guess. Needs human sign-off on the field shape and step segmentation before implementation. | blocked | 2026-07-24 |
 | TASK-002 | performance     | `bike-maintenance-schedule.webp` is 272 KB, the largest hero image — recompress                   | open   | 2026-07-24 |
 | TASK-003 | internal-linking| Run the orphan/under-linked audit across all 29 `related[]` arrays (not yet run) — populate results as new rows | open   | 2026-07-24 |
 | TASK-004 | content-freshness| Any article with `dateModified` > 120 days before today needs a freshness pass (not yet run since none currently qualify — recheck each cycle) | open   | 2026-07-24 |
