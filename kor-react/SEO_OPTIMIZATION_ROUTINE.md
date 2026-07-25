@@ -16,10 +16,10 @@ AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
 PR_CADENCE: per-task
 CURRENT_TRACK: internal-linking
-CURRENT_TASK_ID: TASK-006
+CURRENT_TASK_ID: TASK-007
 TASK_STATUS: not_started
 NEXT_ACTION: fix-item
-LAST_CYCLE_DATE: 2026-07-24
+LAST_CYCLE_DATE: 2026-07-25
 CYCLES_SINCE_TRACK_AUDIT: 0
 ```
 
@@ -123,7 +123,7 @@ One row per discovered item. `status`: `open` → `in_progress` → `in_review` 
 | TASK-003 | internal-linking| Ran the orphan/under-linked audit across all 29 `related[]` arrays. Reverse map built; 0 broken slug references found. 11 slugs came back under the fewer-than-2-inbound-links threshold (pillars excluded) — logged individually as TASK-006 through TASK-016 rather than bundled into one fix, per the routine's split-large-fixes rule. | done   | 2026-07-24 |
 | TASK-004 | content-freshness| Any article with `dateModified` > 120 days before today needs a freshness pass. Rechecked 2026-07-24: oldest `dateModified` across all 29 articles is `2026-06-11` (43 days old) — none exceed the 120-day threshold. Nothing to fix; no code changed. | done | 2026-07-24 |
 | TASK-005 | content-gap     | Run a keyword-gap pass against Section 4 to propose 3–5 new candidate briefs                       | open   | 2026-07-24 |
-| TASK-006 | internal-linking| Orphan: `sram-axs-battery-life` has 0 incoming `related[]` references from other articles — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
+| TASK-006 | internal-linking| Orphan: `sram-axs-battery-life` had 0 incoming `related[]` references from other articles. Fixed: added `sram-axs-battery-life` to the `related[]` arrays of `mtb-vs-road-maintenance` and `winter-bike-storage` (both `articlesIndex.ts` and markdown frontmatter), plus a contextual inline link in each article body where AXS/electronic-shifting battery care was already discussed. `npm run build` passes. | in_review | 2026-07-24 |
 | TASK-007 | internal-linking| Orphan: `mtb-vs-road-maintenance` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
 | TASK-008 | internal-linking| Orphan: `winter-bike-storage` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
 | TASK-009 | internal-linking| Orphan: `new-bike-checklist` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
