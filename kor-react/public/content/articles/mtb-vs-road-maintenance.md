@@ -11,7 +11,7 @@ heroImage: "/images/articles/mtb-vs-road-maintenance.webp"
 heroImageAlt: "Mountain bike and road bike parked side by side outdoors, showing contrasting tire and suspension setups"
 schemaType: "Article"
 readingTime: 8
-related: ["bike-maintenance-schedule", "suspension-service-intervals", "dropper-post-maintenance", "tubeless-sealant-how-often"]
+related: ["bike-maintenance-schedule", "suspension-service-intervals", "dropper-post-maintenance", "tubeless-sealant-how-often", "sram-axs-battery-life"]
 ---
 
 # MTB vs Road Bike Maintenance: What Changes & What Doesn't
@@ -30,7 +30,7 @@ Some parts don't care what kind of riding you do — they wear by mechanism, not
 
 **Bottom brackets and headsets.** Both are sealed-bearing systems that fail from water intrusion and mileage. A press-fit BB creaks the same way whether it's under a gravel groupset or a full-suspension frame.
 
-**Cables and housing (if not electronic).** Friction and contamination build up on the same timeline. Full-length housing runs on MTBs do offer more protection from grit than exposed road cable runs, but the underlying wear pattern doesn't change.
+**Cables and housing (if not electronic).** Friction and contamination build up on the same timeline. Full-length housing runs on MTBs do offer more protection from grit than exposed road cable runs, but the underlying wear pattern doesn't change. Electronic groupsets like SRAM AXS swap that cable wear for a different upkeep item entirely — see [SRAM AXS battery life](/articles/sram-axs-battery-life) for charge intervals and care.
 
 If a part shows up on both bikes, treat it on the same schedule. The differences that matter are below.
 

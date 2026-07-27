@@ -54,7 +54,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 8,
-    related: ['bike-maintenance-schedule', 'suspension-service-intervals', 'dropper-post-maintenance', 'tubeless-sealant-how-often'],
+    related: ['bike-maintenance-schedule', 'suspension-service-intervals', 'dropper-post-maintenance', 'tubeless-sealant-how-often', 'sram-axs-battery-life'],
   },
   {
     slug: 'winter-bike-storage',
@@ -70,7 +70,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'HowTo',
     readingTime: 8,
-    related: ['bike-maintenance-schedule', 'when-to-replace-bike-tires', 'tubeless-sealant-how-often'],
+    related: ['bike-maintenance-schedule', 'when-to-replace-bike-tires', 'tubeless-sealant-how-often', 'sram-axs-battery-life'],
     howToSteps: [
       {
         name: 'Wash and Lube Before It Sits',

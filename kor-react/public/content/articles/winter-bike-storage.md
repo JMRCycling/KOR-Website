@@ -11,7 +11,7 @@ heroImage: "/images/articles/winter-bike-storage.webp"
 heroImageAlt: "Bicycle stored cleanly in a garage during winter, hung on a wall rack"
 schemaType: "HowTo"
 readingTime: 8
-related: ["bike-maintenance-schedule", "when-to-replace-bike-tires", "tubeless-sealant-how-often"]
+related: ["bike-maintenance-schedule", "when-to-replace-bike-tires", "tubeless-sealant-how-often", "sram-axs-battery-life"]
 ---
 
 # How to Store a Bike for Winter (Without Ruining Parts)
@@ -41,7 +41,7 @@ If you're running tubeless, don't expect the sealant to survive a full winter. S
 Any battery on the bike needs attention before storage, not after. Lithium batteries — lights, SRAM AXS shifting, e-bike packs — self-discharge slowly even when off, and a battery left fully drained for months can degrade permanently or fail to hold a charge at all.
 
 - **Lights**: remove them from the bike and store around 50% charge if the device allows it; don't leave them mounted and dead all winter.
-- **AXS batteries**: pull them off the derailleurs and shifters and store at partial charge; a coin-cell shifter battery can generally just stay in place.
+- **AXS batteries**: pull them off the derailleurs and shifters and store at partial charge; a coin-cell shifter battery can generally just stay in place. See [SRAM AXS battery life](/articles/sram-axs-battery-life) for how long a charge actually lasts and the signs it's fading.
 - **E-bike packs**: follow the manufacturer's storage charge level (commonly 40–60%) and check on it monthly — never store a lithium pack fully empty or fully full for extended periods.
 
 ## 5. Mind Where It's Actually Stored
