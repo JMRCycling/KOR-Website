@@ -11,7 +11,7 @@ heroImage: "/images/articles/dropper-post-maintenance.webp"
 heroImageAlt: "Mountain biker descending a technical trail with dropper post visible, natural outdoor lighting, action shot"
 schemaType: "Article"
 readingTime: 7
-related: ["bike-maintenance-schedule", "suspension-service-intervals"]
+related: ["bike-maintenance-schedule", "suspension-service-intervals", "mtb-vs-road-maintenance"]
 ---
 
 # Dropper Post Maintenance: Service Intervals & Care
@@ -92,7 +92,7 @@ A basic dropper service at a shop runs $40–80 in most markets. A full rebuild 
 
 ## Where the Dropper Fits in Your Full Maintenance Plan
 
-The dropper post is one of three hour-based service items on a mountain bike alongside your fork and rear shock. If you're managing all three, [Fork & Shock Service Intervals](/articles/suspension-service-intervals) covers the full suspension picture with Fox and RockShox interval tables.
+The dropper post is one of three hour-based service items on a mountain bike alongside your fork and rear shock. If you're managing all three, [Fork & Shock Service Intervals](/articles/suspension-service-intervals) covers the full suspension picture with Fox and RockShox interval tables. It's also one of the biggest reasons a mountain bike's maintenance schedule looks nothing like a road bike's — see [MTB vs Road Bike Maintenance](/articles/mtb-vs-road-maintenance) for the full comparison.
 
 All of these service items — dropper, suspension, chain, brakes, tires — belong in a single [Bike Maintenance Schedule](/articles/bike-maintenance-schedule) so nothing slips through the cracks between seasons.
 
