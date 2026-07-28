@@ -399,7 +399,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 7,
-    related: ['bike-maintenance-schedule', 'suspension-service-intervals'],
+    related: ['bike-maintenance-schedule', 'suspension-service-intervals', 'mtb-vs-road-maintenance'],
   },
   {
     slug: 'suspension-service-intervals',
@@ -416,7 +416,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 8,
-    related: ['bike-maintenance-schedule', 'dropper-post-maintenance'],
+    related: ['bike-maintenance-schedule', 'dropper-post-maintenance', 'mtb-vs-road-maintenance'],
   },
   {
     slug: 'tubeless-sealant-how-often',

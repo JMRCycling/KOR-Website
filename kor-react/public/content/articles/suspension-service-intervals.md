@@ -11,7 +11,7 @@ heroImage: "/images/articles/suspension-service-intervals.webp"
 heroImageAlt: "Mountain bike fork suspension detail close-up on a trail, natural outdoor lighting, ultra-realistic 16:9"
 schemaType: "Article"
 readingTime: 8
-related: ["bike-maintenance-schedule", "dropper-post-maintenance"]
+related: ["bike-maintenance-schedule", "dropper-post-maintenance", "mtb-vs-road-maintenance"]
 ---
 
 # Fork & Shock Service Intervals: The Hour-Based Guide
@@ -101,7 +101,7 @@ More significantly, riding on contaminated or dry oil accelerates bushing wear, 
 
 ## Where Suspension Fits in Your Full Maintenance Plan
 
-Suspension service sits alongside chain wear, brakes, and tires in a complete [Bike Maintenance Schedule](/articles/bike-maintenance-schedule). If your fork is dialed but your dropper post has been skipping — which follows a similar hour-based service model — read [Dropper Post Maintenance](/articles/dropper-post-maintenance) next.
+Suspension service sits alongside chain wear, brakes, and tires in a complete [Bike Maintenance Schedule](/articles/bike-maintenance-schedule). If your fork is dialed but your dropper post has been skipping — which follows a similar hour-based service model — read [Dropper Post Maintenance](/articles/dropper-post-maintenance) next. Hour-based suspension service has no road-bike equivalent, which is one of several gaps covered in [MTB vs Road Bike Maintenance](/articles/mtb-vs-road-maintenance).
 
 ---
 

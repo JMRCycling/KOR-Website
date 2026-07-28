@@ -16,10 +16,10 @@ AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
 PR_CADENCE: per-task
 CURRENT_TRACK: internal-linking
-CURRENT_TASK_ID: TASK-007
+CURRENT_TASK_ID: TASK-008
 TASK_STATUS: not_started
 NEXT_ACTION: fix-item
-LAST_CYCLE_DATE: 2026-07-25
+LAST_CYCLE_DATE: 2026-07-28
 CYCLES_SINCE_TRACK_AUDIT: 0
 ```
 
@@ -124,7 +124,7 @@ One row per discovered item. `status`: `open` → `in_progress` → `in_review` 
 | TASK-004 | content-freshness| Any article with `dateModified` > 120 days before today needs a freshness pass. Rechecked 2026-07-24: oldest `dateModified` across all 29 articles is `2026-06-11` (43 days old) — none exceed the 120-day threshold. Nothing to fix; no code changed. | done | 2026-07-24 |
 | TASK-005 | content-gap     | Run a keyword-gap pass against Section 4 to propose 3–5 new candidate briefs                       | open   | 2026-07-24 |
 | TASK-006 | internal-linking| Orphan: `sram-axs-battery-life` had 0 incoming `related[]` references from other articles. Fixed: added `sram-axs-battery-life` to the `related[]` arrays of `mtb-vs-road-maintenance` and `winter-bike-storage` (both `articlesIndex.ts` and markdown frontmatter), plus a contextual inline link in each article body where AXS/electronic-shifting battery care was already discussed. `npm run build` passes. | in_review | 2026-07-24 |
-| TASK-007 | internal-linking| Orphan: `mtb-vs-road-maintenance` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
+| TASK-007 | internal-linking| Orphan: `mtb-vs-road-maintenance` had 0 incoming `related[]` references. Fixed: added `mtb-vs-road-maintenance` to the `related[]` arrays of `dropper-post-maintenance` and `suspension-service-intervals` (both `articlesIndex.ts` and markdown frontmatter) — both are MTB-specific hour-based service items already cross-linked to each other and to the orphan article, making the reciprocal link a natural fit — plus a contextual inline link in each article body's "Where it Fits in Your Full Maintenance Plan" section. `npm run build` passes. | in_review | 2026-07-24 |
 | TASK-008 | internal-linking| Orphan: `winter-bike-storage` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
 | TASK-009 | internal-linking| Orphan: `new-bike-checklist` has 0 incoming `related[]` references — add 1–2 contextually relevant inbound links | open | 2026-07-24 |
 | TASK-010 | internal-linking| Under-linked: `strava-tips-for-cyclists` has only 1 incoming `related[]` reference (from `cycling-route-planning-apps`) — add 1 more contextually relevant inbound link | open | 2026-07-24 |
