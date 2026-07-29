@@ -11,7 +11,7 @@ heroImage: "/images/articles/tubeless-sealant-how-often.webp"
 heroImageAlt: "Mountain bike tire on rocky trail showing knobby tread close-up, outdoor natural lighting"
 schemaType: "Article"
 readingTime: 7
-related: ["bike-maintenance-schedule", "when-to-replace-bike-tires"]
+related: ["bike-maintenance-schedule", "when-to-replace-bike-tires", "winter-bike-storage"]
 ---
 
 # How Often to Add Tubeless Sealant (Hours & Months)
@@ -32,6 +32,8 @@ A few factors push you toward the shorter end of the 40–60 hour window:
 - **Frequent long rides** — The more miles and hours you accumulate, the more opportunities sealant has to circulate through micro-punctures and escape through the valve stem.
 
 Conversely, cool temperatures, moderate altitude, and shorter rides let you push toward 60 hours or 6 months without issue.
+
+A bike parked for the winter is its own case: sealant left in the tires over a full off-season will dry into a rubbery skin regardless of hours ridden, so don't top it off before storage — plan a full refresh at the start of the season instead. See the [winter bike storage guide](/articles/winter-bike-storage) for the rest of the pre-storage checklist.
 
 ## Why Hours Beat the Calendar
 
