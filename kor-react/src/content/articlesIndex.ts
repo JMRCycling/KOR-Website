@@ -38,7 +38,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 7,
-    related: ['bike-maintenance-schedule', 'pre-ride-bike-check'],
+    related: ['bike-maintenance-schedule', 'pre-ride-bike-check', 'winter-bike-storage'],
   },
   {
     slug: 'mtb-vs-road-maintenance',
@@ -433,7 +433,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 7,
-    related: ['bike-maintenance-schedule', 'when-to-replace-bike-tires'],
+    related: ['bike-maintenance-schedule', 'when-to-replace-bike-tires', 'winter-bike-storage'],
   },
   {
     slug: 'when-to-replace-bike-tires',

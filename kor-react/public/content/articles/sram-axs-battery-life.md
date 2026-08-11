@@ -11,7 +11,7 @@ heroImage: "/images/articles/sram-axs-battery-life.webp"
 heroImageAlt: "Close-up of a SRAM AXS electronic derailleur and battery mounted on a bicycle drivetrain"
 schemaType: "Article"
 readingTime: 7
-related: ["bike-maintenance-schedule", "pre-ride-bike-check"]
+related: ["bike-maintenance-schedule", "pre-ride-bike-check", "winter-bike-storage"]
 ---
 
 # SRAM AXS Battery Life: How Long It Lasts & Care Tips
@@ -50,7 +50,7 @@ A charger and a spare battery cost far less than the time lost bailing out of a 
 
 ## Storage Mode for Off-Season Bikes
 
-If a bike is going into storage for a season — winter, an off-bike injury, whatever — pull the AXS batteries off the derailleurs rather than leaving them mounted and draining. Lithium batteries self-discharge slowly even when idle, and a battery left sitting at zero for months can lose capacity permanently. Store batteries at a partial charge (not full, not empty) in a cool, dry spot, and give them a top-off charge before the bike comes back out.
+If a bike is going into storage for a season — winter, an off-bike injury, whatever — pull the AXS batteries off the derailleurs rather than leaving them mounted and draining. Lithium batteries self-discharge slowly even when idle, and a battery left sitting at zero for months can lose capacity permanently. Store batteries at a partial charge (not full, not empty) in a cool, dry spot, and give them a top-off charge before the bike comes back out. For the rest of the bike — chain, tires, sealant, and where to keep it — see the full [winter bike storage guide](/articles/winter-bike-storage).
 
 ## Getting Stranded in One Gear
 
