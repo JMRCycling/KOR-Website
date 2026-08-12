@@ -1,0 +1,207 @@
+.qr-section {
+  /* Local, scoped design tokens — light-surface set from DESIGN.md.
+     Kept local rather than touching the site's global CSS variables
+     (still on the pre-redesign palette everywhere else). */
+  --qr-surface-card: #ffffff;
+  --qr-surface-raised: #eceae6;
+  --qr-text-primary: #0f1a26;
+  --qr-text-secondary: #2e4053;
+  --qr-text-muted: #4a5a6a;
+  --qr-border: #d4cfc9;
+  --qr-mint: #85ffc7;
+  --qr-mint-ink: #0f1a26;
+  --qr-font-display: 'League Gothic', Arial Narrow, Arial, sans-serif;
+  --qr-font-body: 'Instrument Sans', system-ui, sans-serif;
+  --qr-font-data: 'Geist Mono', 'JetBrains Mono', monospace;
+  --qr-r-sm: 4px;
+  --qr-r-md: 8px;
+  --qr-r-lg: 12px;
+
+  background: var(--qr-surface-card);
+  border: 1px solid var(--qr-border);
+  border-radius: var(--qr-r-lg);
+  padding: 40px 32px;
+  margin-top: 32px;
+  text-align: center;
+  font-family: var(--qr-font-body);
+}
+
+.qr-section__title {
+  font-family: var(--qr-font-display);
+  text-transform: uppercase;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--qr-text-primary);
+  margin: 0 0 12px;
+}
+
+.qr-section__lead {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--qr-text-secondary);
+  margin: 0 0 8px;
+}
+
+.qr-section__sub {
+  font-size: 0.95rem;
+  color: var(--qr-text-muted);
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.5;
+}
+
+/* Before / after comparison */
+
+.qr-compare {
+  background: var(--qr-surface-raised);
+  border: 1px solid var(--qr-border);
+  border-radius: var(--qr-r-md);
+  padding: 24px;
+  margin: 0 auto 32px;
+  max-width: 520px;
+  text-align: left;
+}
+
+.qr-compare__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--qr-text-muted);
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.qr-compare__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.qr-compare__col-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0 0 8px;
+  color: var(--qr-text-muted);
+}
+
+.qr-compare__col--after {
+  border-left: 1px solid var(--qr-border);
+  padding-left: 24px;
+}
+
+.qr-compare__col--after .qr-compare__col-title {
+  color: var(--qr-text-primary);
+}
+
+.qr-compare__list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.8rem;
+  color: var(--qr-text-secondary);
+  line-height: 1.6;
+}
+
+.qr-compare__note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--qr-text-primary);
+}
+
+.qr-compare__note::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  background: var(--qr-mint);
+  border-radius: 50%;
+}
+
+/* Instructions */
+
+.qr-instructions {
+  background: var(--qr-surface-raised);
+  border: 1px solid var(--qr-border);
+  border-left: 3px solid var(--qr-mint);
+  border-radius: var(--qr-r-md);
+  padding: 24px;
+  margin-top: 32px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.qr-instructions h3 {
+  font-family: var(--qr-font-body);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--qr-text-primary);
+  margin: 0 0 16px;
+}
+
+.qr-instructions p {
+  color: var(--qr-text-secondary);
+  line-height: 1.6;
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+}
+
+.qr-quote {
+  border-left: 3px solid var(--qr-text-primary);
+  background: var(--qr-surface-card);
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-style: italic;
+  color: var(--qr-text-primary);
+  border-radius: 0 var(--qr-r-sm) var(--qr-r-sm) 0;
+  font-size: 0.95rem;
+}
+
+.qr-share-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.qr-share-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--qr-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.qr-share-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+  background: var(--qr-mint);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .qr-compare__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qr-compare__col--after {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--qr-border);
+    padding-top: 16px;
+    margin-top: 8px;
+  }
+}
