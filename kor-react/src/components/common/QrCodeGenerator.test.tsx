@@ -30,18 +30,19 @@ jest.mock('jspdf', () => ({
   default: jest.fn()
 }));
 
-class FakeFileReader {
-  result: string | null = null;
+// Stub for the browser Image element used by svgBlobToPngDataUrl's
+// rasterization step — jsdom has no real image decoder, so this just
+// simulates the async onload a real <img> would fire.
+class FakeImage {
   onload: (() => void) | null = null;
   onerror: (() => void) | null = null;
-  readAsDataURL() {
-    this.result = 'data:image/png;base64,mock';
-    this.onload && this.onload();
+  set src(_v: string) {
+    setTimeout(() => this.onload && this.onload(), 0);
   }
 }
 
 describe('QrCodeGenerator', () => {
-  const fakeBlob = { size: 10, type: 'image/png' };
+  const fakeBlob = { size: 10, type: 'image/svg+xml' };
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -58,7 +59,19 @@ describe('QrCodeGenerator', () => {
     }) as any;
     window.URL.createObjectURL = jest.fn(() => 'blob:mock-url');
     window.URL.revokeObjectURL = jest.fn();
-    (global as any).FileReader = FakeFileReader;
+    // jsdom implements neither real image decoding nor canvas 2D rendering —
+    // mocked locally here (not in setupTests.js) since only this one
+    // component's PDF-export path touches canvas; see QrCodeGenerator.tsx's
+    // svgBlobToPngDataUrl.
+    (global as any).Image = FakeImage;
+    HTMLCanvasElement.prototype.getContext = jest.fn().mockReturnValue({
+      fillStyle: '',
+      fillRect: jest.fn(),
+      drawImage: jest.fn()
+    }) as any;
+    HTMLCanvasElement.prototype.toDataURL = jest
+      .fn()
+      .mockReturnValue('data:image/png;base64,mock');
   });
 
   it('shows an error and renders no QR image when shopCode is missing outside generic mode', () => {
@@ -70,10 +83,12 @@ describe('QrCodeGenerator', () => {
   it('renders the shop-specific QR image and metadata', () => {
     render(<QrCodeGenerator shopCode="JMR153" shopName="JMR Cycling" />);
     const img = screen.getByRole('img') as HTMLImageElement;
-    expect(img.src).toContain('quickchart.io/qr');
+    expect(img.src).toContain('jmrcycling.com:3001/generateQr');
     expect(img.src).toContain(
       encodeURIComponent('https://jmrcycling.com:3001/qr/onboard/JMR153')
     );
+    expect(img.src).toContain('logo=kor');
+    expect(img.src).toContain('dots=true');
     expect(screen.getAllByText('JMR153').length).toBeGreaterThan(0);
   });
 
@@ -84,7 +99,7 @@ describe('QrCodeGenerator', () => {
     expect(screen.getByText('Generic App Access')).toBeInTheDocument();
   });
 
-  it('downloads the QR image as a PNG when Download is clicked', async () => {
+  it('downloads the QR image as an SVG when Download is clicked', async () => {
     render(<QrCodeGenerator shopCode="JMR153" shopName="JMR Cycling" />);
     fireEvent.click(screen.getByRole('button', { name: /download/i }));
     await waitFor(() =>
