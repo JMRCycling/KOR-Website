@@ -11,7 +11,7 @@ heroImage: "/images/articles/pre-ride-bike-check.webp"
 heroImageAlt: "Cyclist in helmet inspecting bicycle brake and wheel before a ride, ready to go, outdoor natural lighting"
 schemaType: "HowTo"
 readingTime: 7
-related: ["how-to-plan-a-bike-ride", "bike-maintenance-schedule", "when-to-replace-bike-tires"]
+related: ["how-to-plan-a-bike-ride", "bike-maintenance-schedule", "when-to-replace-bike-tires", "new-bike-checklist"]
 ---
 
 # The 5-Minute Pre-Ride Bike Check (M-Check Guide)
@@ -25,6 +25,8 @@ Five minutes before you roll out the door is enough to catch the problems that e
 The M-check is a five-zone walkthrough that follows the shape of the letter M across your bike. Starting at the front axle, you move up through the bars and headset, down through the drivetrain and bottom bracket area, back up to the saddle and post, then down to the rear axle and brakes. Each zone takes under a minute. Together they cover every system that can end a ride or cause a crash.
 
 The M-check is not a substitute for a [proper maintenance schedule](/articles/bike-maintenance-schedule). It tells you whether something is immediately wrong — a cracked tire, a loose axle, a brake that won't engage. It won't flag a chain at 0.5% wear or pads at their 1.5 mm limit. For that, you need component tracking. But for ride safety, the M-check is your last line of defense.
+
+If you just picked up a new bike, start with the [new bike checklist](/articles/new-bike-checklist) — fit, accessories, and tracking setup — then make the M-check your habit before every ride after that.
 
 ---
 

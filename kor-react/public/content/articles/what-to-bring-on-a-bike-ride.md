@@ -11,7 +11,7 @@ heroImage: "/images/articles/what-to-bring-on-a-bike-ride.webp"
 heroImageAlt: "Cycling gear flat-lay on a surface: pump, multitool, tube, energy bars, water bottle, and phone, natural lighting"
 schemaType: "Article"
 readingTime: 7
-related: ["how-to-plan-a-bike-ride", "pre-ride-bike-check", "prepare-for-a-long-bike-ride"]
+related: ["how-to-plan-a-bike-ride", "pre-ride-bike-check", "new-bike-checklist", "prepare-for-a-long-bike-ride"]
 ---
 
 # What to Bring on a Bike Ride: Packing Lists by Distance
@@ -160,7 +160,7 @@ These three items belong in your kit regardless of ride length.
 
 ## Before You Roll
 
-Packing the right kit starts with a [pre-ride bike check](/articles/pre-ride-bike-check). A flat tire mid-ride is bad; a worn-out tube that fails in your kit because you haven't checked it is worse. Rotate your spare tubes every season — rubber degrades in a seat bag over time. For a full overview of how to build and plan a ride from scratch, see [How to Plan a Bike Ride](/articles/how-to-plan-a-bike-ride).
+Packing the right kit starts with a [pre-ride bike check](/articles/pre-ride-bike-check). A flat tire mid-ride is bad; a worn-out tube that fails in your kit because you haven't checked it is worse. Rotate your spare tubes every season — rubber degrades in a seat bag over time. For a full overview of how to build and plan a ride from scratch, see [How to Plan a Bike Ride](/articles/how-to-plan-a-bike-ride). If the bike itself is new, run through the [new bike checklist](/articles/new-bike-checklist) first — fit and accessories matter more than what's in your pockets.
 
 ---
 
