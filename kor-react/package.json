@@ -18,6 +18,7 @@
     "@types/react-dom": "^19.1.7",
     "@types/react-helmet": "^6.1.11",
     "axios": "^1.11.0",
+    "jspdf": "^4.2.1",
     "lucide-react": "^0.541.0",
     "posthog-js": "^1.397.0",
     "react": "^19.1.1",

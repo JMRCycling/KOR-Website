@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './QrCodeGenerator.css';
 
 interface QrCodeGeneratorProps {
   shopCode?: string;
@@ -9,6 +10,27 @@ interface QrCodeGeneratorProps {
   genericMode?: boolean; // For inactive users - shows generic app download
   genericUrl?: string; // Custom URL for generic mode
 }
+
+const DownloadIcon = () => (
+  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6">
+    <path
+      d="M10 3v9m0 0l-3.5-3.5M10 12l3.5-3.5M4 15.5h12"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const PdfIcon = () => (
+  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6">
+    <path
+      d="M6 2.5h5.5L15 6v11a.5.5 0 01-.5.5h-8a.5.5 0 01-.5-.5v-14a.5.5 0 01.5-.5z"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path d="M11.5 2.5V6H15" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
 const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
   shopCode,
@@ -22,6 +44,7 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
   const [qrImageUrl, setQrImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
+  const [isExporting, setIsExporting] = useState(false);
 
 
   // Download QR code image
@@ -32,14 +55,14 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
       const response = await fetch(qrImageUrl);
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
-      
+
       const link = document.createElement('a');
       link.href = url;
       link.download = `${shopName || shopCode}-qr-code.png`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      
+
       window.URL.revokeObjectURL(url);
       console.log('✅ [QrCodeGenerator] QR code downloaded successfully');
     } catch (err) {
@@ -50,108 +73,111 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
     }
   };
 
-  // Print QR code
-  //
-  // Uses a hidden same-page iframe instead of window.open() — popups opened
-  // via window.open('', '_blank') are routinely silently blocked by browser
-  // popup blockers (and ad/privacy extensions), which leaves printWindow
-  // truthy-checked as null with no error and no visible effect, i.e. a dead
-  // click. An iframe isn't subject to popup blocking, and appending it here
-  // is itself a DOM mutation on the current page.
-  const printQrCode = () => {
+  // Export the QR poster as a downloaded PDF file, rather than routing
+  // through the OS print dialog — a real .pdf on disk is something the shop
+  // can open directly in Illustrator/Acrobat/Canva and edit before they
+  // print or repost it themselves. jsPDF text is drawn as real vector text
+  // (not a rasterized image), so it stays selectable/editable.
+  const exportPdf = async () => {
     if (!qrImageUrl) return;
 
-    const iframe = document.createElement('iframe');
-    iframe.style.cssText = 'position:fixed; width:0; height:0; border:0; visibility:hidden;';
-    iframe.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(iframe);
+    setIsExporting(true);
+    setError('');
 
-    const cleanup = () => {
-      if (iframe.parentNode) {
-        iframe.parentNode.removeChild(iframe);
+    try {
+      const { default: jsPDF } = await import('jspdf');
+
+      // Reuse the same fetch-to-blob approach as downloadQrCode, then hand
+      // jsPDF a data URL — addImage needs actual image data, not a URL.
+      const res = await fetch(qrImageUrl);
+      const blob = await res.blob();
+      const qrDataUrl = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+
+      const pageW = 360; // 5in poster at 72pt/in — small enough to reprint at a copy shop, easy to resize
+      const pageH = 504; // 7in
+      const doc = new jsPDF({ unit: 'pt', format: [pageW, pageH] });
+
+      const navy: [number, number, number] = [15, 26, 38];
+      const mint: [number, number, number] = [133, 255, 199];
+      const coolGray: [number, number, number] = [200, 212, 222];
+      const white: [number, number, number] = [255, 255, 255];
+      const centerX = pageW / 2;
+
+      doc.setFillColor(...navy);
+      doc.rect(0, 0, pageW, pageH, 'F');
+
+      let y = 54;
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(...mint);
+      doc.text('K O R', centerX, y, { align: 'center' });
+      y += 10;
+      doc.setFillColor(...mint);
+      doc.rect(centerX - 18, y, 36, 2, 'F');
+      y += 36;
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(32);
+      doc.setTextColor(...white);
+      doc.text('SCAN TO', centerX, y, { align: 'center' });
+      y += 36;
+      doc.setTextColor(...mint);
+      doc.text('GET ROLLING', centerX, y, { align: 'center' });
+      y += 28;
+
+      const subhead = genericMode
+        ? 'Your bike, tracked automatically.'
+        : `Get set up at ${shopName || 'your shop'}.`;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(11);
+      doc.setTextColor(...coolGray);
+      doc.text(subhead, centerX, y, { align: 'center' });
+      y += 30;
+
+      const plateSize = 180;
+      const plateX = centerX - plateSize / 2;
+      doc.setDrawColor(...mint);
+      doc.setLineWidth(2);
+      doc.setFillColor(...white);
+      doc.roundedRect(plateX, y, plateSize, plateSize, 6, 6, 'FD');
+      const inset = 16;
+      doc.addImage(qrDataUrl, 'PNG', plateX + inset, y + inset, plateSize - inset * 2, plateSize - inset * 2);
+      y += plateSize + 24;
+
+      if (!genericMode) {
+        doc.setFont('courier', 'bold');
+        doc.setFontSize(10);
+        doc.setTextColor(...mint);
+        doc.text(`SHOP CODE · ${shopCode}`, centerX, y, { align: 'center' });
       }
-    };
 
-    const doc = iframe.contentDocument || iframe.contentWindow?.document;
-    if (!doc) {
-      cleanup();
-      return;
+      const footerY = pageH - 48;
+      doc.setDrawColor(30, 45, 61);
+      doc.setLineWidth(1);
+      doc.line(centerX - 80, footerY - 18, centerX + 80, footerY - 18);
+      doc.setFont('helvetica', 'italic');
+      doc.setFontSize(9);
+      doc.setTextColor(...coolGray);
+      doc.text('Built by cyclists, for cyclists.', centerX, footerY, { align: 'center' });
+
+      const fileSlug = (shopName || shopCode || 'kor').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      doc.save(`${fileSlug}-qr-poster.pdf`);
+
+      console.log('📄 [QrCodeGenerator] PDF exported successfully');
+    } catch (err) {
+      const errorMsg = 'Failed to export PDF';
+      console.error('❌ [QrCodeGenerator] PDF export error:', err);
+      setError(errorMsg);
+      onError?.(errorMsg);
+    } finally {
+      setIsExporting(false);
     }
-
-    doc.open();
-    doc.write(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>KOR QR Code - ${shopName || shopCode}</title>
-          <style>
-            body {
-              font-family: Arial, sans-serif;
-              text-align: center;
-              padding: 20px;
-              margin: 0;
-            }
-            .qr-container {
-              max-width: 400px;
-              margin: 0 auto;
-              padding: 20px;
-              border: 2px solid #333;
-              border-radius: 10px;
-            }
-            .shop-info {
-              margin-bottom: 20px;
-            }
-            .instructions {
-              margin-top: 20px;
-              font-size: 14px;
-              color: #666;
-              line-height: 1.4;
-            }
-            img {
-              max-width: 100%;
-              height: auto;
-            }
-            @media print {
-              body { padding: 0; }
-            }
-          </style>
-        </head>
-        <body>
-          <div class="qr-container">
-            <div class="shop-info">
-              <h2>🏪 ${shopName || 'Bike Shop'}</h2>
-              <p><strong>Shop Code:</strong> ${shopCode}</p>
-              <h3>📱 Scan to Get KOR App</h3>
-            </div>
-            <img src="${qrImageUrl}" alt="QR Code for ${shopName || shopCode}" />
-            <div class="instructions">
-              <p><strong>How to use:</strong></p>
-              <p>1. Scan this QR code with your phone camera</p>
-              <p>2. App will download and open automatically</p>
-              <p>3. Your shop code will be pre-filled</p>
-              <p>4. Complete Strava authentication to start!</p>
-            </div>
-          </div>
-          <script>
-            window.onload = function () {
-              window.focus();
-              window.print();
-            };
-          </script>
-        </body>
-      </html>
-    `);
-    doc.close();
-
-    const win = iframe.contentWindow;
-    if (win) {
-      win.onafterprint = cleanup;
-    }
-    // Fallback in case onafterprint never fires (some browsers skip it if
-    // the print dialog is dismissed a certain way)
-    setTimeout(cleanup, 60000);
-
-    console.log('🖨️ [QrCodeGenerator] Print dialog opened');
   };
 
   // Generate QR code when shopCode or genericMode changes
@@ -163,10 +189,10 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
 
     setIsLoading(true);
     setError('');
-    
+
     try {
       let targetUrl: string;
-      
+
       if (genericMode) {
         // Generic mode for inactive users
         targetUrl = genericUrl;
@@ -174,10 +200,10 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
         // Normal shop-specific mode for active users
         targetUrl = `https://jmrcycling.com:3001/qr/onboard/${shopCode}`;
       }
-      
+
       const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(targetUrl)}&size=${size}`;
       setQrImageUrl(qrUrl);
-      
+
       console.log('📱 [QrCodeGenerator] QR code generated:', {
         mode: genericMode ? 'generic' : 'shop-specific',
         shopCode: genericMode ? 'N/A' : shopCode,
@@ -197,33 +223,18 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
 
   if (isLoading) {
     return (
-      <div className={`qr-loading ${className}`} style={{ textAlign: 'center', padding: '2rem' }}>
-        <div style={{
-          width: '40px',
-          height: '40px',
-          border: '4px solid #f3f3f3',
-          borderTop: '4px solid #667eea',
-          borderRadius: '50%',
-          animation: 'spin 1s linear infinite',
-          margin: '0 auto 1rem'
-        }} />
-        <p style={{ color: '#666' }}>Generating QR code...</p>
+      <div className={`qr-generator qr-generator__loading ${className}`}>
+        <div className="qr-generator__spinner" />
+        <p>Generating QR code...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className={`qr-error ${className}`} style={{ 
-        textAlign: 'center', 
-        padding: '2rem',
-        backgroundColor: '#ffe6e6',
-        border: '1px solid #d63031',
-        borderRadius: '8px',
-        color: '#d63031'
-      }}>
-        <p>❌ {error}</p>
-        <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>
+      <div className={`qr-generator qr-generator__error ${className}`}>
+        <p>{error}</p>
+        <p style={{ fontSize: '0.85rem', marginTop: '0.5rem' }}>
           Shop Code: <code>{shopCode}</code>
         </p>
       </div>
@@ -231,25 +242,15 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
   }
 
   return (
-    <div className={`qr-generator ${className}`} style={{ textAlign: 'center' }}>
-      {/* QR Code Image */}
-      <div style={{ 
-        marginBottom: '1rem',
-        padding: '1rem',
-        backgroundColor: 'white',
-        borderRadius: '8px',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-        display: 'inline-block'
-      }}>
+    <div className={`qr-generator ${className}`}>
+      <div className="qr-generator__plate">
         {qrImageUrl ? (
           <img
             src={qrImageUrl}
             alt={`QR Code for ${shopName || shopCode}`}
-            style={{
-              width: `${size}px`,
-              height: `${size}px`,
-              maxWidth: '100%'
-            }}
+            width={size}
+            height={size}
+            style={{ width: `${size}px`, height: `${size}px`, maxWidth: '100%' }}
             onLoad={() => console.log('✅ [QrCodeGenerator] QR code image loaded')}
             onError={(e) => {
               const errorMsg = 'Failed to load QR code image';
@@ -261,89 +262,39 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
         ) : null}
       </div>
 
-      {/* Action Buttons */}
-      <div style={{ 
-        display: 'flex', 
-        gap: '0.5rem', 
-        justifyContent: 'center', 
-        flexWrap: 'wrap',
-        marginTop: '1rem'
-      }}>
-        <button
-          onClick={downloadQrCode}
-          style={{
-            backgroundColor: '#667eea',
-            color: 'white',
-            border: 'none',
-            padding: '0.5rem 1rem',
-            borderRadius: '5px',
-            fontSize: '0.9rem',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s ease'
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.backgroundColor = '#5a6fd8';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.backgroundColor = '#667eea';
-          }}
-        >
-          📥 Download
+      <div className="qr-generator__actions">
+        <button className="qr-btn qr-btn--secondary" onClick={downloadQrCode}>
+          <DownloadIcon />
+          Download
         </button>
-        
-        <button
-          onClick={printQrCode}
-          style={{
-            backgroundColor: '#28a745',
-            color: 'white',
-            border: 'none',
-            padding: '0.5rem 1rem',
-            borderRadius: '5px',
-            fontSize: '0.9rem',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s ease'
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.backgroundColor = '#218838';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.backgroundColor = '#28a745';
-          }}
-        >
-          🖨️ Print
+        <button className="qr-btn qr-btn--primary" onClick={exportPdf} disabled={isExporting}>
+          <PdfIcon />
+          {isExporting ? 'Exporting…' : 'Export PDF'}
         </button>
       </div>
 
-      {/* QR Code Info */}
-      <div style={{ 
-        fontSize: '0.8rem', 
-        color: '#666', 
-        marginTop: '1rem',
-        lineHeight: 1.4
-      }}>
+      <div className="qr-generator__meta">
         {genericMode ? (
           <>
-            <p style={{ margin: '0.5rem 0' }}>
-              <strong>Mode:</strong> <code style={{ backgroundColor: '#f1f1f1', padding: '2px 6px', borderRadius: '4px' }}>Generic App Access</code>
-            </p>
-            <p style={{ margin: '0.5rem 0' }}>
-              <strong>Target URL:</strong><br />
-              <code style={{ backgroundColor: '#f1f1f1', padding: '2px 6px', borderRadius: '4px', fontSize: '0.7rem' }}>
-                {genericUrl}
-              </code>
-            </p>
+            <div className="qr-meta-row">
+              <span className="qr-meta-label">Mode</span>
+              <span className="qr-meta-value">Generic App Access</span>
+            </div>
+            <div className="qr-meta-row">
+              <span className="qr-meta-label">Target URL</span>
+              <span className="qr-meta-value">{genericUrl}</span>
+            </div>
           </>
         ) : (
           <>
-            <p style={{ margin: '0.5rem 0' }}>
-              <strong>Shop Code:</strong> <code style={{ backgroundColor: '#f1f1f1', padding: '2px 6px', borderRadius: '4px' }}>{shopCode}</code>
-            </p>
-            <p style={{ margin: '0.5rem 0' }}>
-              <strong>Onboarding URL:</strong><br />
-              <code style={{ backgroundColor: '#f1f1f1', padding: '2px 6px', borderRadius: '4px', fontSize: '0.7rem' }}>
-                https://jmrcycling.com:3001/qr/onboard/{shopCode}
-              </code>
-            </p>
+            <div className="qr-meta-row">
+              <span className="qr-meta-label">Shop Code</span>
+              <span className="qr-meta-value">{shopCode}</span>
+            </div>
+            <div className="qr-meta-row">
+              <span className="qr-meta-label">Onboarding URL</span>
+              <span className="qr-meta-value">https://jmrcycling.com:3001/qr/onboard/{shopCode}</span>
+            </div>
           </>
         )}
       </div>
