@@ -32,6 +32,51 @@ const PdfIcon = () => (
   </svg>
 );
 
+/**
+ * Rasterizes an SVG blob to a PNG data URL via an offscreen canvas.
+ * Needed because jsPDF's core addImage() only accepts raster formats
+ * (PNG/JPEG/WebP), and /generateQr returns image/svg+xml.
+ *
+ * Uses a blob: object URL as the intermediate <img> src rather than a
+ * cross-origin fetch of the image element itself, so canvas.toDataURL()
+ * below is never tainted regardless of the API's host.
+ */
+function svgBlobToPngDataUrl(blob: Blob, sizePx: number): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const objectUrl = URL.createObjectURL(blob);
+    const img = new Image();
+
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = sizePx;
+        canvas.height = sizePx;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          throw new Error('Canvas 2D context unavailable');
+        }
+        // White backdrop — the PDF context assumes opacity, and the SVG's
+        // own background shouldn't be assumed transparent-safe.
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, sizePx, sizePx);
+        ctx.drawImage(img, 0, 0, sizePx, sizePx);
+        resolve(canvas.toDataURL('image/png'));
+      } catch (e) {
+        reject(e);
+      } finally {
+        URL.revokeObjectURL(objectUrl);
+      }
+    };
+
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      reject(new Error('Failed to load SVG for rasterization'));
+    };
+
+    img.src = objectUrl;
+  });
+}
+
 const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
   shopCode,
   shopName,
@@ -41,6 +86,8 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
   genericMode = false,
   genericUrl = 'https://jmrcycling.com/app_auth.html'
 }) => {
+  const baseUrl = process.env.REACT_APP_API_BASE_URL || 'https://jmrcycling.com:3001';
+
   const [qrImageUrl, setQrImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
@@ -58,7 +105,7 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
 
       const link = document.createElement('a');
       link.href = url;
-      link.download = `${shopName || shopCode}-qr-code.png`;
+      link.download = `${shopName || shopCode}-qr-code.svg`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -87,16 +134,11 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
     try {
       const { default: jsPDF } = await import('jspdf');
 
-      // Reuse the same fetch-to-blob approach as downloadQrCode, then hand
-      // jsPDF a data URL — addImage needs actual image data, not a URL.
+      // Fetch the SVG QR code and rasterize it to PNG — jsPDF's core
+      // addImage() needs raster bytes, and /generateQr returns SVG only.
       const res = await fetch(qrImageUrl);
       const blob = await res.blob();
-      const qrDataUrl = await new Promise<string>((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result as string);
-        reader.onerror = reject;
-        reader.readAsDataURL(blob);
-      });
+      const qrDataUrl = await svgBlobToPngDataUrl(blob, 600);
 
       const pageW = 360; // 5in poster at 72pt/in — small enough to reprint at a copy shop, easy to resize
       const pageH = 504; // 7in
@@ -198,10 +240,17 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
         targetUrl = genericUrl;
       } else {
         // Normal shop-specific mode for active users
-        targetUrl = `https://jmrcycling.com:3001/qr/onboard/${shopCode}`;
+        targetUrl = `${baseUrl}/qr/onboard/${shopCode}`;
       }
 
-      const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(targetUrl)}&size=${size}`;
+      const qrParams = new URLSearchParams({
+        data: targetUrl,
+        size: String(size),
+        fg: '#2e4053',
+        dots: 'true',
+        logo: 'kor'
+      });
+      const qrUrl = `${baseUrl}/generateQr?${qrParams.toString()}`;
       setQrImageUrl(qrUrl);
 
       console.log('📱 [QrCodeGenerator] QR code generated:', {
@@ -219,7 +268,7 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
     } finally {
       setIsLoading(false);
     }
-  }, [shopCode, size, shopName, genericMode, genericUrl, onError]);
+  }, [shopCode, size, shopName, genericMode, genericUrl, onError, baseUrl]);
 
   if (isLoading) {
     return (
@@ -293,7 +342,7 @@ const QrCodeGenerator: React.FC<QrCodeGeneratorProps> = ({
             </div>
             <div className="qr-meta-row">
               <span className="qr-meta-label">Onboarding URL</span>
-              <span className="qr-meta-value">https://jmrcycling.com:3001/qr/onboard/{shopCode}</span>
+              <span className="qr-meta-value">{baseUrl}/qr/onboard/{shopCode}</span>
             </div>
           </>
         )}
