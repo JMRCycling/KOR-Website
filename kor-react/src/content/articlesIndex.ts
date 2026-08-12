@@ -275,7 +275,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 7,
-    related: ['how-to-plan-a-bike-ride', 'pre-ride-bike-check', 'prepare-for-a-long-bike-ride'],
+    related: ['how-to-plan-a-bike-ride', 'pre-ride-bike-check', 'new-bike-checklist', 'prepare-for-a-long-bike-ride'],
   },
   {
     slug: 'pre-ride-bike-check',
@@ -292,7 +292,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'HowTo',
     readingTime: 7,
-    related: ['how-to-plan-a-bike-ride', 'bike-maintenance-schedule', 'when-to-replace-bike-tires'],
+    related: ['how-to-plan-a-bike-ride', 'bike-maintenance-schedule', 'when-to-replace-bike-tires', 'new-bike-checklist'],
     totalTime: 'PT5M',
     howToSteps: [
       {
