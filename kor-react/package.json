@@ -55,5 +55,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^react-router/dom$": "<rootDir>/node_modules/react-router/dist/development/dom-export.js",
+      "^unist-util-visit-parents/do-not-use-color$": "<rootDir>/node_modules/unist-util-visit-parents/lib/color.node.js",
+      "^micromark/stream$": "<rootDir>/node_modules/micromark/stream.js",
+      "^dequal/lite$": "<rootDir>/node_modules/dequal/lite/index.js",
+      "^@ungap/structured-clone/json$": "<rootDir>/node_modules/@ungap/structured-clone/cjs/json.js",
+      "^#minpath$": "<rootDir>/node_modules/vfile/lib/minpath.js",
+      "^#minproc$": "<rootDir>/node_modules/vfile/lib/minproc.js",
+      "^#minurl$": "<rootDir>/node_modules/vfile/lib/minurl.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\](?!(react-markdown|remark-.*|rehype-.*|mdast-util-.*|hast-util-.*|micromark.*|unist-util-.*|vfile.*|unified|bail|ccount|character-entities.*|character-reference-invalid|comma-separated-tokens|decode-named-character-reference|devlop|escape-string-regexp|estree-util-.*|html-url-attributes|is-alphabetical|is-alphanumerical|is-decimal|is-hexadecimal|is-plain-obj|longest-streak|markdown-table|parse-entities|property-information|space-separated-tokens|stringify-entities|trim-lines|trough|zwitch|@ungap/structured-clone)[/\\\\]).+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ]
   }
 }
