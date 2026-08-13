@@ -11,7 +11,7 @@ heroImage: "/images/articles/group-ride-tips.webp"
 heroImageAlt: "Group of cyclists riding in a tight paceline on a sunny road, wearing colorful cycling kit"
 schemaType: "Article"
 readingTime: 7
-related: ["how-to-plan-a-bike-ride", "pre-ride-bike-check", "what-to-bring-on-a-bike-ride"]
+related: ["how-to-plan-a-bike-ride", "pre-ride-bike-check", "what-to-bring-on-a-bike-ride", "strava-tips-for-cyclists"]
 ---
 
 # Group Ride Tips: Etiquette, Signals & How Not to Get Dropped
@@ -107,7 +107,7 @@ A flat is inevitable eventually. Being able to change a tube quickly (under 5 mi
 
 **Cycling clubs** vary widely in culture and pace. Search for clubs in your area, look at their social media for ride reports and photos, and email before you show up. A club that posts race results and podium photos is probably not where you want to do your first group ride.
 
-**Strava Clubs** often organize local rides and post routes ahead of time. You can see who's joining and message organizers with questions.
+**Strava Clubs** often organize local rides and post routes ahead of time. You can see who's joining and message organizers with questions — see [Strava tips for cyclists](/articles/strava-tips-for-cyclists) for how to find a club that actually matches your pace before you show up.
 
 **Apps and sites** like Meetup, Facebook Groups, and Komoot's social features surface local rides. The quality varies, but so do the fitness levels — which can work in your favor when you're just starting.
 

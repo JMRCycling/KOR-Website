@@ -224,7 +224,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 7,
-    related: ['how-to-plan-a-bike-ride', 'pre-ride-bike-check', 'what-to-bring-on-a-bike-ride'],
+    related: ['how-to-plan-a-bike-ride', 'pre-ride-bike-check', 'what-to-bring-on-a-bike-ride', 'strava-tips-for-cyclists'],
   },
   {
     slug: 'prepare-for-a-long-bike-ride',
