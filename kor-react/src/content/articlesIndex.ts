@@ -160,7 +160,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 9,
-    related: ['how-to-measure-chain-wear', 'how-long-do-bike-parts-last', 'bike-maintenance-for-beginners'],
+    related: ['how-to-measure-chain-wear', 'how-long-do-bike-parts-last', 'bike-maintenance-for-beginners', 'bike-tune-up-cost'],
   },
   {
     slug: 'bike-maintenance-for-beginners',
@@ -365,6 +365,7 @@ export const articles: ArticleMeta[] = [
       'when-to-replace-brake-pads',
       'when-to-replace-bike-tires',
       'suspension-service-intervals',
+      'bike-tune-up-cost',
     ],
   },
   {
