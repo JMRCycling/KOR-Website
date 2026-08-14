@@ -11,7 +11,7 @@ heroImage: "/images/articles/how-to-buy-a-used-bike.webp"
 heroImageAlt: "Person inspecting a used bicycle's drivetrain and frame at a bike shop before purchase"
 schemaType: "Article"
 readingTime: 9
-related: ["how-to-measure-chain-wear", "how-long-do-bike-parts-last", "bike-maintenance-for-beginners"]
+related: ["how-to-measure-chain-wear", "how-long-do-bike-parts-last", "bike-maintenance-for-beginners", "bike-tune-up-cost"]
 ---
 
 # How to Buy a Used Bike: Inspection Checklist & Red Flags
@@ -75,7 +75,7 @@ Every issue on the checklist above has a rough repair cost — write them down a
 
 Once the bike is yours, two steps prevent the most common regret with used bikes: riding it hard before you know its real condition.
 
-**Get a shop assessment.** Even a bike that checked out well on your inspection benefits from a mechanic's once-over — they'll catch things like brake fluid contamination or a subtly bent derailleur hanger that aren't obvious without tools. This is also the point to handle anything from the checklist above that you didn't negotiate a discount for.
+**Get a shop assessment.** Even a bike that checked out well on your inspection benefits from a mechanic's once-over — they'll catch things like brake fluid contamination or a subtly bent derailleur hanger that aren't obvious without tools. See [bike tune-up cost](/articles/bike-tune-up-cost) for what that assessment typically runs. This is also the point to handle anything from the checklist above that you didn't negotiate a discount for.
 
 **Set baseline wear percentages.** A used bike's chain, cassette, brake pads, and tires didn't start at zero — they're already partway through their service life, and tracking from a wrong baseline means your next replacement reminder comes too late. KOR's Part Settings feature lets you enter a component's actual condition when you set up a bike, so tracking starts accurate instead of assuming everything is new (see the [FAQ](/faq) for how this works if you just bought a used bike).
 

@@ -11,12 +11,12 @@ heroImage: "/images/articles/how-long-do-bike-parts-last.webp"
 heroImageAlt: "Collection of bicycle components laid out on a workshop surface — chain, cassette, brake pads, tires, and suspension parts"
 schemaType: "Article"
 readingTime: 11
-related: ["bike-maintenance-schedule", "when-to-replace-bike-chain", "when-to-replace-cassette", "when-to-replace-brake-pads", "when-to-replace-bike-tires", "suspension-service-intervals"]
+related: ["bike-maintenance-schedule", "when-to-replace-bike-chain", "when-to-replace-cassette", "when-to-replace-brake-pads", "when-to-replace-bike-tires", "suspension-service-intervals", "bike-tune-up-cost"]
 ---
 
 # How Long Do Bike Parts Last? Lifespan of Every Component
 
-Bikes don't announce when parts are worn out — they skip, squeak, or stop, usually at the worst possible moment. Knowing the realistic lifespan of every major component lets you stay ahead of failures, budget for replacements, and squeeze more value out of every ride. Here's a complete reference covering every part KOR tracks, the warning signs that matter more than any mileage average, and why per-rider tracking beats generic intervals every time.
+Bikes don't announce when parts are worn out — they skip, squeak, or stop, usually at the worst possible moment. Knowing the realistic lifespan of every major component lets you stay ahead of failures, budget for replacements — whether you do the work yourself or book a [shop tune-up](/articles/bike-tune-up-cost) — and squeeze more value out of every ride. Here's a complete reference covering every part KOR tracks, the warning signs that matter more than any mileage average, and why per-rider tracking beats generic intervals every time.
 
 ![Collection of bicycle components laid out on a workshop surface — chain, cassette, brake pads, tires, and suspension parts](/images/articles/how-long-do-bike-parts-last.webp)
 
