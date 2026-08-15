@@ -532,7 +532,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'HowTo',
     readingTime: 6,
-    related: ['bike-maintenance-schedule', 'when-to-replace-bike-chain', 'when-to-replace-cassette'],
+    related: ['bike-maintenance-schedule', 'when-to-replace-bike-chain', 'when-to-replace-cassette', 'how-to-buy-a-used-bike'],
     howToSteps: [
       {
         name: 'Clean the chain',
