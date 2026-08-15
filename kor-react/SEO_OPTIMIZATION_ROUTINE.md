@@ -16,10 +16,10 @@ AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
 PR_CADENCE: per-task
 CURRENT_TRACK: internal-linking
-CURRENT_TASK_ID: TASK-012
+CURRENT_TASK_ID: TASK-013
 TASK_STATUS: not_started
 NEXT_ACTION: fix-item
-LAST_CYCLE_DATE: 2026-08-14
+LAST_CYCLE_DATE: 2026-08-15
 CYCLES_SINCE_TRACK_AUDIT: 0
 ```
 
@@ -129,7 +129,7 @@ One row per discovered item. `status`: `open` → `in_progress` → `in_review` 
 | TASK-009 | internal-linking| Orphan: `new-bike-checklist` had 0 incoming `related[]` references. Fixed: added `new-bike-checklist` to the `related[]` arrays of `pre-ride-bike-check` and `what-to-bring-on-a-bike-ride` (both `articlesIndex.ts` and markdown frontmatter) — both already appear in `new-bike-checklist`'s own `related[]` and cover the same first-ride-prep territory (M-check habit, packing kit), making the reciprocal link a natural fit — plus a contextual inline link in each article body pointing new-bike owners to the checklist first. `npm run build` passes. | in_review | 2026-07-24 |
 | TASK-010 | internal-linking| Under-linked: `strava-tips-for-cyclists` had only 1 incoming `related[]` reference (from `cycling-route-planning-apps`). Fixed: added `strava-tips-for-cyclists` to the `related[]` array of `group-ride-tips` (both `articlesIndex.ts` and markdown frontmatter) — `group-ride-tips` already mentions Strava Clubs twice as a way to find local rides, making the reciprocal link a natural fit — plus a contextual inline link in its "How to Find Group Rides" section pointing readers to the Strava clubs tip for vetting a club before showing up. `npm run build` passes. | in_review | 2026-08-13 |
 | TASK-011 | internal-linking| Orphan: `bike-tune-up-cost` had 0 incoming `related[]` references. Fixed: added `bike-tune-up-cost` to the `related[]` arrays of `how-long-do-bike-parts-last` and `how-to-buy-a-used-bike` (both `articlesIndex.ts` and markdown frontmatter) — both are already linked *from* `bike-tune-up-cost`'s own `related[]` and its body already references them for parts-cost and used-bike-overhaul context, making the reciprocal link a natural fit — plus a contextual inline link in each article body (parts-lifespan budgeting note; post-purchase shop-assessment cost note). `npm run build` passes. | in_review | 2026-07-24 |
-| TASK-012 | internal-linking| Under-linked: `how-to-buy-a-used-bike` has only 1 incoming `related[]` reference (from `bike-tune-up-cost`) — add 1 more contextually relevant inbound link | open | 2026-07-24 |
+| TASK-012 | internal-linking| Under-linked: `how-to-buy-a-used-bike` had only 1 incoming `related[]` reference (from `bike-tune-up-cost`). Fixed: added `how-to-buy-a-used-bike` to the `related[]` array of `how-to-measure-chain-wear` (both `articlesIndex.ts` and markdown frontmatter) — `how-to-buy-a-used-bike`'s own body already links out to `how-to-measure-chain-wear` for its pre-purchase chain check, making the reciprocal link a natural fit — plus a contextual bullet in `how-to-measure-chain-wear`'s "How Often to Check" section pointing used-bike buyers to the full inspection checklist. `npm run build` passes. | in_review | 2026-07-24 |
 | TASK-013 | internal-linking| Under-linked: `bikepacking-for-beginners` has only 1 incoming `related[]` reference (from pillar `how-to-plan-a-bike-ride`) — add 1 more contextually relevant inbound link | open | 2026-07-24 |
 | TASK-014 | internal-linking| Under-linked: `cycling-in-the-rain` has only 1 incoming `related[]` reference (from pillar `how-to-plan-a-bike-ride`) — add 1 more contextually relevant inbound link | open | 2026-07-24 |
 | TASK-015 | internal-linking| Under-linked: `group-ride-tips` has only 1 incoming `related[]` reference (from pillar `how-to-plan-a-bike-ride`) — add 1 more contextually relevant inbound link | open | 2026-07-24 |
