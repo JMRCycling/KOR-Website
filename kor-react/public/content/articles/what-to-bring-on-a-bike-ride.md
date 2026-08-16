@@ -11,7 +11,7 @@ heroImage: "/images/articles/what-to-bring-on-a-bike-ride.webp"
 heroImageAlt: "Cycling gear flat-lay on a surface: pump, multitool, tube, energy bars, water bottle, and phone, natural lighting"
 schemaType: "Article"
 readingTime: 7
-related: ["how-to-plan-a-bike-ride", "pre-ride-bike-check", "new-bike-checklist", "prepare-for-a-long-bike-ride"]
+related: ["how-to-plan-a-bike-ride", "pre-ride-bike-check", "new-bike-checklist", "prepare-for-a-long-bike-ride", "bikepacking-for-beginners"]
 ---
 
 # What to Bring on a Bike Ride: Packing Lists by Distance
@@ -93,7 +93,7 @@ Full-day rides require real planning. The gear list grows, the food math becomes
 - [ ] Front and rear lights even if you plan a daytime return
 - [ ] Small first-aid kit (bandages, antiseptic wipe, elastic bandage)
 
-For long-distance and bikepacking rides, see the more detailed advice in [How to Prepare for a Long Bike Ride](/articles/prepare-for-a-long-bike-ride).
+For long-distance and bikepacking rides, see the more detailed advice in [How to Prepare for a Long Bike Ride](/articles/prepare-for-a-long-bike-ride). If you're ready to turn an all-day ride into an overnight trip, [Bikepacking for Beginners](/articles/bikepacking-for-beginners) covers the bag setup, gear list, and pre-trip service check for your first S24O.
 
 ---
 
