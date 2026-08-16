@@ -11,7 +11,7 @@ heroImage: "/images/articles/how-to-measure-chain-wear.webp"
 heroImageAlt: "Red Park Tool chain wear indicator gauge inserted into bicycle chain links, macro close-up"
 schemaType: "HowTo"
 readingTime: 6
-related: ["bike-maintenance-schedule", "when-to-replace-bike-chain", "when-to-replace-cassette"]
+related: ["bike-maintenance-schedule", "when-to-replace-bike-chain", "when-to-replace-cassette", "how-to-buy-a-used-bike"]
 ---
 
 # How to Measure Chain Wear: Checker Tool & Ruler Methods
@@ -108,6 +108,7 @@ Build chain-wear checking into your regular bike wash routine:
 - **Wet or muddy conditions**: check every 200–300 miles
 - **Dry, normal conditions**: check every 300–500 miles
 - **After any unusual drivetrain noise**: check immediately
+- **Before buying a used bike**: a chain worn past threshold usually means matching cassette wear — see [how to buy a used bike](/articles/how-to-buy-a-used-bike) for the rest of the pre-purchase inspection checklist
 
 Catching wear at the threshold — not past it — is the whole point. A chain in spec one week and over 0.5% the next is normal; the wear curve accelerates near the end of chain life.
 
