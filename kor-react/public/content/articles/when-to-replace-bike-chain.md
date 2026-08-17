@@ -11,7 +11,7 @@ heroImage: "/images/articles/when-to-replace-bike-chain.webp"
 heroImageAlt: "Close-up of a bicycle chain and cassette showing drivetrain wear on a mountain bike"
 schemaType: "Article"
 readingTime: 7
-related: ["bike-maintenance-schedule", "how-to-measure-chain-wear", "when-to-replace-cassette"]
+related: ["bike-maintenance-schedule", "how-to-measure-chain-wear", "when-to-replace-cassette", "cycling-in-the-rain"]
 ---
 
 # When to Replace Your Bike Chain (Mileage + Wear Signs)
@@ -93,7 +93,7 @@ Two methods:
 
 **12-inch ruler method**: place the ruler starting at the center of a rivet. On a new chain, the 12-inch mark lands at the center of the rivet 12 inches away. At 0.5% wear, that rivet has shifted 1/16 inch. At 0.75%, it's shifted 1/8 inch. A simple check with a quality ruler works fine if you don't have a dedicated tool.
 
-Check every 200–300 miles in wet conditions, every 300–500 miles in dry conditions. Catching it early is the whole game.
+Check every 200–300 miles in wet conditions, every 300–500 miles in dry conditions — wet-weather riding accelerates chain wear substantially, so if you're regularly out in the rain, see [cycling in the rain](/articles/cycling-in-the-rain) for the post-ride routine that slows it down. Catching it early is the whole game.
 
 For the full step-by-step, see: [How to Measure Chain Wear](/articles/how-to-measure-chain-wear)
 
