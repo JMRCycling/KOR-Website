@@ -574,7 +574,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 7,
-    related: ['bike-maintenance-schedule', 'how-to-measure-chain-wear', 'when-to-replace-cassette'],
+    related: ['bike-maintenance-schedule', 'how-to-measure-chain-wear', 'when-to-replace-cassette', 'cycling-in-the-rain'],
   },
   {
     slug: 'bike-maintenance-schedule',
