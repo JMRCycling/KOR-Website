@@ -11,7 +11,7 @@ heroImage: "/images/articles/strava-tips-for-cyclists.webp"
 heroImageAlt: "Cyclist checking the Strava app on a phone after finishing an outdoor ride"
 schemaType: "Article"
 readingTime: 8
-related: ["cycling-route-planning-apps", "bike-maintenance-schedule", "how-to-plan-a-bike-ride"]
+related: ["cycling-route-planning-apps", "bike-maintenance-schedule", "how-to-plan-a-bike-ride", "group-ride-tips"]
 ---
 
 # 12 Strava Tips for Cyclists (Beyond Kudos & Segments)
@@ -64,7 +64,7 @@ Your Strava profile's year-to-date and all-time totals are easy to ignore day to
 
 ## 12. Find Clubs That Match How You Actually Ride
 
-Strava Clubs aggregate ride data from members and often organize or advertise group rides, which makes them a low-effort way to find a regular pace group instead of showing up solo to an unfamiliar ride. Search by location and skim recent activity in a club before joining — average pace and typical distance in the activity feed tell you more about fit than the club description does. Once you've found a club ride worth showing up to, see [how to plan a bike ride](/articles/how-to-plan-a-bike-ride) for how to scope the route and effort ahead of time.
+Strava Clubs aggregate ride data from members and often organize or advertise group rides, which makes them a low-effort way to find a regular pace group instead of showing up solo to an unfamiliar ride. Search by location and skim recent activity in a club before joining — average pace and typical distance in the activity feed tell you more about fit than the club description does. Once you've found a club ride worth showing up to, see [how to plan a bike ride](/articles/how-to-plan-a-bike-ride) for how to scope the route and effort ahead of time, and read up on [group ride etiquette and hand signals](/articles/group-ride-tips) so you're not the rider who breaks the paceline on your first outing.
 
 ---
 
