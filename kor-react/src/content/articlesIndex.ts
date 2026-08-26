@@ -275,7 +275,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 7,
-    related: ['how-to-plan-a-bike-ride', 'pre-ride-bike-check', 'new-bike-checklist', 'prepare-for-a-long-bike-ride', 'bikepacking-for-beginners'],
+    related: ['how-to-plan-a-bike-ride', 'pre-ride-bike-check', 'new-bike-checklist', 'prepare-for-a-long-bike-ride', 'bikepacking-for-beginners', 'group-ride-tips'],
   },
   {
     slug: 'pre-ride-bike-check',

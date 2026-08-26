@@ -11,7 +11,7 @@ heroImage: "/images/articles/what-to-bring-on-a-bike-ride.webp"
 heroImageAlt: "Cycling gear flat-lay on a surface: pump, multitool, tube, energy bars, water bottle, and phone, natural lighting"
 schemaType: "Article"
 readingTime: 7
-related: ["how-to-plan-a-bike-ride", "pre-ride-bike-check", "new-bike-checklist", "prepare-for-a-long-bike-ride", "bikepacking-for-beginners"]
+related: ["how-to-plan-a-bike-ride", "pre-ride-bike-check", "new-bike-checklist", "prepare-for-a-long-bike-ride", "bikepacking-for-beginners", "group-ride-tips"]
 ---
 
 # What to Bring on a Bike Ride: Packing Lists by Distance
@@ -42,7 +42,7 @@ Skip the repair kit if you're riding loops close to your door. But the moment yo
 
 ## Packing List: 1–3 Hours
 
-This is the most common ride length, and it's the window where getting caught under-packed becomes a real problem. You're far enough out that a mechanical or a bonk turns a good ride into a bad day.
+This is the most common ride length, and it's the window where getting caught under-packed becomes a real problem. You're far enough out that a mechanical or a bonk turns a good ride into a bad day. It's also the typical length for a club or [group ride](/articles/group-ride-tips) — where showing up without a spare tube or multitool doesn't just cost you, it holds up everyone behind you.
 
 **Always bring:**
 - [ ] 2 water bottles (or 1 bottle + hydration bladder for MTB)
