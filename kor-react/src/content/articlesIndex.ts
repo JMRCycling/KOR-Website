@@ -128,7 +128,7 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 8,
-    related: ['cycling-route-planning-apps', 'bike-maintenance-schedule', 'how-to-plan-a-bike-ride'],
+    related: ['cycling-route-planning-apps', 'bike-maintenance-schedule', 'how-to-plan-a-bike-ride', 'group-ride-tips'],
   },
   {
     slug: 'bike-tune-up-cost',
