@@ -64,7 +64,7 @@ Your Strava profile's year-to-date and all-time totals are easy to ignore day to
 
 ## 12. Find Clubs That Match How You Actually Ride
 
-Strava Clubs aggregate ride data from members and often organize or advertise group rides, which makes them a low-effort way to find a regular pace group instead of showing up solo to an unfamiliar ride. Search by location and skim recent activity in a club before joining — average pace and typical distance in the activity feed tell you more about fit than the club description does. Once you've found a club ride worth showing up to, see [how to plan a bike ride](/articles/how-to-plan-a-bike-ride) for how to scope the route and effort ahead of time, and [group ride tips](/articles/group-ride-tips) for the etiquette and hand signals that keep you from standing out as the new rider.
+Strava Clubs aggregate ride data from members and often organize or advertise group rides, which makes them a low-effort way to find a regular pace group instead of showing up solo to an unfamiliar ride. Search by location and skim recent activity in a club before joining — average pace and typical distance in the activity feed tell you more about fit than the club description does. Once you've found a club ride worth showing up to, see [how to plan a bike ride](/articles/how-to-plan-a-bike-ride) for how to scope the route and effort ahead of time, and brush up on [group ride etiquette and hand signals](/articles/group-ride-tips) before your first time out with a new club so you're not the rider who gets dropped or breaks a paceline rule on day one.
 
 ---
 
