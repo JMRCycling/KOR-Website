@@ -366,6 +366,7 @@ export const articles: ArticleMeta[] = [
       'when-to-replace-bike-tires',
       'suspension-service-intervals',
       'bike-tune-up-cost',
+      'bottom-bracket-creaking',
     ],
   },
   {
@@ -515,7 +516,12 @@ export const articles: ArticleMeta[] = [
     author: 'KOR Cycling Team',
     schemaType: 'Article',
     readingTime: 7,
-    related: ['bike-maintenance-schedule', 'when-to-replace-bike-chain', 'how-to-measure-chain-wear'],
+    related: [
+      'bike-maintenance-schedule',
+      'when-to-replace-bike-chain',
+      'how-to-measure-chain-wear',
+      'bottom-bracket-creaking',
+    ],
   },
   {
     slug: 'how-to-measure-chain-wear',
