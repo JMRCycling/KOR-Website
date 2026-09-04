@@ -11,7 +11,7 @@ heroImage: "/images/articles/how-long-do-bike-parts-last.webp"
 heroImageAlt: "Collection of bicycle components laid out on a workshop surface — chain, cassette, brake pads, tires, and suspension parts"
 schemaType: "Article"
 readingTime: 11
-related: ["bike-maintenance-schedule", "when-to-replace-bike-chain", "when-to-replace-cassette", "when-to-replace-brake-pads", "when-to-replace-bike-tires", "suspension-service-intervals", "bike-tune-up-cost"]
+related: ["bike-maintenance-schedule", "when-to-replace-bike-chain", "when-to-replace-cassette", "when-to-replace-brake-pads", "when-to-replace-bike-tires", "suspension-service-intervals", "bike-tune-up-cost", "bottom-bracket-creaking"]
 ---
 
 # How Long Do Bike Parts Last? Lifespan of Every Component
@@ -153,7 +153,7 @@ Lifespan ranges from 3,000 to 10,000 miles depending primarily on:
 - **Weather exposure**: Road salt and regular wet riding knock bearings toward the low end of the range.
 - **Shell sealing**: A well-sealed shell (thread-locker or grease on threads, proper preload) keeps contamination out for much longer.
 
-The most common BB complaint — a creak with every pedal stroke — often isn't the bearings at all. Pedal threads, chainring bolts, the seatpost clamp, or the headset produce the same pedaling-rhythm creak. Rule those out before pulling the BB.
+The most common BB complaint — a creak with every pedal stroke — often isn't the bearings at all. Pedal threads, chainring bolts, the seatpost clamp, or the headset produce the same pedaling-rhythm creak. Rule those out before pulling the BB. For the full elimination process and the spin/play tests that confirm a worn BB, see [bottom bracket creaking: diagnosis & replacement guide](/articles/bottom-bracket-creaking).
 
 ---
 

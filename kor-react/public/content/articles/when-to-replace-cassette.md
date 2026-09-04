@@ -11,7 +11,7 @@ heroImage: "/images/articles/when-to-replace-cassette.webp"
 heroImageAlt: "Bicycle cassette showing worn teeth and drivetrain close-up on a mountain bike"
 schemaType: "Article"
 readingTime: 7
-related: ["bike-maintenance-schedule", "when-to-replace-bike-chain", "how-to-measure-chain-wear"]
+related: ["bike-maintenance-schedule", "when-to-replace-bike-chain", "how-to-measure-chain-wear", "bottom-bracket-creaking"]
 ---
 
 # When to Replace Your Cassette (and Chainrings)
@@ -60,7 +60,7 @@ You don't need to remove the wheel to notice these:
 
 **Chain skip with a new chain**: if you've just installed a fresh chain and it immediately skips on certain cogs, your cassette is worn. The new chain won't conform to the worn cog profile — you need to replace the cassette alongside the chain.
 
-**Noise under load**: a worn cassette combined with a worn chain often produces a rhythmic crunching or grinding sound under pedaling load, even when the drivetrain appears clean.
+**Noise under load**: a worn cassette combined with a worn chain often produces a rhythmic crunching or grinding sound under pedaling load, even when the drivetrain appears clean. If the noise doesn't track with cassette skip patterns, it may be coming from the bottom bracket instead — see our [bottom bracket creaking diagnosis guide](/articles/bottom-bracket-creaking) to rule it in or out.
 
 ## Which Cogs Wear Fastest
 
