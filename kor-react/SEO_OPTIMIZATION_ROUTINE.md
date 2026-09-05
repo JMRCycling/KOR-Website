@@ -16,10 +16,10 @@ AUTOMATION_MODE: true
 WORKING_DIRECTORY: kor-react
 PR_CADENCE: per-task
 CURRENT_TRACK: performance
-CURRENT_TASK_ID: none
+CURRENT_TASK_ID: TASK-017
 TASK_STATUS: not_started
-NEXT_ACTION: audit-track
-LAST_CYCLE_DATE: 2026-09-04
+NEXT_ACTION: fix-item
+LAST_CYCLE_DATE: 2026-09-05
 CYCLES_SINCE_TRACK_AUDIT: 0
 ```
 
@@ -119,7 +119,7 @@ One row per discovered item. `status`: `open` → `in_progress` → `in_review` 
 | task_id  | track           | summary                                                                                          | status | opened     |
 |----------|-----------------|---------------------------------------------------------------------------------------------------|--------|------------|
 | TASK-001 | technical-seo   | `ArticleSeo.tsx` emitted generic Article JSON-LD for all 3 `HowTo` articles (`winter-bike-storage`, `pre-ride-bike-check`, `how-to-measure-chain-wear`) — no `step` array, not eligible for HowTo rich results. Human sign-off received on the schema decision: added an optional `howToSteps: HowToStep[]` (+ optional `totalTime`) field to `ArticleMeta`, populated it for all 3 HowTo articles from their existing published prose (no new facts), and updated `ArticleSeo.tsx` to emit a real `step` array (and `totalTime` where explicitly stated) when `schemaType: 'HowTo'` and `howToSteps` is present. `npm run build` passes. | done | 2026-07-24 |
-| TASK-002 | performance     | `bike-maintenance-schedule.webp` is 272 KB, the largest hero image — recompress                   | open   | 2026-07-24 |
+| TASK-002 | performance     | `bike-maintenance-schedule.webp` was 272 KB, the largest hero image in the library. Fixed: decoded to PNG and re-encoded via `cwebp -q 33 -m 6`, landing at 144 KB (well under the 150 KB threshold, well above the 10 KB placeholder floor) with no visible quality loss at full resolution — dimensions/format unchanged. `npm run build` passes. PR #86 open. | in_review | 2026-07-24 |
 | TASK-003 | internal-linking| Ran the orphan/under-linked audit across all 29 `related[]` arrays. Reverse map built; 0 broken slug references found. 11 slugs came back under the fewer-than-2-inbound-links threshold (pillars excluded) — logged individually as TASK-006 through TASK-016 rather than bundled into one fix, per the routine's split-large-fixes rule. | done   | 2026-07-24 |
 | TASK-004 | content-freshness| Any article with `dateModified` > 120 days before today needs a freshness pass. Rechecked 2026-07-24: oldest `dateModified` across all 29 articles is `2026-06-11` (43 days old) — none exceed the 120-day threshold. Nothing to fix; no code changed. | done | 2026-07-24 |
 | TASK-005 | content-gap     | Run a keyword-gap pass against Section 4 to propose 3–5 new candidate briefs                       | open   | 2026-07-24 |
@@ -134,6 +134,7 @@ One row per discovered item. `status`: `open` → `in_progress` → `in_review` 
 | TASK-014 | internal-linking| Under-linked: `cycling-in-the-rain` had only 1 incoming `related[]` reference (from pillar `how-to-plan-a-bike-ride`). Fixed: added `cycling-in-the-rain` to the `related[]` array of `when-to-replace-bike-chain` (both `articlesIndex.ts` and markdown frontmatter) — `cycling-in-the-rain`'s own body already links out to `when-to-replace-bike-chain` for the wet-weather wear-rate discussion, making the reciprocal link a natural fit — plus a contextual inline link in `when-to-replace-bike-chain`'s wear-check-interval section pointing wet-weather riders to the post-rain care routine. `npm run build` passes. | in_review | 2026-07-24 |
 | TASK-015 | internal-linking| Under-linked: `group-ride-tips` had only 1 incoming `related[]` reference (from pillar `how-to-plan-a-bike-ride`). Fixed: added `group-ride-tips` to the `related[]` array of `strava-tips-for-cyclists` (both `articlesIndex.ts` and markdown frontmatter) — `strava-tips-for-cyclists`'s "Find Clubs That Match How You Actually Ride" section already discusses finding group rides via Strava Clubs, making the reciprocal link a natural fit — plus a contextual inline link in that section pointing new club-joiners to group ride etiquette before their first ride out. `npm run build` passes. | in_review | 2026-07-24 |
 | TASK-016 | internal-linking| Orphan: `bottom-bracket-creaking` had 0 incoming `related[]` references. Fixed: added `bottom-bracket-creaking` to the `related[]` arrays of `how-long-do-bike-parts-last` (both `articlesIndex.ts` and markdown frontmatter) — its own "Bottom Bracket: Longest-Lasting, Hardest to Diagnose" section already covers the same 3,000–10,000-mile lifespan range and creak-misdiagnosis point — and `when-to-replace-cassette` (same both-file update) — its "Noise under load" symptom section overlaps with BB-creak diagnosis — plus a contextual inline link in each article body at that point of overlap. `npm run build` passes. PR #85 open. | in_review | 2026-07-24 |
+| TASK-017 | performance     | Track 4 audit (2026-09-05, run while picking up the pre-existing TASK-002 row on rotating into this track): `du -sh public/images/articles/*.webp` shows `when-to-replace-cassette.webp` at 200 KB, over the 150 KB threshold. No other file exceeds it (next largest, `when-to-replace-bike-chain.webp`, is 124 KB). Lazy-loading spot-check passed: `Article.tsx` correctly omits `loading="lazy"` on the above-the-fold hero and sets it on below-the-fold related-article thumbnails; `ArticlesIndex.tsx` card thumbnails already have it. Not fixed this cycle (one backlog item per cycle) — queued as the next open row in this track. | open   | 2026-09-05 |
 
 ---
 
